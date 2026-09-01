@@ -91,7 +91,7 @@ section{position:relative;padding-block:clamp(64px,8.5vw,128px)}
 
 /* ---------- generic reveal ---------- */
 [data-rev]{opacity:0;transform:translateY(22px);
-  transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  transition:opacity .8s var(--ease) var(--d,0s),transform .8s var(--ease) var(--d,0s)}
 [data-rev].in{opacity:1;transform:none}
 
 /* ==========================================================
@@ -354,6 +354,36 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   text-transform:uppercase;color:var(--faint);
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
+
+/* ---------- контентын төлөвлөгөө ---------- */
+.plan{display:grid;gap:0}
+.pl{display:grid;grid-template-columns:auto auto 1fr auto;
+  gap:clamp(10px,2.4vw,30px);align-items:baseline;
+  padding-block:clamp(14px,2vw,21px);border-top:1px solid var(--line)}
+.pl:last-of-type{border-bottom:1px solid var(--line)}
+.pl-i{font-family:var(--display);font-size:.64rem;font-weight:600;
+  letter-spacing:.14em;color:var(--faint);min-width:2.1em}
+.pl-n{font-family:var(--display);font-weight:700;line-height:1;
+  font-size:clamp(1.45rem,3.1vw,2.3rem);letter-spacing:-.04em;color:var(--red);
+  min-width:1.5em;font-variant-numeric:tabular-nums}
+.pl-t{font-family:var(--display);font-weight:600;letter-spacing:-.015em;
+  font-size:clamp(.94rem,1.45vw,1.1rem)}
+.pl-t em{font-style:normal;display:block;margin-top:3px;font-family:var(--body);
+  font-weight:400;font-size:.85rem;color:var(--slate)}
+.pl-w{font-size:.8rem;color:var(--faint);text-align:right;white-space:nowrap}
+.plan-tot{margin-top:clamp(22px,3vw,34px);padding-top:clamp(18px,2.4vw,26px);
+  border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;
+  align-items:baseline;gap:clamp(12px,3vw,32px)}
+.plan-tot b{font-family:var(--display);font-weight:700;line-height:1;
+  font-size:clamp(1.7rem,4.3vw,2.9rem);letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums}
+.plan-tot b u{text-decoration:none;color:var(--red)}
+.plan-tot span{color:var(--slate);font-size:.92rem}
+@media(max-width:620px){
+  .pl{grid-template-columns:auto auto 1fr;row-gap:4px}
+  .pl-w{grid-column:3;text-align:left}
+}
+
 /* ---------- reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -462,12 +492,40 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   </div>
 </section>
 
-<!-- ══ 03 БАЙРШИЛ ══ -->
+<!-- ══ 03 КОНТЕНТ ══ -->
+<section id="plan">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>03 — Контентын төлөвлөгөө</p>
+        <h2 data-split>Нэг шоу биш. Арван контент.</h2>
+      </div>
+      <p class="lede" data-rev>Ивээн тэтгэгч 12 сарын 31-ний нэг шөнөд бус, 9 сараас 1 сар хүртэл гарах бүх контентод харагдана.</p>
+    </div>
+
+    <div class="plan">
+        <div class="pl" data-rev style="--d:0.00s"><span class="pl-i">01</span><span class="pl-n"><b data-count="1">0</b></span><span class="pl-t">Албан ёсоор эхэллээ<em>Mesmerism сувагт тэмцээнийг зарлах контент</em></span><span class="pl-w">9 сар</span></div>
+        <div class="pl" data-rev style="--d:0.04s"><span class="pl-i">02</span><span class="pl-n"><b data-count="1">0</b></span><span class="pl-t">Санал хураалтын нээлт<em>Шууд дамжуулалт (stream)</em></span><span class="pl-w">10 сар</span></div>
+        <div class="pl" data-rev style="--d:0.08s"><span class="pl-i">03</span><span class="pl-n"><b data-count="4">0</b></span><span class="pl-t">Урилга хүргэх<em>7 хоног бүр шалгарсан YouTuber дээр очиж урилга өгнө</em></span><span class="pl-w">10–11 сар</span></div>
+        <div class="pl" data-rev style="--d:0.12s"><span class="pl-i">04</span><span class="pl-n"><b data-count="1">0</b></span><span class="pl-t">Трейлер<em>Үндсэн контентын зарлал</em></span><span class="pl-w">12 сар</span></div>
+        <div class="pl" data-rev style="--d:0.16s"><span class="pl-i">05</span><span class="pl-n"><b data-count="2">0</b></span><span class="pl-t">YOUTUBE CHAMP 2026<em>Үндсэн контент — Part 1 ба Part 2</em></span><span class="pl-w">12/31 · 01/01</span></div>
+        <div class="pl" data-rev style="--d:0.20s"><span class="pl-i">06</span><span class="pl-n"><b data-count="1">0</b></span><span class="pl-t">Бүсийн эзэнтэй влог<em>Ялагчтай хамт хийх контент</em></span><span class="pl-w">1 сар</span></div>
+    </div>
+
+    <div class="plan-tot" data-rev>
+      <b>9<u> видео</u></b>
+      <b>1<u> шууд стрим</u></b>
+      <span>= нийт 10 контент, 5 сарын турш</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 БАЙРШИЛ ══ -->
 <section id="place">
   <div class="wrap">
     <div class="head">
       <div>
-        <p class="label" data-rev>03 — Хамтран ажиллах санал</p>
+        <p class="label" data-rev>04 — Хамтран ажиллах санал</p>
         <h2 data-split>Танай брэнд хаана харагдах вэ.</h2>
       </div>
       <p class="lede" data-rev>Логоны байршлаас илүүтэй — контентын дотор амьдардаг интеграци.</p>
@@ -516,7 +574,7 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   <div class="wrap">
     <div class="head">
       <div>
-        <p class="label" data-rev>04 — Бэлтгэл</p>
+        <p class="label" data-rev>05 — Бэлтгэл</p>
         <h2 data-split>10 сараас 1 сар хүртэл.</h2>
       </div>
       <p class="lede" data-rev>Дөрвөн сарын кампанит ажил. Ивээн тэтгэгч зөвхөн 12 сарын 31-нд бус, 10 сарын дунд үеэс эхлэн харагдана.</p>
@@ -547,7 +605,7 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   <div class="wrap">
     <div class="head">
       <div>
-        <p class="label" data-rev>05 — Шоуны бүтэц</p>
+        <p class="label" data-rev>06 — Шоуны бүтэц</p>
         <h2 data-split>80 минут.</h2>
       </div>
       <p class="lede" data-rev>Жишээ бүтэц. Хамтран ажиллах байгууллагын онцлогоос хамаарч дараалал өөрчлөгдөж болох ч нийт тоо хэмжээ өөрчлөгдөхгүй.</p>
@@ -578,7 +636,7 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   <div class="wrap">
     <div class="head">
       <div>
-        <p class="label" data-rev>06 — Ивээн тэтгэгчийн санал</p>
+        <p class="label" data-rev>07 — Ивээн тэтгэгчийн санал</p>
         <h2 data-split>Ерөнхий ивээн тэтгэгч.</h2>
       </div>
       <p class="lede" data-rev>Контентыг илүү үзүүштэй болгохын тулд хязгаарлагдмал тооны байгууллагатай хамтран ажиллана.</p>
