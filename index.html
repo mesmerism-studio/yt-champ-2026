@@ -145,14 +145,21 @@ section{position:relative;padding-block:clamp(64px,8.5vw,128px)}
 #hero.lit .logo-wrap .mark{opacity:1;transform:none;animation:float 7s ease-in-out 1.6s infinite}
 @keyframes float{0%,100%{translate:0 0}50%{translate:0 -11px}}
 
-.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;
-  gap:clamp(14px,2.6vw,40px);align-items:center;
+.hero-meta{display:grid;grid-template-columns:repeat(5,auto);
+  justify-content:center;align-items:baseline;
+  column-gap:clamp(14px,2.6vw,40px);row-gap:clamp(9px,1.3vw,15px);
   margin-top:clamp(28px,4.5vw,52px);
   font-family:var(--display);font-weight:600;letter-spacing:-.01em;
   font-size:clamp(.85rem,1.25vw,1.05rem)}
 .hero-meta i{font-style:normal;color:var(--red)}
 .hero-meta em{font-style:normal;width:5px;height:5px;border-radius:50%;
   background:var(--line);display:inline-block}
+.hm-row{display:contents}
+@media(max-width:640px){
+  .hero-meta{grid-template-columns:1fr;row-gap:11px}
+  .hm-row{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 13px}
+  .hero-meta em{display:none}
+}
 
 .cue{margin-top:clamp(30px,5vw,60px);display:inline-flex;flex-direction:column;
   align-items:center;gap:10px;font-family:var(--display);font-size:.64rem;
@@ -412,9 +419,16 @@ footer{border-top:1px solid var(--line);padding-block:26px;
     <div class="logo-wrap" id="lw"><i class="mark" role="img" aria-label="YouTube Champ 2026"></i></div>
 
     <div class="hero-meta" data-rev>
-      <span>2026.12.<i>31</i></span><em></em>
-      <span>21:00</span><em></em>
-      <span>Mesmerism Official</span>
+      <div class="hm-row">
+        <span>2026.12.<i>31</i></span><em></em>
+        <span><i>Part-1</i> 21:00</span><em></em>
+        <span>Mesmerism Official</span>
+      </div>
+      <div class="hm-row">
+        <span>2027.01.<i>01</i></span><em></em>
+        <span><i>Part-2</i> 21:00</span><em></em>
+        <span>Mesmerism Official</span>
+      </div>
     </div>
 
     <div class="cue" data-rev><s></s>Ивээн тэтгэгчийн санал</div>
