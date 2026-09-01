@@ -1,0 +1,726 @@
+<meta charset="utf-8">
+<title>YouTube Champ 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600&display=swap">
+
+<style>
+/* ==========================================================
+   YOUTUBE CHAMP 2026 - sponsorship proposal
+   White, minimal, one red. Motion carries the page.
+   ========================================================== */
+
+:root{
+  --logo:url("logo.webp");
+
+  /* === АРЫН ЗУРАГ ==========================================
+     Зураг тавих бол доорх мөрөнд файлын нэрээ бич:
+         --bg:url("bg.jpg");
+     Хэрэггүй бол  none  гэж үлдээ.
+     Зургаа index.html-тэй НЭГ хавтсанд хийнэ.              */
+  --bg:url("bg.jpg");
+
+  /* Зургийн дээрх цагаан хөшиг. 0 = зураг тод, 1 = бүрэн цагаан.
+     0.88 орчим байвал бичиг уншигдана.                      */
+  --bg-veil:.88;
+  /* ======================================================== */
+  --paper:#FFFFFF;
+  --mist:#F7F5F4;
+  --line:#E9E5E3;
+  --ink:#17110F;
+  --slate:#6F6663;
+  --faint:#A79F9C;
+  --red:#E02A26;
+  --red-deep:#B81F1C;
+  --tint:#FCEBEA;
+
+  --display:'Rubik','Segoe UI',system-ui,sans-serif;
+  --body:'Onest','Segoe UI',system-ui,sans-serif;
+
+  --pad:clamp(20px,5vw,84px);
+  --maxw:1200px;
+  --ease:cubic-bezier(.16,.84,.36,1);
+  --slow:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+html{background:var(--paper) var(--bg) center/cover no-repeat fixed}
+
+body{
+  margin:0;
+  background:rgba(255,255,255,var(--bg-veil));
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(15px,1.02vw,16.5px);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+p{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.02;
+  letter-spacing:-.03em;text-wrap:balance}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:3px}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+section{position:relative;padding-block:clamp(64px,8.5vw,128px)}
+
+.label{
+  font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:11px;
+}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
+
+.lede{font-size:clamp(1.05rem,1.5vw,1.32rem);line-height:1.55;color:var(--slate);max-width:56ch}
+.muted{color:var(--slate)}
+.num{font-variant-numeric:tabular-nums}
+
+.mark{display:block;background:var(--logo) center/contain no-repeat;
+  aspect-ratio:1500/1213}
+
+/* ---------- word-split reveal ---------- */
+.w{display:inline-block;overflow:hidden;vertical-align:top}
+.w > i{display:inline-block;font-style:inherit;transform:translateY(105%);
+  transition:transform .8s var(--slow)}
+.in .w > i{transform:none}
+
+/* ---------- generic reveal ---------- */
+[data-rev]{opacity:0;transform:translateY(22px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease)}
+[data-rev].in{opacity:1;transform:none}
+
+/* ==========================================================
+   PROGRESS RING
+   ========================================================== */
+#ring{position:fixed;right:clamp(14px,2.4vw,30px);bottom:clamp(14px,2.4vw,30px);
+  width:52px;height:52px;z-index:60;opacity:0;transform:scale(.7);
+  transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none}
+#ring.on{opacity:1;transform:none}
+#ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+#ring circle{fill:none;stroke-width:2}
+#ring .bg{stroke:var(--line)}
+#ring .fg{stroke:var(--red);stroke-linecap:round}
+#ring b{position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--display);font-size:.62rem;font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums}
+
+/* ==========================================================
+   STICKY MINI HEADER
+   ========================================================== */
+#bar{position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transform:translateY(-100%);transition:transform .55s var(--slow),border-color .4s}
+#bar.on{transform:none;border-color:var(--line)}
+#bar .in-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-block:11px}
+#bar img{height:34px;width:auto}
+#bar span{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--slate)}
+@media(max-width:640px){#bar span{display:none}}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+#hero{position:relative;min-height:100svh;display:grid;place-items:center;
+  padding-block:clamp(70px,12vh,120px);text-align:center;overflow:hidden}
+.hero-in{width:100%}
+
+.halo{position:absolute;left:50%;top:44%;translate:-50% -50%;
+  width:min(112vw,1080px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,var(--tint) 0%,rgba(252,235,234,0) 68%);
+  z-index:-1;opacity:0;transform:scale(.6);
+  transition:opacity 1.6s var(--slow) .1s,transform 1.8s var(--slow) .1s}
+#hero.lit .halo{opacity:1;transform:scale(1)}
+
+.logo-wrap{width:min(78vw,660px);margin-inline:auto;will-change:transform}
+.logo-wrap .mark{width:100%;
+  opacity:0;transform:scale(.82) rotate(-5deg);
+  transition:opacity 1s var(--slow) .15s,transform 1.25s var(--slow) .15s}
+#hero.lit .logo-wrap .mark{opacity:1;transform:none;animation:float 7s ease-in-out 1.6s infinite}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -11px}}
+
+.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;
+  gap:clamp(14px,2.6vw,40px);align-items:center;
+  margin-top:clamp(28px,4.5vw,52px);
+  font-family:var(--display);font-weight:600;letter-spacing:-.01em;
+  font-size:clamp(.85rem,1.25vw,1.05rem)}
+.hero-meta i{font-style:normal;color:var(--red)}
+.hero-meta em{font-style:normal;width:5px;height:5px;border-radius:50%;
+  background:var(--line);display:inline-block}
+
+.cue{margin-top:clamp(30px,5vw,60px);display:inline-flex;flex-direction:column;
+  align-items:center;gap:10px;font-family:var(--display);font-size:.64rem;
+  font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.cue s{display:block;width:1px;height:34px;background:linear-gradient(var(--red),transparent);
+  text-decoration:none;animation:drop 2.1s var(--ease) infinite}
+@keyframes drop{0%,100%{opacity:.2;transform:scaleY(.5);transform-origin:50% 0}
+  50%{opacity:1;transform:scaleY(1)}}
+
+/* ==========================================================
+   MARQUEE
+   ========================================================== */
+.mq{border-block:1px solid var(--line);overflow:hidden;padding-block:15px;background:var(--paper)}
+.mq-t{display:flex;width:max-content;animation:slide 38s linear infinite}
+.mq:hover .mq-t{animation-play-state:paused}
+.mq-t span{font-family:var(--display);font-weight:700;font-size:clamp(.9rem,1.8vw,1.3rem);
+  letter-spacing:-.02em;padding-inline:.55em;white-space:nowrap;color:var(--ink)}
+.mq-t span.r{color:var(--red)}
+.mq-t span.o{color:transparent;-webkit-text-stroke:1px var(--line)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ==========================================================
+   SECTION HEAD
+   ========================================================== */
+.head{display:grid;gap:clamp(16px,2.4vw,30px);margin-bottom:clamp(38px,6vw,86px)}
+@media(min-width:880px){.head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(30px,6vw,90px);align-items:end}}
+.head h2{font-size:clamp(1.9rem,4.6vw,3.5rem);margin-top:18px}
+
+/* ==========================================================
+   STATS
+   ========================================================== */
+.stats{display:grid;gap:0}
+.stat{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,40px);
+  align-items:baseline;padding-block:clamp(20px,2.6vw,30px);
+  border-top:1px solid var(--line);position:relative}
+.stat:last-child{border-bottom:1px solid var(--line)}
+.stat::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:var(--red);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform 1.1s var(--slow) var(--d,0s)}
+.stats.in .stat::after{transform:scaleX(1)}
+.stat-i{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.14em;
+  color:var(--faint);min-width:2.4em}
+.stat-v{font-family:var(--display);font-weight:700;letter-spacing:-.045em;
+  font-size:clamp(2.2rem,7vw,5rem);line-height:.95;font-variant-numeric:tabular-nums}
+.stat-v u{text-decoration:none;color:var(--red)}
+.stat-k{font-size:.9rem;color:var(--slate);text-align:right;max-width:22ch;line-height:1.45}
+
+/* ==========================================================
+   FUNNEL
+   ========================================================== */
+.funnel{display:grid;gap:clamp(26px,4vw,44px);grid-template-columns:1fr}
+@media(min-width:820px){.funnel{grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}}
+.fs{position:relative;padding-top:clamp(20px,3vw,34px);border-top:2px solid var(--line)}
+.fs::before{content:"";position:absolute;left:0;top:-2px;height:2px;width:100%;
+  background:var(--red);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform 1s var(--slow) var(--d,0s)}
+.fs.in::before{transform:scaleX(1)}
+.fs-n{font-family:var(--display);font-weight:700;letter-spacing:-.05em;
+  font-size:clamp(3.2rem,9vw,6rem);line-height:.86;font-variant-numeric:tabular-nums}
+.fs-n s{text-decoration:none;font-size:.24em;color:var(--red);letter-spacing:.01em;
+  display:block;margin-top:.7em;font-weight:600}
+.fs h3{font-size:clamp(1.05rem,1.7vw,1.3rem);margin-top:16px}
+.fs p{color:var(--slate);font-size:.92rem;margin-top:10px;max-width:34ch}
+
+.weeks{margin-top:clamp(34px,5vw,64px);display:grid;gap:0}
+.wk{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(12px,2.4vw,26px);
+  align-items:center;padding-block:14px;border-top:1px solid var(--line)}
+.wk:last-child{border-bottom:1px solid var(--line)}
+.wk b{font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);min-width:64px}
+.wk i{display:block;height:3px;background:var(--mist);position:relative;overflow:hidden;
+  border-radius:2px}
+.wk i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);
+  background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .95s var(--slow) var(--d,0s)}
+.weeks.in .wk i::after{transform:scaleX(1)}
+.wk span{font-size:.84rem;color:var(--slate);min-width:6.5em;text-align:right}
+
+/* ==========================================================
+   PLACEMENT
+   ========================================================== */
+.place{display:grid;gap:clamp(30px,4vw,52px)}
+@media(min-width:760px){.place{grid-template-columns:1fr 1fr}}
+.pg h3{font-size:clamp(1rem,1.5vw,1.18rem);padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding-block:13px;border-bottom:1px solid var(--line);font-size:.93rem;
+  color:var(--slate);display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;
+  transition:color .3s var(--ease),padding-left .3s var(--ease)}
+.pg li:hover{color:var(--ink);padding-left:6px}
+.pg li s{text-decoration:none;width:6px;height:6px;border-radius:50%;background:var(--red);
+  margin-top:.55em;flex:none}
+.pg li.opt s{background:var(--line)}
+
+/* ==========================================================
+   TIMELINE
+   ========================================================== */
+.tl{position:relative;padding-left:clamp(26px,4vw,44px)}
+.tl-line{position:absolute;left:5px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.tl-line::after{content:"";position:absolute;inset:0;background:var(--red);
+  transform:scaleY(0);transform-origin:50% 0;transition:transform 1.9s var(--slow)}
+.tl.in .tl-line::after{transform:scaleY(1)}
+.ti{position:relative;display:grid;gap:5px;padding-block:clamp(15px,2.2vw,22px)}
+@media(min-width:720px){.ti{grid-template-columns:150px 1fr auto;gap:clamp(16px,3vw,36px);
+  align-items:baseline}}
+.ti::before{content:"";position:absolute;left:calc(-1 * clamp(26px,4vw,44px));
+  top:calc(clamp(15px,2.2vw,22px) + .4em);width:12px;height:12px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--faint);
+  transform:scale(0);transition:transform .5s var(--slow) var(--d,0s)}
+.tl.in .ti::before{transform:scale(1)}
+.ti.key::before{background:var(--red);border-color:var(--red)}
+.ti-d{font-family:var(--display);font-size:.76rem;font-weight:600;letter-spacing:.05em;
+  color:var(--red);font-variant-numeric:tabular-nums}
+.ti-t{font-family:var(--display);font-weight:600;font-size:clamp(.98rem,1.5vw,1.14rem);
+  letter-spacing:-.015em}
+.ti-n{font-size:.85rem;color:var(--faint)}
+.tl-p{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--faint);padding-top:clamp(24px,3.4vw,40px);
+  padding-bottom:8px}
+.tl-p:first-child{padding-top:0}
+
+/* ==========================================================
+   RUNDOWN
+   ========================================================== */
+.run{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:26px}
+.run-s{display:flex;justify-content:space-between;font-family:var(--display);
+  font-size:.64rem;font-weight:600;letter-spacing:.16em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:16px}
+.run-t{display:flex;gap:3px;align-items:flex-end;height:170px;overflow-x:auto;padding-bottom:2px}
+.rs{flex:var(--f,1) 0 auto;min-width:26px;background:var(--mist);border-radius:3px 3px 0 0;
+  height:var(--h,60%);position:relative;overflow:hidden;
+  transform:scaleY(0);transform-origin:50% 100%;
+  transition:transform .6s var(--slow) var(--d,0s),background .3s}
+.run-t.in .rs{transform:none}
+.rs.hot{background:var(--red)}
+.rs:hover{background:var(--ink)}
+.rs.hot:hover{background:var(--red-deep)}
+.rs b{position:absolute;left:50%;bottom:9px;translate:-50% 0;
+  font-family:var(--display);font-size:.55rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;writing-mode:vertical-rl;rotate:180deg;white-space:nowrap;
+  color:var(--slate)}
+.rs.hot b{color:#fff}
+.rs:hover b{color:#fff}
+
+/* ==========================================================
+   PACKAGE
+   ========================================================== */
+#pkg{background:color-mix(in srgb,var(--mist) 88%,transparent)}
+.price{display:grid;gap:clamp(34px,5vw,72px)}
+@media(min-width:940px){.price{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.amt{font-family:var(--display);font-weight:700;letter-spacing:-.05em;
+  font-size:clamp(2.6rem,8vw,5.6rem);line-height:.94;font-variant-numeric:tabular-nums}
+.amt u{text-decoration:none;color:var(--red)}
+.vat{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint);margin-top:16px}
+.price p.note{margin-top:22px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--slate);font-size:.93rem;max-width:36ch}
+
+.incl{list-style:none;margin:0;padding:0}
+.incl li{padding-block:17px;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:auto 1fr;gap:15px;align-items:start}
+.incl li:first-child{border-top:1px solid var(--line)}
+.incl s{text-decoration:none;font-family:var(--display);font-size:.66rem;font-weight:600;
+  color:var(--red);min-width:1.6em;padding-top:.25em}
+.incl b{font-family:var(--display);font-weight:600;font-size:1rem;display:block}
+.incl em{font-style:normal;color:var(--slate);font-size:.88rem;display:block;margin-top:4px}
+
+.pool{margin-top:clamp(30px,4vw,50px);padding-top:clamp(24px,3vw,36px);
+  border-top:2px solid var(--ink);display:grid;gap:18px}
+@media(min-width:800px){.pool{grid-template-columns:auto 1fr;gap:clamp(30px,5vw,64px);
+  align-items:center}}
+.pool-n{font-family:var(--display);font-weight:700;letter-spacing:-.04em;
+  font-size:clamp(1.7rem,4vw,2.8rem);line-height:1;color:var(--red);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.pool-n s{text-decoration:none;display:block;font-family:var(--display);font-size:.24em;
+  font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  margin-top:9px}
+.pool p{color:var(--slate);font-size:.93rem}
+
+/* ==========================================================
+   CTA
+   ========================================================== */
+#cta{text-align:center}
+#cta .logo-sm{width:min(56vw,300px);margin-inline:auto;
+  opacity:0;transform:scale(.9);transition:opacity .9s var(--slow),transform 1.1s var(--slow)}
+#cta.in .logo-sm{opacity:1;transform:none}
+#cta h2{font-size:clamp(1.6rem,4vw,3rem);margin-top:clamp(26px,4vw,44px)}
+#cta .lede{margin:22px auto 0}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,2vw,18px);
+  margin-top:clamp(30px,4vw,48px)}
+.links a{font-family:var(--display);font-weight:600;font-size:.92rem;text-decoration:none;
+  color:var(--ink);border:1.5px solid var(--line);border-radius:100px;
+  padding:12px 24px;transition:border-color .3s var(--ease),color .3s var(--ease),
+  background .3s var(--ease),transform .3s var(--ease)}
+.links a:hover{border-color:var(--red);color:#fff;background:var(--red);transform:translateY(-2px)}
+
+footer{border-top:1px solid var(--line);padding-block:26px;
+  font-family:var(--display);font-size:.68rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ---------- reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important}
+  [data-rev]{opacity:1;transform:none}
+  .w > i{transform:none}
+}
+</style>
+
+<div id="ring" aria-hidden="true">
+  <svg viewBox="0 0 40 40"><circle class="bg" cx="20" cy="20" r="18"></circle>
+  <circle class="fg" cx="20" cy="20" r="18" id="ringfg"></circle></svg>
+  <b id="ringn">0</b>
+</div>
+
+<div id="bar"><div class="wrap in-bar">
+  <i class="mark" style="height:34px;width:42px" role="img" aria-label="YouTube Champ 2026"></i>
+  <span>Ивээн тэтгэгчийн санал</span>
+</div></div>
+
+<!-- ══ HERO ══ -->
+<header id="hero">
+  <div class="halo" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="logo-wrap" id="lw"><i class="mark" role="img" aria-label="YouTube Champ 2026"></i></div>
+
+    <div class="hero-meta" data-rev>
+      <span>2026.12.<i>31</i></span><em></em>
+      <span>21:00</span><em></em>
+      <span>Mesmerism Official</span>
+    </div>
+
+    <div class="cue" data-rev><s></s>Ивээн тэтгэгчийн санал</div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
+
+<!-- ══ 01 ТОО ══ -->
+<section id="reach">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>01 — Хүрэх хүрээ</p>
+        <h2 data-split>Гурван жил. Арван нэгэн сая үзэлт.</h2>
+      </div>
+      <p class="lede" data-rev>YouTube Champ нь 2023 оноос хойш жил бүр сая сая монголчуудыг шинэ жилийн үдэш нэг дэлгэцийн ард цуглуулж ирсэн.</p>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat" style="--d:.05s"><span class="stat-i">01</span>
+        <span class="stat-v"><b data-count="11">0</b><u>+ сая</u></span>
+        <span class="stat-k">Нийт үзэлт<br>2023 – 2025</span></div>
+      <div class="stat" style="--d:.13s"><span class="stat-i">02</span>
+        <span class="stat-v"><b data-count="1.14" data-dec="2">0</b><u> сая</u></span>
+        <span class="stat-k">Mesmerism Official<br>subscribe</span></div>
+      <div class="stat" style="--d:.21s"><span class="stat-i">03</span>
+        <span class="stat-v"><b data-count="8410">0</b></span>
+        <span class="stat-k">Сэтгэгдэл<br>2025 оны контент</span></div>
+      <div class="stat" style="--d:.29s"><span class="stat-i">04</span>
+        <span class="stat-v"><b data-count="50">0</b></span>
+        <span class="stat-k">Санал хураалт<br>Контент бүтээгч</span></div>
+      <div class="stat" style="--d:.37s"><span class="stat-i">05</span>
+        <span class="stat-v"><b data-count="15">0</b></span>
+        <span class="stat-k">Контент бүтээгч<br>үндсэн зураг авалт</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 ФОРМАТ ══ -->
+<section id="format">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>02 — Формат</p>
+        <h2 data-split>50-аас 15 нь шалгарна.</h2>
+      </div>
+      <p class="lede" data-rev>хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-г сонгон mesmerism.mn сайтад бүртгэж үзэгчидээс санал хураалт аван YOUTUBE CHAMP 2026 оролцох YouTuber-г сонгоно .Санал хураалт 4 долоо хоног үргэлжилж, 7 хоног бүр хамгийн өндөр санал авсан 4 YouTuber шалгарна.</p>
+    </div>
+
+    <div class="funnel">
+      <div class="fs" data-rev style="--d:.05s">
+        <span class="fs-n">50<s>Суваг</s></span>
+        <h3>Контент бүтээгч</h3>
+        <p>Тухайн жилд үзэлт, идэвх, шинэ дагагчаараа тэргүүлсэн 50 youtube суваг.</p>
+      </div>
+      <div class="fs" data-rev style="--d:.15s">
+        <span class="fs-n">4<s>Долоо хоног</s></span>
+        <h3>Санал хураалт</h3>
+        <p>mesmerism.mn дээр нээлттэй санал хураалт. Үзэгчид Star худалдан аван (1 Start- 500₮) санал өгнө.</p>
+      </div>
+      <div class="fs" data-rev style="--d:.25s">
+        <span class="fs-n">16<s>Контент бүтээгч</s></span>
+        <h3>Үндсэн зураг авалт</h3>
+        <p>3 үе шаттай явагдана. багын тэмцээн, хайч чулуу даавуу, бүсийн эзэн</p>
+      </div>
+    </div>
+
+    <div class="weeks" id="weeks">
+      <div class="wk"><b>Week 1</b><i style="--w:40%;--d:.05s"></i><span>4 контент бүтээгч</span></div>
+      <div class="wk"><b>Week 2</b><i style="--w:60%;--d:.15s"></i><span>8 контент бүтээгч</span></div>
+      <div class="wk"><b>Week 3</b><i style="--w:78%;--d:.25s"></i><span>12 контент бүтээгч</span></div>
+      <div class="wk"><b>Week 4</b><i style="--w:100%;--d:.35s"></i><span>16 контент бүтээгч</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 БАЙРШИЛ ══ -->
+<section id="place">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>03 — Хамтран ажиллах санал</p>
+        <h2 data-split>Танай брэнд хаана харагдах вэ.</h2>
+      </div>
+      <p class="lede" data-rev>Логоны байршлаас илүүтэй — контентын дотор амьдардаг интеграци.</p>
+    </div>
+
+    <div class="place">
+      <div class="pg" data-rev style="--d:.05s">
+        <h3>Видео контент доторх байршил</h3>
+        <ul>
+          <li><s></s><span>Эхлэл болон төгсгөлд лого</span></li>
+          <li><s></s><span>Тэмцээний шилжилтэд (шторк) лого</span></li>
+          <li><s></s><span>15 секундын сурталчилгааны шторк</span></li>
+          <li><s></s><span>Хөтлөгчийн аман сурталчилгаа</span></li>
+        </ul>
+      </div>
+      <div class="pg" data-rev style="--d:.13s">
+        <h3>Оролцогчтой холбоотой</h3>
+        <ul>
+          <li><s></s><span>Ярилцлагын хэсэгт бүтээгдэхүүн, лого</span></li>
+          <li><s></s><span>Оролцогчид бүтээгдэхүүн хэрэглэх, сэтгэгдэл хэлэх</span></li>
+          <li class="opt"><s></s><span>16 оролцогчидийн постер</span></li>
+        </ul>
+      </div>
+      <div class="pg" data-rev style="--d:.21s">
+        <h3>Дижитал ба идэвхжүүлэлт</h3>
+        <ul>
+          <li><s></s><span>Үндсэн постер дээр лого</span></li>
+          <li><s></s><span>Идэвхжүүлэлтийн reel</span></li>
+          <li><s></s><span>Нэг тэмцээний зураг авалтын талбайг өөрсдийн бүтээгдэхүүнээр тохижуулах</span></li>
+        </ul>
+      </div>
+      <div class="pg" data-rev style="--d:.29s">
+        <h3>Онлайн орчин</h3>
+        <ul>
+          <li><s></s><span>mesmerism.mn дээр баннер</span></li>
+          <li><s></s><span>Санал хураалтын 4 долоо хоногт байнгын харагдац</span></li>
+          <li class="opt"><s></s><span>Teaser болон trailer-т лого орох</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 ХУГАЦАА ══ -->
+<section id="time">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>04 — Бэлтгэл</p>
+        <h2 data-split>10 сараас 1 сар хүртэл.</h2>
+      </div>
+      <p class="lede" data-rev>Дөрвөн сарын кампанит ажил. Ивээн тэтгэгч зөвхөн 12 сарын 31-нд бус, 10 сарын дунд үеэс эхлэн харагдана.</p>
+    </div>
+
+    <div class="tl" id="tl">
+      <span class="tl-line"></span>
+      <p class="tl-p">1-р үе — Идэвхжүүлэлт</p>
+      <div class="ti" style="--d:.10s"><span class="ti-d">09 / 20</span><span class="ti-t">Бүртгэл нээгдэнэ</span><span class="ti-n">50 нэр дэвшигч</span></div>
+      <div class="ti" style="--d:.18s"><span class="ti-d">10 / 10</span><span class="ti-t">Санал хураалт 1</span><span class="ti-n">Week 1</span></div>
+      <div class="ti" style="--d:.26s"><span class="ti-d">10 / 17</span><span class="ti-t">Санал хураалт 2</span><span class="ti-n">Week 2</span></div>
+      <div class="ti" style="--d:.34s"><span class="ti-d">10 / 24</span><span class="ti-t">Санал хураалт 3</span><span class="ti-n">Week 3</span></div>
+      <div class="ti" style="--d:.42s"><span class="ti-d">10 / 31</span><span class="ti-t">Санал хураалт 4</span><span class="ti-n">15 YouTuber тодорно</span></div>
+
+      <p class="tl-p">2-р үе — Зураг авалт</p>
+      <div class="ti key" style="--d:.52s"><span class="ti-d">11 / 10–15</span><span class="ti-t">Media Day</span><span class="ti-n">Постерын зураг авалт</span></div>
+      <div class="ti" style="--d:.60s"><span class="ti-d">11 / 22 – 12 / 22</span><span class="ti-t">Post production</span><span class="ti-n">Постер · Трейлер</span></div>
+
+      <p class="tl-p">3-р үе — Үр дүн</p>
+      <div class="ti key" style="--d:.70s"><span class="ti-d">12 / 31 · 21:00</span><span class="ti-t">YOUTUBE CHAMP 2026</span><span class="ti-n">Mesmerism Official</span></div>
+      <div class="ti" style="--d:.78s"><span class="ti-d">01 / 05–10</span><span class="ti-t">Бүсийн эзэнтэй влог хийх</span><span class="ti-n">Mesmerism Official</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 ШОУ ══ -->
+<section id="show">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>05 — Шоуны бүтэц</p>
+        <h2 data-split>80 минут.</h2>
+      </div>
+      <p class="lede" data-rev>Жишээ бүтэц. Хамтран ажиллах байгууллагын онцлогоос хамаарч дараалал өөрчлөгдөж болох ч нийт тоо хэмжээ өөрчлөгдөхгүй.</p>
+    </div>
+
+    <div class="run" data-rev>
+      <div class="run-s"><span>00:00</span><span>Өрнөл</span><span>80:00</span></div>
+      <div class="run-t" id="run">
+        <div class="rs" style="--f:1.1;--h:52%;--d:.02s"><b>Танилцуулга</b></div>
+        <div class="rs" style="--f:.9;--h:44%;--d:.06s"><b>Бүсийн эзэн</b></div>
+        <div class="rs hot" style="--f:.7;--h:70%;--d:.10s"><b>Jan Ken Pon 1</b></div>
+        <div class="rs" style="--f:1.5;--h:92%;--d:.14s"><b>Тэмцээн 1</b></div>
+        <div class="rs hot" style="--f:.7;--h:70%;--d:.18s"><b>Jan Ken Pon 2</b></div>
+        <div class="rs" style="--f:1.5;--h:92%;--d:.22s"><b>Тэмцээн 2</b></div>
+        <div class="rs hot" style="--f:.7;--h:70%;--d:.26s"><b>Jan Ken Pon 3</b></div>
+        <div class="rs" style="--f:1.5;--h:92%;--d:.30s"><b>Тэмцээн 3</b></div>
+        <div class="rs" style="--f:1.5;--h:100%;--d:.34s"><b>Тэмцээн 4</b></div>
+        <div class="rs hot" style="--f:.7;--h:70%;--d:.38s"><b>Jan Ken Pon 4</b></div>
+        <div class="rs" style="--f:1.1;--h:56%;--d:.42s"><b>Оройн зоог</b></div>
+        <div class="rs" style="--f:1.1;--h:64%;--d:.46s"><b>CHAMP тодруулах</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 БАГЦ ══ -->
+<section id="pkg">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>06 — Ивээн тэтгэгчийн санал</p>
+        <h2 data-split>Ерөнхий ивээн тэтгэгч.</h2>
+      </div>
+      <p class="lede" data-rev>Контентыг илүү үзүүштэй болгохын тулд хязгаарлагдмал тооны байгууллагатай хамтран ажиллана.</p>
+    </div>
+
+    <div class="price">
+      <div data-rev>
+        <div class="amt"><b data-count="30">0</b>сая<u>₮</u></div>
+        <p class="vat">НӨАТ-гүй дүн</p>
+        <p class="note">Багцад дээрх бүх байршил, эрх багтана. Нөхцөлийг талуудын тохиролцоогоор баталгаажуулна.</p>
+      </div>
+
+      <ul class="incl" data-rev style="--d:.12s">
+        <li><s>01</s><span><b>Видео доторх бүрэн интеграци</b><em>Лого шторк аман суртачилгаа, Бүтээгдхүүн эсхүл Бренд-р тохижуулсан зураг авалтын талбай</em></span></li>
+        <li><s>02</s><span><b>Оролцогчийн интеграци</b><em>Ярилцлагад бүтээгдэхүүн байршуулах, оролцогчид хэрэглэх</em></span></li>
+        <li><s>03</s><span><b>Постер ба трейлер</b><em>Үндсэн постер, 16 YouTuber-н постер, трейлер</em></span></li>
+        <li><s>04</s><span><b>4 долоо хоногийн санал хураалт</b><em>mesmerism.mn дээр байнгын харагдац</em></span></li>
+        <li><s>05</s><span><b>Нэг тэмцээний эрх</b><em>Нэг тэмцээний зураг авалтын талбайг өөрсдийн бүтээгдэхүүнээр тохижуулах</em></span></li>
+      </ul>
+    </div>
+
+    <div class="pool" data-rev>
+      <div class="pool-n">47,886,500₮<s>2025 оны шагналын сан</s></div>
+      <p>2026 оны шагналын сан нь санал хураалтын явцад үзэгчдийн оролцоогоор бүрдэнэ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="wrap">
+    <i class="mark logo-sm" role="img" aria-label="YouTube Champ 2026"></i>
+    <p class="lede" data-rev>Багцын нөхцөл, байршлыг танай брэндийн зорилгод тохируулан нарийвчилна.</p>
+
+  </div>
+</section>
+
+<div class="wrap"><footer>
+  <span>Youtube Champ 2026 · Mesmerism</span>
+  <span>2026.12.31 · 21:00</span>
+</footer></div>
+
+<script>
+(function(){
+  "use strict";
+  var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- split headings into word masks ---------- */
+  document.querySelectorAll("[data-split]").forEach(function(el){
+    var words = el.textContent.trim().split(/\s+/);
+    el.textContent = "";
+    words.forEach(function(w, i){
+      var s = document.createElement("span");
+      s.className = "w";
+      var t = document.createElement("i");
+      t.textContent = w;
+      t.style.transitionDelay = (i * 0.055) + "s";
+      s.appendChild(t);
+      el.appendChild(s);
+      if (i !== words.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+  });
+
+
+
+  /* ---------- reveal + counters ---------- */
+  var watch = document.querySelectorAll("[data-rev],[data-split],#stats,#weeks,#tl,#run,#cta");
+  function fire(el){
+    el.classList.add("in");
+    el.querySelectorAll("[data-count]").forEach(count);
+  }
+  if (RM || !("IntersectionObserver" in window)) {
+    watch.forEach(fire);
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        fire(e.target);
+        io.unobserve(e.target);
+      });
+    }, {threshold:0.15, rootMargin:"0px 0px -6% 0px"});
+    watch.forEach(function(el){ io.observe(el); });
+  }
+
+  function count(el){
+    if (el.dataset.done) return;
+    el.dataset.done = "1";
+    var to = parseFloat(el.dataset.count);
+    var dec = parseInt(el.dataset.dec || "0", 10);
+    function put(v){
+      el.textContent = dec > 0 ? v.toFixed(dec)
+        : (to >= 1000 ? Math.round(v).toLocaleString("en-US") : String(Math.round(v)));
+    }
+    if (RM) { put(to); return; }
+    var t0 = null;
+    (function step(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 1400);
+      put(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  /* ---------- hero entrance ---------- */
+  var hero = document.getElementById("hero");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    hero.classList.add("lit");
+  });});
+
+  /* ---------- scroll: ring, bar, hero parallax ---------- */
+  var ring = document.getElementById("ring");
+  var fg = document.getElementById("ringfg");
+  var rn = document.getElementById("ringn");
+  var bar = document.getElementById("bar");
+  var lw = document.getElementById("lw");
+  var C = 2 * Math.PI * 18;
+  fg.style.strokeDasharray = C;
+  fg.style.strokeDashoffset = C;
+
+  var tick = false;
+  function onScroll(){
+    if (tick) return;
+    tick = true;
+    requestAnimationFrame(function(){
+      var y = scrollY;
+      var max = document.documentElement.scrollHeight - innerHeight;
+      var p = max > 0 ? Math.min(1, y / max) : 0;
+
+      fg.style.strokeDashoffset = C * (1 - p);
+      rn.textContent = Math.round(p * 100);
+      ring.classList.toggle("on", y > innerHeight * 0.5);
+      bar.classList.toggle("on", y > innerHeight * 0.75);
+
+      if (!RM && lw && y < innerHeight * 1.2) {
+        var k = y / innerHeight;
+        lw.style.transform = "translate3d(0," + (y * 0.16) + "px,0) scale(" + (1 - k * 0.09) + ")";
+        lw.style.opacity = String(Math.max(0, 1 - k * 1.25));
+      }
+      tick = false;
+    });
+  }
+  addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+})();
+</script>

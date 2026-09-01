@@ -1,0 +1,9 @@
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# засварын түр файлууд
+_*.png
+_*.jpg
+*.psd
