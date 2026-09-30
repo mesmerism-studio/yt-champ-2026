@@ -391,6 +391,162 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   .pl-w{grid-column:3;text-align:left}
 }
 
+
+
+/* ---------- нүүрний цацалт (Higgsfield) ---------- */
+.hero-art{position:absolute;left:50%;top:54%;translate:-50% -50%;
+  width:min(150vw,1560px);aspect-ratio:1800/1028;z-index:-1;pointer-events:none;
+  background:url("img/burst.webp") center/contain no-repeat;
+  opacity:0;transform-origin:50% 60%;
+  transition:opacity 2s var(--slow) .35s,scale 2.4s var(--slow) .35s;scale:.82}
+#hero.lit .hero-art{opacity:.42;scale:1}
+
+/* ---------- 2025 оны оролцогчид ---------- */
+#proof{padding-bottom:clamp(56px,8vw,118px)}
+.strip{overflow:hidden;margin-top:clamp(26px,4vw,46px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.strip-t{display:flex;gap:14px;width:max-content;animation:strip 58s linear infinite}
+.strip:hover .strip-t{animation-play-state:paused}
+.strip-t img{height:clamp(156px,20vw,248px);width:auto;display:block;border-radius:5px}
+@keyframes strip{to{transform:translateX(-50%)}}
+
+/* ---------- шагналын бүс ---------- */
+#prize{background:var(--ink);color:#fff;overflow:hidden;
+  padding-block:clamp(60px,8vw,110px)}
+#prize .label{color:#FF6B67}
+#prize .label::before{background:#FF6B67}
+#prize h2{color:#fff;font-size:clamp(1.9rem,4.6vw,3.5rem)}
+#prize .lede{color:rgba(255,255,255,.72)}
+.prize-grid{display:grid;gap:clamp(26px,4vw,56px);align-items:center}
+@media(min-width:860px){.prize-grid{grid-template-columns:1fr 1.05fr}}
+.prize-img{border-radius:6px;overflow:hidden;background:#000}
+.prize-img img{width:100%;height:auto;display:block;opacity:0;transform:scale(1.06);
+  transition:opacity 1.1s var(--slow),transform 1.4s var(--slow)}
+.prize-img.in img{opacity:1;transform:none}
+.prize-n{font-family:var(--display);font-weight:700;letter-spacing:-.04em;
+  font-size:clamp(1.7rem,4vw,2.7rem);line-height:1;margin-top:clamp(20px,3vw,30px);
+  font-variant-numeric:tabular-nums}
+.prize-n s{text-decoration:none;display:block;font-size:.26em;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:9px}
+
+/* ==========================================================
+   ХЭВЛЭХ / PDF   —   A4 landscape, хэсэг бүр нэг хуудас
+   Дэлгэцийн хэмжээсүүд хуудсанд багтахгүй тул хэвлэхэд
+   бүх том бичиг, зайг нягтруулж, нэг хуудсанд оруулав.
+   ========================================================== */
+@page{size:A4 landscape;margin:0}
+
+@media print{
+  html,body{background:#fff !important;font-size:12px}
+  *,*::before,*::after{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    animation:none !important;transition:none !important}
+
+  #ring,#bar,.cue,.mq{display:none !important}
+
+  [data-rev]{opacity:1 !important;transform:none !important}
+  .w>i{transform:none !important}
+  #hero .halo,#hero .logo-wrap .mark,#cta .logo-sm{opacity:1 !important;transform:none !important}
+  .stat::after,.fs::before{transform:scaleX(1) !important}
+  .wk i::after{transform:scaleX(1) !important}
+  .tl-line::after{transform:scaleY(1) !important}
+  .ti::before{transform:scale(1) !important}
+  .rs{transform:none !important}
+
+  .wrap{max-width:none;padding-inline:15mm}
+  section{break-before:page;padding-block:11mm}
+  .head{margin-bottom:7mm}
+  .head h2,#cta h2{font-size:23px}
+  .lede{font-size:11px;max-width:62ch}
+  .label{font-size:8px}
+
+  /* нүүр — яг нэг хуудас */
+  #hero{break-before:auto;min-height:0;height:196mm;padding-block:0}
+  .logo-wrap{width:112mm}
+  .hero-meta{font-size:11px;margin-top:9mm}
+
+  /* тоон үзүүлэлт */
+  .stat{padding-block:5.5mm}
+  .stat-v{font-size:30px}
+  .stat-k{font-size:9px}
+
+  /* формат */
+  .fs-n{font-size:40px}
+  .fs-n s{font-size:.26em}
+  .fs h3{font-size:12px}
+  .fs p{font-size:9.5px}
+  .weeks{margin-top:7mm}
+  .wk{padding-block:3mm}
+
+  /* контентын төлөвлөгөө */
+  .pl{padding-block:3.4mm}
+  .pl-n{font-size:20px}
+  .pl-t{font-size:11px}
+  .pl-t em{font-size:9px}
+  .pl-w,.pl-i{font-size:8px}
+  .plan-tot b{font-size:22px}
+
+  /* байршил */
+  .place{gap:9mm}
+  .pg h3{font-size:11.5px}
+  .pg li{padding-block:2.6mm;font-size:9.5px}
+
+  /* хугацаа */
+  .ti{padding-block:2.6mm}
+  .ti-t{font-size:11px}
+  .ti-d,.ti-n{font-size:9px}
+  .tl-p{padding-top:5mm;font-size:8px}
+
+  /* шоуны бүтэц */
+  .run-t{overflow:visible;height:36mm}
+  .rs{min-width:0}
+  .rs b{font-size:5.2px}
+
+  /* багц */
+  #pkg{background:#fff}
+  .price{gap:10mm}
+  .amt{font-size:40px}
+  .incl li{padding-block:3mm}
+  .incl b{font-size:11px}
+  .incl em{font-size:9px}
+  .pool{margin-top:7mm;padding-top:5mm}
+  .pool-n{font-size:20px}
+  .pool p{font-size:9.5px}
+
+  /* мөр дундуур тасрахгүй */
+  .head,.stat,.pl,.fs,.wk,.pg,.ti,.tl-p,.incl li,.pool,.plan-tot,.run,.hero-meta{break-inside:avoid}
+
+  /* Chrome хэвлэхдээ өргөний media query-г өөрөөр тооцдог тул
+     дэлгэц дээрх олон баганат байрлалыг шууд албадав.       */
+  .head{grid-template-columns:1fr 1fr;gap:14mm;align-items:end}
+  .funnel{grid-template-columns:repeat(3,1fr);gap:8mm}
+  .place{grid-template-columns:1fr 1fr;gap:6mm 10mm}
+  .price{grid-template-columns:.9fr 1.1fr}
+  .pool{grid-template-columns:auto 1fr;gap:10mm;align-items:center}
+  .ti{grid-template-columns:34mm 1fr auto;gap:8mm;align-items:baseline}
+  .pl{grid-template-columns:auto auto 1fr auto}
+  .hero-meta{grid-template-columns:repeat(5,auto)}
+  .hm-row{display:contents}
+  .hero-meta em{display:inline-block}
+
+  /* блокууд эцгээсээ салж дангаараа хуудас эзлэхээс сэргийлэв */
+  .weeks,.pool,.pg:last-child{break-before:avoid}
+
+  /* шинэ хэсгүүд хэвлэхэд */
+  #proof .strip{-webkit-mask-image:none;mask-image:none;overflow:visible}
+  #proof .strip-t{animation:none;display:grid;
+    grid-template-columns:repeat(8,1fr);gap:3mm;width:auto}
+  #proof .strip-t img{height:auto;width:100%}
+  #proof .strip-t img:nth-child(n+17){display:none}   /* хоёр дахь хуулбарыг нуув */
+  #prize{background:var(--ink) !important;color:#fff !important}
+  #prize h2{font-size:23px}
+  .prize-grid{grid-template-columns:1fr 1.05fr;gap:10mm;align-items:center}
+  .prize-n{font-size:20px}
+  #hero .hero-art{opacity:.34}
+  footer{break-before:avoid;font-size:8px}
+}
+
 /* ---------- reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -415,6 +571,7 @@ footer{border-top:1px solid var(--line);padding-block:26px;
 <!-- ══ HERO ══ -->
 <header id="hero">
   <div class="halo" aria-hidden="true"></div>
+  <div class="hero-art" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="logo-wrap" id="lw"><i class="mark" role="img" aria-label="YouTube Champ 2026"></i></div>
 
@@ -466,6 +623,20 @@ footer{border-top:1px solid var(--line);padding-block:26px;
         <span class="stat-k">Контент бүтээгч<br>үндсэн зураг авалт</span></div>
     </div>
   </div>
+</section>
+
+<!-- ══ 2025 ОНЫ ОРОЛЦОГЧИД ══ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label" data-rev>2025 оны шоу</p>
+        <h2 data-split>15 оролцогч. Нэг шөнө.</h2>
+      </div>
+      <p class="lede" data-rev>Өнгөрсөн жилийн оролцогчид. Оролцогч бүрт зориулж постер хийж, сошиал сувгуудаар түгээдэг — ивээн тэтгэгчийн лого тэр бүх постер дээр байрлана.</p>
+    </div>
+  </div>
+  <div class="strip"><div class="strip-t" id="strip"></div></div>
 </section>
 
 <!-- ══ 02 ФОРМАТ ══ -->
@@ -645,7 +816,24 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   </div>
 </section>
 
-<!-- ══ 06 БАГЦ ══ -->
+<!-- ══ ШАГНАЛ ══ -->
+<section id="prize">
+  <div class="wrap">
+    <div class="prize-grid">
+      <div>
+        <p class="label" data-rev>Шагнал</p>
+        <h2 data-split style="margin-top:16px">Бүсний эзэн.</h2>
+        <p class="lede" data-rev style="margin-top:20px">Ялагч YouTube Champ-ийн бүсийг хүртэнэ. Бүс нь дараа жилийн шоу хүртэл эзэнтэйгээ хамт явж, түүний контентод байнга харагдана.</p>
+        <div class="prize-n" data-rev>47,886,500₮<s>2025 оны шагналын сан</s></div>
+      </div>
+      <div class="prize-img" id="beltimg">
+        <img src="img/belt.webp" alt="YouTube Champ бүс" loading="lazy" width="1600" height="1066">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 БАГЦ ══ -->
 <section id="pkg">
   <div class="wrap">
     <div class="head">
@@ -717,7 +905,7 @@ footer{border-top:1px solid var(--line);padding-block:26px;
 
 
   /* ---------- reveal + counters ---------- */
-  var watch = document.querySelectorAll("[data-rev],[data-split],#stats,#weeks,#tl,#run,#cta");
+  var watch = document.querySelectorAll("[data-rev],[data-split],#stats,#weeks,#tl,#run,#cta,#beltimg");
   function fire(el){
     el.classList.add("in");
     el.querySelectorAll("[data-count]").forEach(count);
@@ -759,6 +947,18 @@ footer{border-top:1px solid var(--line);padding-block:26px;
   requestAnimationFrame(function(){ requestAnimationFrame(function(){
     hero.classList.add("lit");
   });});
+
+
+  /* ---------- 2025 оны постерын урсгал ---------- */
+  var strip = document.getElementById("strip");
+  if (strip) {
+    var who = ["tushig","munhluu","cts","burger","cadis","gigi","horloo","iexynn",
+               "jaywoo","kuush","oponi","snoopy","shymelle","yuki","zadlan"];
+    var one = who.map(function(n){
+      return '<img src="img/p_' + n + '.webp" alt="" loading="lazy">';
+    }).join("");
+    strip.innerHTML = one + one;          // two copies so the loop is seamless
+  }
 
   /* ---------- scroll: ring, bar, hero parallax ---------- */
   var ring = document.getElementById("ring");
