@@ -7,6 +7,7 @@
 <link rel="icon" type="image/webp" href="logo.webp">
 
 <style>
+@font-face{font-family:'YT Champ Molot';src:url('fonts/YT25molot.otf') format('opentype');font-weight:400 800;font-display:swap}
 /* ==========================================================
    YOUTUBE CHAMP 2026 - sponsorship proposal
    Dark cinematic, jjettas.com маягийн загвар.
@@ -26,7 +27,7 @@
   --accent-deep:#B81F1C;
   --tint:rgba(224,42,38,.12);
 
-  --display:'Oswald','Rubik','Segoe UI',system-ui,sans-serif;
+  --display:'YT Champ Molot','Oswald','Rubik','Segoe UI',system-ui,sans-serif;
   --body:'Inter','Onest','Segoe UI',system-ui,sans-serif;
 
   --pad:clamp(20px,5vw,84px);
@@ -746,6 +747,27 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 @media(max-width:700px){#cta .cta-stage .logo-sm{width:32vw;left:80%;top:94%}}
 
 /* ==========================================================
+   ХАР HERO + YT25 MOLOT — цайвар дэвсгэр, хээг арилгав
+   ========================================================== */
+#hero{background:radial-gradient(45% 38% at 50% 40%,rgba(244,239,230,.10),transparent 70%),
+  radial-gradient(70% 45% at 50% 100%,rgba(224,42,38,.20),transparent 70%),var(--paper);
+  color:var(--ink);padding-bottom:clamp(70px,10vw,140px)}
+#hero .hero-art{display:none}
+.logo-wrap .mark{filter:drop-shadow(0 0 40px rgba(244,239,230,.22)) drop-shadow(0 20px 36px rgba(0,0,0,.5))}
+.tk-d{color:var(--ink)}
+.tk-t{color:var(--tan);opacity:1}
+.cue{color:var(--tan);opacity:1}
+.topbar.light .tb-title,.topbar.light .tb-menu{color:var(--ink)}
+/* хээ (texture) байхгүй */
+.mobilemenu,#reach,#channel,#format,#plan,#time,#prize{background-image:none}
+#pkg::before{display:none}
+/* YT25 Molot: үг хоорондын өргөн зайг нарийсгав, хэмжээг тааруулав */
+h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .n,.ti-t,.pl-t,
+.mobilemenu a,.tape-t span,.cta-big,.gal-ruler{word-spacing:-.26em;letter-spacing:0}
+.head h2{font-size:clamp(2.4rem,6.6vw,6.8rem);line-height:.98}
+.amt{font-size:clamp(3.2rem,8.6vw,7.6rem)}
+
+/* ==========================================================
    ХЭВЛЭХ / PDF   —   A4 landscape, хэсэг бүр нэг хуудас
    Дэлгэцийн хэмжээсүүд хуудсанд багтахгүй тул хэвлэхэд
    бүх том бичиг, зайг нягтруулж, нэг хуудсанд оруулав.
@@ -890,7 +912,7 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
   #prize h2{font-size:23px}
   .prize-grid{grid-template-columns:1fr 1.05fr;gap:10mm;align-items:center}
   .prize-n{font-size:20px}
-  #hero .hero-art{opacity:.34}
+  #hero .hero-art{display:block !important;opacity:.34}
   footer{break-before:avoid;font-size:8px}
 }
 
@@ -904,7 +926,6 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 }
 </style>
 
-<div class="grain" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="topbar light" id="nav">
@@ -931,7 +952,6 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 <!-- ══ HERO ══ -->
 <header id="hero">
   <div class="halo" aria-hidden="true"></div>
-  <div class="hero-streaks" aria-hidden="true"></div>
   <div class="hero-art" id="heroArt" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="logo-wrap" id="lw"><i class="mark" role="img" aria-label="YouTube Champ 2026"></i></div>
@@ -943,10 +963,9 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 
     <div class="cue" data-rev><s></s>Ивээн тэтгэгчийн санал</div>
   </div>
-  <div class="hero-cut" aria-hidden="true"></div>
 </header>
 
-<div class="mq" aria-hidden="true"><div class="mq-t" id="mq"><div class="mq-g"><span><b>11M+</b> НИЙТ ҮЗЭЛТ</span><span><b>1.14M</b> SUBSCRIBE</span><span><b>10</b> КОНТЕНТ</span><span><b>80</b> МИНУТЫН ШОУ</span><span><b>12.31 · 21:00</b> MESMERISM OFFICIAL</span><span><b>YOUTUBE CHAMP</b> 2026</span></div><div class="mq-g" aria-hidden="true"><span><b>11M+</b> НИЙТ ҮЗЭЛТ</span><span><b>1.14M</b> SUBSCRIBE</span><span><b>10</b> КОНТЕНТ</span><span><b>80</b> МИНУТЫН ШОУ</span><span><b>12.31 · 21:00</b> MESMERISM OFFICIAL</span><span><b>YOUTUBE CHAMP</b> 2026</span></div></div></div>
+<div class="mq" aria-hidden="true"><div class="mq-t" id="mq"><div class="mq-g"><span><b>11M+</b> НИЙТ ҮЗЭЛТ</span><span><b>1.14M</b> SUBSCRIBE</span><span><b>10</b> КОНТЕНТ</span><span><b>90+</b> МИНУТЫН ШОУ</span><span><b>12.31 · 21:00</b> MESMERISM OFFICIAL</span><span><b>YOUTUBE CHAMP</b> 2026</span></div><div class="mq-g" aria-hidden="true"><span><b>11M+</b> НИЙТ ҮЗЭЛТ</span><span><b>1.14M</b> SUBSCRIBE</span><span><b>10</b> КОНТЕНТ</span><span><b>90+</b> МИНУТЫН ШОУ</span><span><b>12.31 · 21:00</b> MESMERISM OFFICIAL</span><span><b>YOUTUBE CHAMP</b> 2026</span></div></div></div>
 
 <!-- ══ 01 ТОО ══ -->
 <section id="reach">
@@ -1195,13 +1214,13 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
     <div class="head">
       <div>
         <p class="label" data-rev>06 — Шоуны бүтэц</p>
-        <h2 data-split data-hl="1">80 минут.</h2>
+        <h2 data-split data-hl="1">90+ минут.</h2>
       </div>
       <p class="lede" data-rev>Жишээ бүтэц. Хамтран ажиллах байгууллагын онцлогоос хамаарч дараалал өөрчлөгдөж болох ч нийт тоо хэмжээ өөрчлөгдөхгүй.</p>
     </div>
 
     <div class="run" data-rev>
-      <div class="run-s"><span>00:00</span><span>Өрнөл</span><span>80:00</span></div>
+      <div class="run-s"><span>00:00</span><span>Өрнөл</span><span>90:00+</span></div>
       <div class="run-t" id="run">
         <div class="rs" style="--f:1.1;--h:52%;--d:.02s"><b>Танилцуулга</b></div>
         <div class="rs" style="--f:.9;--h:44%;--d:.06s"><b>Бүсийн эзэн</b></div>
@@ -1222,7 +1241,6 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 
 <!-- ══ ШАГНАЛ ══ -->
 <section id="prize">
-  <div class="fx-dark prize-fx" aria-hidden="true"></div>
   <div class="wrap">
     <div class="prize-grid">
       <div>
@@ -1276,7 +1294,6 @@ footer{border-top-color:var(--line);font-family:var(--mono)}
 <div class="tape" aria-hidden="true"><div class="tape-t"><div class="tape-g"><span>YouTube Champ 2026</span><span>12.31 · 21:00</span><span>Mesmerism Official</span><span>Бүсний эзэн</span><span>Ерөнхий ивээн тэтгэгч</span></div><div class="tape-g"><span>YouTube Champ 2026</span><span>12.31 · 21:00</span><span>Mesmerism Official</span><span>Бүсний эзэн</span><span>Ерөнхий ивээн тэтгэгч</span></div></div></div>
 
 <section id="cta">
-  <div class="fx-dark cta-fx" aria-hidden="true"></div>
   <div class="wrap">
     <div class="cta-stage">
       <p class="cta-big" data-rev><span>Шинэ</span><span>жилийн</span><span>үдэш</span></p>

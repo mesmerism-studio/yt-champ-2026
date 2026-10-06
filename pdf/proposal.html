@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<title>YouTube Champ 2026 — Ивээн тэтгэгчийн санал</title>
+<meta name="author" content="Mesmerism Official">
+<meta name="description" content="YouTube Champ 2026 шоуны ерөнхий ивээн тэтгэгчийн санал">
+<!--
+  PDF эх файл. WeasyPrint-ээр A4 PDF болгоно:
+      weasyprint pdf/proposal.html YouTube-Champ-2026.pdf
+-->
+<style>
+@font-face{font-family:'YT Champ Molot';src:url('../fonts/YT25molot.otf') format('opentype')}
+
+:root{
+  --ink:#17110F;
+  --text:#2b2522;
+  --muted:#6f6663;
+  --line:#dcd6d0;
+  --soft:#f5f2ee;
+  --red:#C8201C;
+}
+
+@page{
+  size:A4;
+  margin:26mm 22mm 24mm 22mm;
+  @top-left{width:96mm;content:"YouTube Champ 2026 · Ивээн тэтгэгчийн санал";font:600 7.5pt var(--body-font);color:#6f6663;
+    border-bottom:.6pt solid #dcd6d0;vertical-align:bottom;padding-bottom:3mm}
+  @top-right{width:70mm;text-align:right;content:string(section);font:600 7.5pt var(--body-font);color:#C8201C;text-transform:uppercase;letter-spacing:.06em;
+    border-bottom:.6pt solid #dcd6d0;vertical-align:bottom;padding-bottom:3mm}
+  @bottom-left{width:130mm;content:"Mesmerism Official  ·  Утас: 9904-3988, 8810-4706  ·  mesmerismcomedy@gmail.com";
+    font:7pt var(--body-font);color:#6f6663;border-top:.6pt solid #dcd6d0;vertical-align:top;padding-top:3mm}
+  @bottom-right{width:36mm;text-align:right;content:"Хуудас " counter(page) " / " counter(pages);font:600 7pt var(--body-font);color:#17110F;
+    border-top:.6pt solid #dcd6d0;vertical-align:top;padding-top:3mm}
+}
+@page cover{
+  margin:0;
+  @top-left{content:none;border:0}@top-right{content:none;border:0}
+  @bottom-left{content:none;border:0}@bottom-right{content:none;border:0}
+}
+
+html{--body-font:'Arial','Helvetica',sans-serif}
+body{font-family:var(--body-font);font-size:9.6pt;line-height:1.55;color:var(--text);margin:0}
+h1,h2,h3{color:var(--ink);margin:0}
+p{margin:0 0 3mm}
+b,strong{color:var(--ink)}
+
+/* ---------- нүүр хуудас ---------- */
+.cover{page:cover;height:297mm;position:relative;box-sizing:border-box;page-break-after:always}
+.cover-top{position:relative;height:118mm;background:#17110F;border-bottom:3mm solid var(--red);text-align:center}
+.cover-top .org,.cover-top .doc{position:absolute;top:14mm;font-size:7.5pt;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#b0a89d}
+.cover-top .org{left:22mm}
+.cover-top .doc{right:22mm}
+.cover-top .logo{width:72mm;margin-top:26mm}
+.cover-body{padding:16mm 22mm 0}
+.cover .kind{font-size:9.5pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:4mm}
+.cover h1{font-family:'YT Champ Molot',sans-serif;font-weight:400;font-size:32pt;line-height:1.05;letter-spacing:0;word-spacing:-.24em}
+.cover .sub{font-size:11.5pt;color:var(--text);margin-top:4mm}
+.cover .facts{margin-top:10mm;border-top:1pt solid var(--ink);width:100%;border-collapse:collapse}
+.cover .facts td{padding:2.8mm 0;border-bottom:.6pt solid var(--line);font-size:9.5pt;vertical-align:top}
+.cover .facts td:first-child{width:52mm;color:var(--muted)}
+.cover .facts td:last-child{color:var(--ink);font-weight:700}
+.cover .foot{position:absolute;left:22mm;right:22mm;bottom:16mm;display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:.6pt solid var(--line);padding-top:5mm;font-size:8.5pt;color:var(--muted)}
+.cover .foot b{display:block;color:var(--ink);font-size:9.5pt;margin-bottom:1mm}
+
+/* ---------- бүлэг ---------- */
+.section{page-break-before:always}
+.section.cont{page-break-before:auto;margin-top:8mm;break-inside:avoid}
+.section.cont h2{font-size:15pt;padding-bottom:2.4mm;margin-bottom:3.5mm;border-bottom-width:.9pt}
+.section.cont .t td,.section.cont .t th{padding:1.8mm 3mm}
+.sec-no{font-size:8pt;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:2mm}
+h2{font-family:'YT Champ Molot',sans-serif;font-weight:400;font-size:21pt;line-height:1.1;word-spacing:-.24em;letter-spacing:0;
+  string-set:section content();padding-bottom:4mm;margin-bottom:6mm;border-bottom:1.2pt solid var(--ink)}
+h3{font-size:10.5pt;font-weight:700;margin:7mm 0 3mm;text-transform:uppercase;letter-spacing:.04em}
+.lead{font-size:11pt;line-height:1.6;color:var(--ink);margin-bottom:6mm}
+.note{font-size:8.5pt;color:var(--muted)}
+
+/* key numbers */
+.kpis{display:flex;border:1pt solid var(--line);margin:4mm 0 2mm}
+.kpi{flex:1;padding:5mm 4mm;border-right:1pt solid var(--line);text-align:center}
+.kpi:last-child{border-right:0}
+.kpi .n{font-family:'YT Champ Molot',sans-serif;font-size:17pt;line-height:1;color:var(--ink);white-space:nowrap}
+.kpi .n.red{color:var(--red)}
+.kpi .l{font-size:7.5pt;color:var(--muted);margin-top:2mm;line-height:1.35}
+
+/* tables */
+table.t{width:100%;border-collapse:collapse;margin:2mm 0 4mm;font-size:9pt}
+.t th{background:var(--soft);color:var(--ink);font-weight:700;text-align:left;padding:2.2mm 3mm;border-top:1pt solid var(--ink);border-bottom:.6pt solid var(--line);
+  font-size:8pt;text-transform:uppercase;letter-spacing:.04em}
+.t td{padding:2.2mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:top}
+.t td.num,.t th.num{text-align:right;white-space:nowrap}
+.t tr.total td{font-weight:700;color:var(--ink);border-top:1pt solid var(--ink)}
+.t tr.hl td{background:#fbeceb}
+.t .sm{display:block;font-size:8pt;color:var(--muted)}
+
+/* two columns */
+.cols{display:flex;gap:8mm}
+.cols>div{flex:1}
+
+/* lists */
+ul.l{margin:0 0 3mm;padding:0;list-style:none}
+ul.l li{padding:1.2mm 0 1.2mm 5mm;border-bottom:.6pt solid var(--line);position:relative}
+ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm;background:var(--red)}
+.box{border:1pt solid var(--line);padding:4mm 5mm;margin:2.5mm 0;page-break-inside:avoid}
+.box h3{margin-top:0}
+
+/* posters */
+.posters{display:block;font-size:0;margin-top:3mm}
+.posters img{display:inline-block;box-sizing:border-box;width:18.9mm;height:auto;margin:0 2mm 2mm 0;border:.6pt solid var(--line)}
+.posters img:nth-child(8n){margin-right:0}
+
+/* prize */
+.belt{width:100%;margin:2mm 0 5mm;border:.6pt solid var(--line)}
+
+/* package */
+.price{display:flex;align-items:flex-end;gap:8mm;border:1.2pt solid var(--ink);padding:6mm 7mm;margin:2mm 0 5mm}
+.price .amt{font-family:'YT Champ Molot',sans-serif;font-size:30pt;line-height:1;color:var(--ink)}
+.price .amt small{font-family:var(--body-font);font-size:11pt;font-weight:700;margin-left:1mm}
+.price .meta{font-size:9pt;color:var(--muted);padding-bottom:1mm}
+.price .meta b{display:block;color:var(--red);font-size:10pt;text-transform:uppercase;letter-spacing:.06em}
+
+/* contact */
+.contact{border-top:1.2pt solid var(--ink);margin-top:6mm}
+.contact table{width:100%;border-collapse:collapse}
+.contact td{padding:2.6mm 0;border-bottom:.6pt solid var(--line);font-size:10.5pt}
+.contact td:first-child{width:38mm;color:var(--muted);font-size:9pt}
+.contact td:last-child{color:var(--ink);font-weight:700}
+.sign{margin-top:8mm;font-size:10pt;color:var(--ink)}
+.sign b{display:block;margin-top:1.5mm}
+
+.avoid{page-break-inside:avoid}
+.closing{margin-top:16mm;background:#17110F;border-top:3mm solid var(--red);padding:12mm 10mm 10mm;text-align:center;break-inside:avoid}
+.closing img{width:48mm;margin:0 auto 6mm}
+.closing .c-line{font-family:'YT Champ Molot',sans-serif;font-size:16pt;color:#f4efe6;word-spacing:-.24em}
+.closing .c-sub{font-size:8.5pt;color:#b0a89d;margin-top:2.5mm}
+.sec-no,h2,h3,.lead{break-after:avoid}
+.t tr,.posters,.contact,.kpis,.price,.box{break-inside:avoid}
+</style>
+</head>
+<body>
+
+<!-- ═════════════ НҮҮР ХУУДАС ═════════════ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="org">Mesmerism Official</div>
+    <div class="doc">Ивээн тэтгэгчийн санал · 2026</div>
+    <img class="logo" src="../logo.webp" alt="YouTube Champ 2026">
+  </div>
+  <div class="cover-body">
+  <div class="kind">Хамтран ажиллах санал</div>
+  <h1>Ерөнхий ивээн тэтгэгчийн санал</h1>
+  <p class="sub">YouTube Champ 2026 — Mesmerism Official-ийн шинэ жилийн тусгай шоу</p>
+  <table class="facts">
+    <tr><td>Нэвтрүүлэг</td><td>Part 1 — 2026.12.31, 21:00<br>Part 2 — 2027.01.01, 21:00</td></tr>
+    <tr><td>Суваг</td><td>Mesmerism Official (YouTube)</td></tr>
+    <tr><td>Кампанит ажил</td><td>2026 оны 9-р сар — 2027 оны 1-р сар</td></tr>
+    <tr><td>Санал болгож буй багц</td><td>Ерөнхий ивээн тэтгэгч — 30,000,000₮</td></tr>
+  </table>
+  </div>
+  <div class="foot">
+    <div><b>Холбоо барих</b>Утас: 9904-3988, 8810-4706<br>И-мэйл: mesmerismcomedy@gmail.com</div>
+    <div style="text-align:right">Улаанбаатар<br>2026 оны 10-р сар</div>
+  </div>
+</section>
+
+<!-- ═════════════ 1. ТАНИЛЦУУЛГА ═════════════ -->
+<section class="section">
+  <div class="sec-no">01</div>
+  <h2>Төслийн танилцуулга</h2>
+  <p class="lead">YouTube Champ бол Mesmerism Official-ийн жил бүр Монголынхоо мянга мянган үзэгч, хүүхэд залуустаа зориулан шинэ жилийн бэлэг болгон үнэгүй хийдэг баярын тусгай контент юм.</p>
+  <p>2023 оноос хойш жил бүр зохион байгуулагдаж буй энэхүү шоунд Монголын шилдэг YouTuber-ууд сорилтод өрсөлдөж, оны <b>Бүсний эзэн</b> тодорно. 2025 оноос эхлэн оролцогчдыг үзэгчид өөрсдөө mesmerism.mn дээрх санал хураалтаар сонгодог болсон.</p>
+  <p>Ивээн тэтгэгч 12-р сарын 31-ний нэг шөнөөр хязгаарлагдахгүй — 9-р сараас 1-р сар хүртэл гарах бүх контент, санал хураалтын платформ, постер, трейлерт харагдана.</p>
+
+  <h3>Гол үзүүлэлт</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="n">11+ сая</div><div class="l">Нийт үзэлт<br>2023–2025</div></div>
+    <div class="kpi"><div class="n">1.14 сая</div><div class="l">Mesmerism Official<br>subscriber</div></div>
+    <div class="kpi"><div class="n">10</div><div class="l">Контент<br>5 сарын турш</div></div>
+    <div class="kpi"><div class="n red">16</div><div class="l">Оролцогч<br>YouTuber</div></div>
+  </div>
+
+  <h3>Товч мэдээлэл</h3>
+  <table class="t">
+    <tr><th style="width:42mm">Үзүүлэлт</th><th>Мэдээлэл</th></tr>
+    <tr><td>Төслийн нэр</td><td>YouTube Champ 2026</td></tr>
+    <tr><td>Зохион байгуулагч</td><td>Mesmerism Official</td></tr>
+    <tr><td>Үндсэн контент</td><td>2 анги (Part 1, Part 2), нийт 90+ минут</td></tr>
+    <tr><td>Цацалт</td><td>2026.12.31, 21:00 ба 2027.01.01, 21:00 — Mesmerism Official YouTube суваг</td></tr>
+    <tr><td>Оролцогч</td><td>16 YouTuber: санал хураалтаар шалгарах 15 + өнгөрсөн жилийн аварга</td></tr>
+    <tr><td>Шагнал</td><td>YouTube Champ-ийн бүс ба үзэгчдийн бүрдүүлсэн шагналын сан</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ 2. ХҮРЭЭ ═════════════ -->
+<section class="section">
+  <div class="sec-no">02</div>
+  <h2>Хүрэх хүрээ ба үзэгчид</h2>
+  <p class="lead">Төсөл Mesmerism Official-ийн өргөн хүрээтэй, эрчимтэй өсөж буй сувгаар дамжин олон нийтэд хүрнэ.</p>
+
+  <h3>Mesmerism Official YouTube суваг</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="n">1,142,499</div><div class="l">Subscriber</div></div>
+    <div class="kpi"><div class="n">291.9 сая</div><div class="l">Нийт үзэлт</div></div>
+    <div class="kpi"><div class="n">7 сая+</div><div class="l">Нийт үзсэн цаг</div></div>
+    <div class="kpi"><div class="n">754K</div><div class="l">Unique viewers</div></div>
+  </div>
+  <p class="note">Нийт үзэлт: 291,921,627. Watch time views (24 цаг): 98K.</p>
+
+  <h3>YouTube Champ-ийн үзүүлэлт</h3>
+  <table class="t">
+    <tr><th>Үзүүлэлт</th><th class="num">Тоо</th><th>Тайлбар</th></tr>
+    <tr><td>Нийт үзэлт</td><td class="num">11 сая+</td><td>2023–2025 оны шоунууд</td></tr>
+    <tr><td>Сэтгэгдэл</td><td class="num">8,410</td><td>2025 оны контент</td></tr>
+    <tr><td>Бүртгүүлсэн хэрэглэгч</td><td class="num">50,000+</td><td>2025 оны санал хураалтын платформ, 4 долоо хоногт</td></tr>
+    <tr><td>Үзэгчдийн бүрдүүлсэн шагналын сан</td><td class="num">47,886,500₮</td><td>2025 он, бүхэлдээ үзэгчдийн саналаар</td></tr>
+  </table>
+
+  <h3>Үзэгчдийн нас, хүйсийн харьцаа</h3>
+  <table class="t">
+    <tr><th>Нас</th><th class="num">Үзэлт — эмэгтэй</th><th class="num">Үзэлт — эрэгтэй</th><th class="num">Цаг — эмэгтэй</th><th class="num">Цаг — эрэгтэй</th></tr>
+    <tr class="total"><td>Нийт</td><td class="num">50.8%</td><td class="num">49.0%</td><td class="num">51.9%</td><td class="num">47.9%</td></tr>
+    <tr><td>13–17 нас</td><td class="num">4.2%</td><td class="num">4.5%</td><td class="num">4.4%</td><td class="num">4.0%</td></tr>
+    <tr><td>18–24 нас</td><td class="num">10.9%</td><td class="num">12.0%</td><td class="num">12.9%</td><td class="num">12.3%</td></tr>
+    <tr class="hl"><td>25–34 нас</td><td class="num">18.5%</td><td class="num">18.5%</td><td class="num">19.4%</td><td class="num">19.0%</td></tr>
+    <tr><td>35–44 нас</td><td class="num">12.0%</td><td class="num">10.1%</td><td class="num">11.0%</td><td class="num">9.4%</td></tr>
+    <tr><td>45+ нас</td><td class="num">5.3%</td><td class="num">3.9%</td><td class="num">4.3%</td><td class="num">3.2%</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ 3. ФОРМАТ ═════════════ -->
+<section class="section">
+  <div class="sec-no">03</div>
+  <h2>Формат ба сонгон шалгаруулалт</h2>
+  <p class="lead">Хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-ийг сонгон mesmerism.mn дээр бүртгэж, үзэгчдийн санал хураалтаар 15 оролцогч шалгарна. 16 дахь оролцогч нь өнгөрсөн жилийн аварга бөгөөд шууд урилгаар оролцоно.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">50</div><div class="l">Нэр дэвшигч<br>YouTube суваг</div></div>
+    <div class="kpi"><div class="n">15</div><div class="l">Санал хураалтаар<br>шалгарна</div></div>
+    <div class="kpi"><div class="n">+1</div><div class="l">Өнгөрсөн жилийн аварга<br>Tushig</div></div>
+    <div class="kpi"><div class="n red">16</div><div class="l">Нийт<br>оролцогч</div></div>
+  </div>
+
+  <h3>Санал хураалтын хуваарь</h3>
+  <table class="t">
+    <tr><th>Шат</th><th>Хугацаа</th><th class="num">Шалгарах</th><th class="num">Нийт</th></tr>
+    <tr><td>Санал хураалт 1</td><td>10/10 — 10/17</td><td class="num">4</td><td class="num">4</td></tr>
+    <tr><td>Санал хураалт 2</td><td>10/17 — 10/24</td><td class="num">4</td><td class="num">8</td></tr>
+    <tr><td>Санал хураалт 3</td><td>10/24 — 10/31</td><td class="num">4</td><td class="num">12</td></tr>
+    <tr><td>Санал хураалт 4</td><td>10/31 — 11/07</td><td class="num">3</td><td class="num">15</td></tr>
+    <tr class="total"><td>Шууд урилга</td><td>Өнгөрсөн жилийн аварга — Tushig</td><td class="num">1</td><td class="num">16</td></tr>
+  </table>
+  <p class="note">Үзэгчид mesmerism.mn дээр Star худалдан авч санал өгнө (1 Star = 500₮). Санал хураалтаар цугласан мөнгө шагналын санд орно.</p>
+
+  <h3>Үндсэн зураг авалт — 3 үе шат</h3>
+  <table class="t">
+    <tr><th style="width:12mm">№</th><th>Үе шат</th></tr>
+    <tr><td>1</td><td>Багийн тэмцээн</td></tr>
+    <tr><td>2</td><td>Хайч, чулуу, даавуу</td></tr>
+    <tr><td>3</td><td>Бүсний эзэн</td></tr>
+  </table>
+</section>
+
+<!-- ═════════════ 4. КОНТЕНТ ═════════════ -->
+<section class="section">
+  <div class="sec-no">04</div>
+  <h2>Контентын төлөвлөгөө</h2>
+  <p class="lead">Нэг шоу биш — 5 сарын турш гарах 10 контент. Ивээн тэтгэгч бүх контентод харагдана.</p>
+  <table class="t">
+    <tr><th style="width:9mm">№</th><th>Контент</th><th class="num">Тоо</th><th>Хугацаа</th></tr>
+    <tr><td>1</td><td><b>Албан ёсоор эхэллээ</b><span class="sm">Mesmerism сувагт тэмцээнийг зарлах контент</span></td><td class="num">1</td><td>9-р сар</td></tr>
+    <tr><td>2</td><td><b>Санал хураалтын нээлт</b><span class="sm">Шууд дамжуулалт (stream)</span></td><td class="num">1</td><td>10-р сар</td></tr>
+    <tr><td>3</td><td><b>Урилга хүргэх</b><span class="sm">7 хоног бүр шалгарсан YouTuber дээр очиж урилга өгнө</span></td><td class="num">4</td><td>10–11-р сар</td></tr>
+    <tr><td>4</td><td><b>Трейлер</b><span class="sm">Үндсэн контентын зарлал</span></td><td class="num">1</td><td>12-р сар</td></tr>
+    <tr class="hl"><td>5</td><td><b>YouTube Champ 2026</b><span class="sm">Үндсэн контент — Part 1 ба Part 2</span></td><td class="num">2</td><td>12/31 · 01/01</td></tr>
+    <tr><td>6</td><td><b>Бүсний эзэнтэй влог</b><span class="sm">Ялагчтай хамт хийх контент</span></td><td class="num">1</td><td>1-р сар</td></tr>
+    <tr class="total"><td></td><td>Нийт: 9 видео, 1 шууд дамжуулалт</td><td class="num">10</td><td>5 сар</td></tr>
+  </table>
+
+  <div class="section cont">
+    <div class="sec-no">05</div>
+    <h2>Шоуны бүтэц</h2>
+    <p>Нийт 90 гаруй минут. Хамтран ажиллах байгууллагын онцлогоос хамаарч дараалал өөрчлөгдөж болох ч нийт тоо хэмжээ өөрчлөгдөхгүй.</p>
+    <table class="t">
+      <tr><th style="width:9mm">№</th><th>Хэсэг</th><th style="width:9mm">№</th><th>Хэсэг</th></tr>
+      <tr><td>1</td><td>Танилцуулга</td><td>7</td><td>Jan Ken Pon 3</td></tr>
+      <tr><td>2</td><td>Бүсний эзэн</td><td>8</td><td>Тэмцээн 3</td></tr>
+      <tr><td>3</td><td>Jan Ken Pon 1</td><td>9</td><td>Тэмцээн 4</td></tr>
+      <tr><td>4</td><td>Тэмцээн 1</td><td>10</td><td>Jan Ken Pon 4</td></tr>
+      <tr><td>5</td><td>Jan Ken Pon 2</td><td>11</td><td>Оройн зоог</td></tr>
+      <tr><td>6</td><td>Тэмцээн 2</td><td>12</td><td>CHAMP тодруулах</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════════ 5. БАЙРШИЛ ═════════════ -->
+<section class="section">
+  <div class="sec-no">06</div>
+  <h2>Брэндийн байршил</h2>
+  <p class="lead">Логоны байршлаас илүүтэй — контентын дотор амьдардаг интеграци.</p>
+  <div class="cols">
+    <div>
+      <div class="box"><h3>Видео контент доторх байршил</h3>
+        <ul class="l"><li>Эхлэл болон төгсгөлд лого</li><li>Тэмцээний шилжилтэд (шторк) лого</li><li>15 секундын сурталчилгааны шторк</li><li>Хөтлөгчийн аман сурталчилгаа</li></ul></div>
+      <div class="box"><h3>Дижитал ба идэвхжүүлэлт</h3>
+        <ul class="l"><li>Үндсэн постер дээр лого</li><li>Идэвхжүүлэлтийн reel</li><li>Нэг тэмцээний зураг авалтын талбайг өөрийн бүтээгдэхүүнээр тохижуулах</li></ul></div>
+    </div>
+    <div>
+      <div class="box"><h3>Оролцогчтой холбоотой</h3>
+        <ul class="l"><li>Ярилцлагын хэсэгт бүтээгдэхүүн, лого</li><li>Оролцогчид бүтээгдэхүүн хэрэглэх, сэтгэгдэл хэлэх</li><li>16 оролцогчийн постер</li></ul></div>
+      <div class="box"><h3>Онлайн орчин</h3>
+        <ul class="l"><li>mesmerism.mn дээр баннер</li><li>Санал хураалтын 4 долоо хоногт байнгын харагдац</li><li>Teaser болон трейлерт лого</li></ul></div>
+    </div>
+  </div>
+
+  <div class="cont" style="margin-top:6mm">
+    <h3>Оролцогчдын постер дээрх лого</h3>
+    <p>Оролцогч бүрт зориулсан постерыг сошиал сувгуудаар түгээдэг. Ивээн тэтгэгчийн лого бүх постер дээр байрлана. Доорх нь 2025 оны оролцогчдын постер.</p>
+    <div class="posters"><img src="../img/p_tushig.webp" alt=""><img src="../img/p_munhluu.webp" alt=""><img src="../img/p_cts.webp" alt=""><img src="../img/p_burger.webp" alt=""><img src="../img/p_cadis.webp" alt=""><img src="../img/p_gigi.webp" alt=""><img src="../img/p_horloo.webp" alt=""><img src="../img/p_iexynn.webp" alt=""><img src="../img/p_jaywoo.webp" alt=""><img src="../img/p_kuush.webp" alt=""><img src="../img/p_oponi.webp" alt=""><img src="../img/p_snoopy.webp" alt=""><img src="../img/p_shymelle.webp" alt=""><img src="../img/p_yuki.webp" alt=""><img src="../img/p_zadlan.webp" alt=""></div>
+  </div>
+</section>
+
+<!-- ═════════════ 6. ХУГАЦАА ═════════════ -->
+<section class="section">
+  <div class="sec-no">07</div>
+  <h2>Хугацааны төлөвлөгөө</h2>
+  <p class="lead">Дөрвөн сарын кампанит ажил. Ивээн тэтгэгч 10-р сарын эхнээс эхлэн тасралтгүй харагдана.</p>
+  <table class="t">
+    <tr><th style="width:30mm">Үе шат</th><th style="width:34mm">Огноо</th><th>Ажил</th><th>Тайлбар</th></tr>
+    <tr><td rowspan="5"><b>1. Идэвхжүүлэлт</b></td><td>09/20</td><td>Бүртгэл нээгдэнэ</td><td>50 нэр дэвшигч</td></tr>
+    <tr><td>10/10 — 10/17</td><td>Санал хураалт 1</td><td>4 YouTuber шалгарна</td></tr>
+    <tr><td>10/17 — 10/24</td><td>Санал хураалт 2</td><td>4 YouTuber, нийт 8</td></tr>
+    <tr><td>10/24 — 10/31</td><td>Санал хураалт 3</td><td>4 YouTuber, нийт 12</td></tr>
+    <tr><td>10/31 — 11/07</td><td>Санал хураалт 4</td><td>3 YouTuber, нийт 15 тодорно</td></tr>
+    <tr><td rowspan="2"><b>2. Зураг авалт</b></td><td>11/10 — 11/15</td><td>Media Day</td><td>Постерын зураг авалт</td></tr>
+    <tr><td>11/22 — 12/22</td><td>Post production</td><td>Постер, трейлер</td></tr>
+    <tr class="hl"><td rowspan="2"><b>3. Үр дүн</b></td><td>12/31, 21:00</td><td><b>YouTube Champ 2026</b></td><td>Part 1 · Part 2 — 01/01, 21:00</td></tr>
+    <tr><td>01/05 — 01/10</td><td>Бүсний эзэнтэй влог</td><td>Mesmerism Official</td></tr>
+  </table>
+
+</section>
+
+<!-- ═════════════ 8. ШАГНАЛ ═════════════ -->
+<section class="section">
+  <div class="sec-no">08</div>
+  <h2>Шагнал</h2>
+  <img class="belt" src="../img/belt.webp" alt="YouTube Champ бүс">
+  <p class="lead">Ялагч YouTube Champ-ийн бүсийг хүртэнэ. Бүс нь дараа жилийн шоу хүртэл эзэнтэйгээ хамт явж, түүний контентод байнга харагдана.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="n red">47,886,500₮</div><div class="l">2025 оны шагналын сан</div></div>
+    <div class="kpi"><div class="n">4 долоо хоног</div><div class="l">Үзэгчдийн саналаар бүрдсэн хугацаа</div></div>
+  </div>
+  <p>2026 оны шагналын сан мөн санал хураалтын явцад үзэгчдийн оролцоогоор бүрдэнэ.</p>
+</section>
+
+<!-- ═════════════ 9. БАГЦ ═════════════ -->
+<section class="section">
+  <div class="sec-no">09</div>
+  <h2>Ерөнхий ивээн тэтгэгчийн багц</h2>
+  <p class="lead">Контентыг илүү үзүүштэй болгохын тулд хязгаарлагдмал тооны байгууллагатай хамтран ажиллана.</p>
+  <div class="price">
+    <div class="amt">30,000,000<small>₮</small></div>
+    <div class="meta"><b>Ерөнхий ивээн тэтгэгч</b>НӨАТ ороогүй дүн</div>
+  </div>
+  <table class="t">
+    <tr><th style="width:9mm">№</th><th>Багцад багтах зүйл</th></tr>
+    <tr><td>1</td><td><b>Видео доторх бүрэн интеграци</b><span class="sm">Лого, шторк, аман сурталчилгаа; бүтээгдэхүүн эсвэл брэндээр тохижуулсан зураг авалтын талбай</span></td></tr>
+    <tr><td>2</td><td><b>Оролцогчийн интеграци</b><span class="sm">Ярилцлагад бүтээгдэхүүн байршуулах, оролцогчид хэрэглэх</span></td></tr>
+    <tr><td>3</td><td><b>Постер ба трейлер</b><span class="sm">Үндсэн постер, 16 YouTuber-ийн постер, трейлер</span></td></tr>
+    <tr><td>4</td><td><b>4 долоо хоногийн санал хураалт</b><span class="sm">mesmerism.mn дээр байнгын харагдац</span></td></tr>
+    <tr><td>5</td><td><b>Нэг тэмцээний эрх</b><span class="sm">Нэг тэмцээний зураг авалтын талбайг өөрийн бүтээгдэхүүнээр тохижуулах</span></td></tr>
+  </table>
+  <p class="note">Багцад дээрх бүх байршил, эрх багтана. Нөхцөл, байршлыг танай брэндийн зорилгод тохируулан талуудын тохиролцоогоор баталгаажуулна.</p>
+
+</section>
+
+<!-- ═════════════ 10. ХОЛБОО БАРИХ ═════════════ -->
+<section class="section">
+  <div>
+    <div class="sec-no">10</div>
+    <h2>Холбоо барих</h2>
+    <p class="lead">YouTube Champ 2026-д ерөнхий ивээн тэтгэгчээр хамтран ажиллах санал, нөхцөлийн талаар дэлгэрэнгүй ярилцахад бэлэн байна. Багцын нөхцөл, байршлыг танай брэндийн зорилгод тохируулан нарийвчилна.</p>
+    <div class="contact">
+      <table>
+        <tr><td>Байгууллага</td><td>Mesmerism Official</td></tr>
+        <tr><td>Утас</td><td>9904-3988, 8810-4706</td></tr>
+        <tr><td>И-мэйл</td><td>mesmerismcomedy@gmail.com</td></tr>
+        <tr><td>Вэб</td><td>mesmerism.mn</td></tr>
+        <tr><td>YouTube</td><td>Mesmerism Official</td></tr>
+      </table>
+    </div>
+    <div class="sign">Хүндэтгэсэн,<b>Mesmerism Official баг</b></div>
+  </div>
+  <div class="closing">
+    <img src="../logo.webp" alt="YouTube Champ 2026">
+    <div class="c-line">YouTube Champ 2026</div>
+    <div class="c-sub">Part 1 — 2026.12.31, 21:00 &nbsp;·&nbsp; Part 2 — 2027.01.01, 21:00 &nbsp;·&nbsp; Mesmerism Official</div>
+  </div>
+</section>
+
+</body>
+</html>
