@@ -111,7 +111,14 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
 .posters img:nth-child(8n){margin-right:0}
 
 /* prize */
-.belt{width:100%;margin:2mm 0 5mm;border:.6pt solid var(--line)}
+.belt{width:100%;height:78mm;object-fit:cover;margin:0 0 5mm;border:.6pt solid var(--line)}
+.t.prizes td b{font-size:10pt}
+.partners-pdf{break-inside:avoid;margin-top:7mm}
+.ptiles{font-size:0}
+.ptile{display:inline-block;position:relative;box-sizing:border-box;width:25.6mm;height:16mm;margin:0 2.4mm 2.4mm 0;border:.6pt solid var(--line);background:#fff}
+.ptile:nth-child(6n){margin-right:0}
+.ptile img{position:absolute;top:3.2mm;left:3mm;width:19.6mm;height:9.6mm;object-fit:contain}
+.ptile.sq img{top:.8mm;left:2mm;width:21.6mm;height:14.4mm}
 
 /* package */
 .price{display:flex;align-items:flex-end;gap:8mm;border:1.2pt solid var(--ink);padding:6mm 7mm;margin:2mm 0 5mm}
@@ -188,7 +195,7 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
     <tr><td>Үндсэн контент</td><td>2 анги (Part 1, Part 2), нийт 90+ минут</td></tr>
     <tr><td>Цацалт</td><td>2026.12.31, 21:00 ба 2027.01.01, 21:00 — Mesmerism Official YouTube суваг</td></tr>
     <tr><td>Оролцогч</td><td>16 YouTuber: санал хураалтаар шалгарах 15 + өнгөрсөн жилийн аварга</td></tr>
-    <tr><td>Шагнал</td><td>YouTube Champ-ийн бүс ба үзэгчдийн бүрдүүлсэн шагналын сан</td></tr>
+    <tr><td>Шагнал</td><td>YouTube Champ-ийн бүс; Хайч, чулуу, даавуу — 10,000,000₮; санал хураалтаар цугласан шагналын сан</td></tr>
   </table>
 </section>
 
@@ -345,12 +352,13 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
   <div class="sec-no">08</div>
   <h2>Шагнал</h2>
   <img class="belt" src="../img/belt.webp" alt="YouTube Champ бүс">
-  <p class="lead">Ялагч YouTube Champ-ийн бүсийг хүртэнэ. Бүс нь дараа жилийн шоу хүртэл эзэнтэйгээ хамт явж, түүний контентод байнга харагдана.</p>
-  <div class="kpis">
-    <div class="kpi"><div class="n red">47,886,500₮</div><div class="l">2025 оны шагналын сан</div></div>
-    <div class="kpi"><div class="n">4 долоо хоног</div><div class="l">Үзэгчдийн саналаар бүрдсэн хугацаа</div></div>
-  </div>
-  <p>2026 оны шагналын сан мөн санал хураалтын явцад үзэгчдийн оролцоогоор бүрдэнэ.</p>
+  <p class="lead">YouTube Champ 2026-д гурван шагнал гардуулна. Бүсний эзэн нь дараа жилийн шоу хүртэл бүсээ эзэмшиж, түүний контентод байнга харагдана.</p>
+  <table class="t prizes">
+    <tr><th style="width:9mm">№</th><th style="width:52mm">Шагнал</th><th>Хэрхэн тодрох</th></tr>
+    <tr class="hl"><td>1</td><td><b>Бүсний эзэн</b><span class="sm">YouTube Champ-ийн бүс</span></td><td>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно.</td></tr>
+    <tr><td>2</td><td><b>10,000,000₮</b><span class="sm">Хайч, чулуу, даавуу</span></td><td>Шалгарсан оролцогчдын дундаас 1 хүн хүртэнэ.</td></tr>
+    <tr><td>3</td><td><b>Шагналын сан</b><span class="sm">Санал хураалтаар цугласан мөнгө</span></td><td>Шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ. 2025 онд үзэгчдийн саналаар 47,886,500₮ бүрдсэн.</td></tr>
+  </table>
 </section>
 
 <!-- ═════════════ 9. БАГЦ ═════════════ -->
@@ -371,6 +379,11 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
     <tr><td>5</td><td><b>Нэг тэмцээний эрх</b><span class="sm">Нэг тэмцээний зураг авалтын талбайг өөрийн бүтээгдэхүүнээр тохижуулах</span></td></tr>
   </table>
   <p class="note">Багцад дээрх бүх байршил, эрх багтана. Нөхцөл, байршлыг танай брэндийн зорилгод тохируулан талуудын тохиролцоогоор баталгаажуулна.</p>
+
+  <div class="partners-pdf">
+    <h3>Хамтран ажилласан байгууллагууд</h3>
+    <div class="ptiles"><span class="ptile "><img src="../img/partners/golomt.png" alt="Голомт банк"></span><span class="ptile "><img src="../img/partners/tcl.svg" alt="TCL"></span><span class="ptile sq"><img src="../img/partners/burgerking.png" alt="Burger King"></span><span class="ptile "><img src="../img/partners/gs25.png" alt="GS25"></span><span class="ptile "><img src="../img/partners/asahi.png" alt="Asahi"></span><span class="ptile sq"><img src="../img/partners/chupachups.png" alt="Chupa Chups"></span><span class="ptile sq"><img src="../img/partners/unicef.png" alt="UNICEF"></span><span class="ptile sq"><img src="../img/partners/blu.png" alt="BLU"></span><span class="ptile sq"><img src="../img/partners/moni.png" alt="Moni"></span><span class="ptile sq"><img src="../img/partners/voo.png" alt="Voo"></span><span class="ptile sq"><img src="../img/partners/oneone.png" alt="One One"></span></div>
+  </div>
 
 </section>
 
