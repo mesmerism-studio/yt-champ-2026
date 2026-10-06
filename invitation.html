@@ -329,6 +329,11 @@ form{display:grid;gap:14px;margin-top:24px}
 /* YT Champ Molot: wide default word gaps, tighten them for headline type */
 .h2,.s1-title,.inv-title,.champ-name,.champ-t,.modal-title,.ev .t,.rounds li,.total,.fstage .n,.wk .d,.num .n,.ev .d{word-spacing:-.26em;letter-spacing:0}
 
+/* жижиг дэд бичигт том гарчгийн сөрөг үгийн зай уламжлагдахгүй */
+.total span{word-spacing:normal}
+.wk .d small{word-spacing:normal}
+.inv-title span{word-spacing:-.26em}
+
 /* responsive */
 @media(max-width:860px){
   .weeks{grid-template-columns:repeat(2,1fr)}
@@ -401,7 +406,7 @@ form{display:grid;gap:14px;margin-top:24px}
         <div class="champ-txt">
           <p class="champ-k">16 дахь оролцогч · Шууд урилгаар</p>
           <h3 class="champ-name">Tushig</h3>
-          <p class="champ-t">2025 оны YouTube Champ — <b>Бүсний эзэн</b></p>
+          <p class="champ-t">2025 оны YouTube Champ — <b>Бүсийн эзэн</b></p>
           <p class="champ-d">Өнгөрсөн жилийн аварга санал хураалтгүйгээр шууд урилгаар оролцож, бүсээ хамгаална.</p>
         </div>
       </div>
@@ -456,13 +461,13 @@ form{display:grid;gap:14px;margin-top:24px}
     <div class="wrap show-grid">
       <div>
         <p class="label reveal">Шалгарсны дараа</p>
-        <h2 class="h2 reveal" style="--d:.08s">Бүсний <em>эзэн</em>.</h2>
+        <h2 class="h2 reveal" style="--d:.08s">Бүсийн <em>эзэн</em>.</h2>
         <p class="lede reveal" style="--d:.16s">Шалгарсан оролцогчид 3 үе шаттай тэмцээнд өрсөлдөж, гурван шагналын төлөө тэмцэнэ.</p>
         <ul class="rounds reveal" style="--d:.22s">
           <li>Багийн тэмцээн</li><li>Хайч чулуу даавуу</li><li>Бүсийн эзэн</li>
         </ul>
         <ol class="prize-list reveal" style="--d:.26s">
-          <li><b>Бүсний эзэн</b><span>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно. Бүсээ дараа жилийн шоу хүртэл эзэмшинэ.</span></li>
+          <li><b>Бүсийн эзэн</b><span>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно. Бүсээ дараа жилийн шоу хүртэл эзэмшинэ.</span></li>
           <li><b>10,000,000₮</b><span>Хайч, чулуу, даавуу — шалгарсан оролцогчдын дундаас 1 хүн хүртэнэ.</span></li>
           <li><b>Шагналын сан</b><span>Санал хураалтаар цугласан мөнгийг шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ.</span></li>
         </ol>
@@ -496,7 +501,7 @@ form{display:grid;gap:14px;margin-top:24px}
 
     <div id="formView">
       <h3 class="modal-title" id="formTitle">Урилга баталгаажуулах</h3>
-      <p class="modal-sub">Мэдээллээ үлдээгээрэй — бид тантай эргэн холбогдоно.</p>
+      <p class="modal-sub">Та доорх маягтыг бөглөснөөр урилга баталгаажсанд тооцогдож, таны мэдээллийг mesmerism.mn сайтад байршуулна.</p>
       <form id="rsvpForm" novalidate>
         <input type="hidden" name="invite_to" id="inviteTo">
         <label class="hp" aria-hidden="true">Үүнийг бөглөх хэрэггүй<input type="checkbox" name="botcheck" tabindex="-1"></label>
@@ -532,7 +537,7 @@ form{display:grid;gap:14px;margin-top:24px}
     <div id="successView" class="modal-success" hidden>
       <div class="ok-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h3 class="modal-title">Баярлалаа!</h3>
-      <p class="modal-sub">Таны урилга баталгаажлаа. Санал хураалт эхлэхээс өмнө бид тантай холбогдоно.</p>
+      <p class="modal-sub">Таны урилга баталгаажлаа. Таны мэдээллийг mesmerism.mn сайтад байршуулна.</p>
       <button type="button" class="btn btn-ghost" id="doneBtn">Хаах</button>
     </div>
 
