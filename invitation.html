@@ -537,9 +537,14 @@ form{display:grid;gap:14px;margin-top:24px}
   "use strict";
   var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- хувийн урилга: ?to=Нэр ---------- */
+  /* ---------- хувийн урилга: invitation.html#Нэр  (эсвэл хуучин ?to=Нэр) ----------
+     Нэрэнд зай байвал доогуур зураас: #Red_Burger → "Red Burger" */
   var to = "";
-  try { to = (new URLSearchParams(location.search).get("to") || "").trim().slice(0, 40); } catch (e) {}
+  try {
+    var fromQuery = new URLSearchParams(location.search).get("to") || "";
+    var fromHash = decodeURIComponent(location.hash.slice(1)).replace(/_/g, " ");
+    to = (fromQuery || fromHash).replace(/\s+/g, " ").trim().slice(0, 40);
+  } catch (e) {}
   if (to) {
     document.getElementById("toName").textContent = to;
     document.getElementById("toLine").hidden = false;
