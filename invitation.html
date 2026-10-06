@@ -279,6 +279,16 @@ form{display:grid;gap:14px;margin-top:24px}
   box-shadow:0 0 0 10px rgba(224,42,38,.15)}
 .ok-icon svg{width:34px;height:34px;color:#fff}
 .modal-success .btn{margin-top:22px}
+.modal-success .contact{margin-top:14px}
+.ok-icon.warn{background:none;border:2px solid var(--gold);box-shadow:0 0 0 10px rgba(224,176,74,.12)}
+.ok-icon.warn svg{color:var(--gold)}
+
+/* channel name locked to the invite link */
+.locked{position:relative;display:block}
+.locked input{padding-right:44px;color:var(--gold);font-weight:600;border-style:dashed;border-color:rgba(224,176,74,.45);
+  background:rgba(224,176,74,.06);cursor:not-allowed}
+.locked input:focus{border-color:rgba(224,176,74,.45);background:rgba(224,176,74,.06)}
+.locked svg{position:absolute;right:14px;top:50%;translate:0 -50%;width:18px;height:18px;color:var(--gold);pointer-events:none}
 
 
 /* champion (+1) card */
@@ -479,8 +489,9 @@ form{display:grid;gap:14px;margin-top:24px}
 
         <label class="field"><span>Овог нэр</span>
           <input type="text" name="fullname" required autocomplete="name" placeholder="Овог, нэр"></label>
-        <label class="field"><span>YouTube сувгийн нэр</span>
-          <input type="text" name="channel" id="channelField" required placeholder="Сувгийн нэр"></label>
+        <label class="field"><span>YouTube сувгийн нэр <i>(урилгаар тогтоосон)</i></span>
+          <span class="locked"><input type="text" name="channel" id="channelField" required readonly aria-readonly="true" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></label>
         <label class="field"><span>Сувгийн холбоос</span>
           <input type="url" name="channel_url" required inputmode="url" placeholder="https://youtube.com/@..."></label>
         <div class="row2">
@@ -509,6 +520,14 @@ form{display:grid;gap:14px;margin-top:24px}
       <h3 class="modal-title">Баярлалаа!</h3>
       <p class="modal-sub">Таны урилга баталгаажлаа. Санал хураалт эхлэхээс өмнө бид тантай холбогдоно.</p>
       <button type="button" class="btn btn-ghost" id="doneBtn">Хаах</button>
+    </div>
+
+    <div id="noLinkView" class="modal-success" hidden>
+      <div class="ok-icon warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+      <h3 class="modal-title">Албан ёсны линкээр дахин хандана уу</h3>
+      <p class="modal-sub">Урилгыг зөвхөн танд илгээсэн хувийн линкээр баталгаажуулах боломжтой.</p>
+      <p class="contact">Линк хүлээн аваагүй бол: <a href="tel:99043988">9904-3988</a>, <a href="tel:88104706">8810-4706</a></p>
+      <button type="button" class="btn btn-ghost" id="noLinkBtn">Хаах</button>
     </div>
   </div>
 </div>
@@ -619,14 +638,20 @@ form{display:grid;gap:14px;margin-top:24px}
   var form = document.getElementById("rsvpForm");
   var formView = document.getElementById("formView");
   var successView = document.getElementById("successView");
+  var noLinkView = document.getElementById("noLinkView");
   var submitBtn = form.querySelector(".modal-submit");
   var lastFocus = null;
 
+  /* нэргүй линкээр орсон бол маягт нээгдэхгүй — албан ёсны линк шаардана */
   function openModal(){
     lastFocus = document.activeElement;
-    formView.hidden = false; successView.hidden = true;
+    successView.hidden = true;
+    formView.hidden = !to;
+    noLinkView.hidden = !!to;
     modal.classList.add("open"); document.body.classList.add("lock");
-    setTimeout(function(){ form.querySelector("input[name=fullname]").focus(); }, 300);
+    setTimeout(function(){
+      (to ? form.querySelector("input[name=fullname]") : document.getElementById("noLinkBtn")).focus();
+    }, 300);
   }
   function closeModal(){
     modal.classList.remove("open"); document.body.classList.remove("lock");
@@ -636,12 +661,16 @@ form{display:grid;gap:14px;margin-top:24px}
   document.getElementById("formBackdrop").addEventListener("click", closeModal);
   document.getElementById("formClose").addEventListener("click", closeModal);
   document.getElementById("doneBtn").addEventListener("click", closeModal);
+  document.getElementById("noLinkBtn").addEventListener("click", closeModal);
   addEventListener("keydown", function(e){ if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
+    if (!to) return;
     if (!form.checkValidity()) { form.reportValidity(); return; }
     var data = new FormData(form);
+    data.set("channel", to);
+    data.set("invite_to", to);
     data.append("access_key", "7170ffb3-fe18-4832-ad24-e5e5b40d00ea");
     data.append("subject", "YouTube Champ 2026 — урилга баталгаажлаа: " + (data.get("channel") || ""));
     data.append("from_name", "YouTube Champ 2026 — Урилга");
