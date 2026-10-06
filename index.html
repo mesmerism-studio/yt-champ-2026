@@ -767,6 +767,18 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
 .head h2{font-size:clamp(2.4rem,6.6vw,6.8rem);line-height:.98}
 .amt{font-size:clamp(3.2rem,8.6vw,7.6rem)}
 
+/* ---------- өмнөх хамтрагчид (даруухан лого мөр) ---------- */
+#partners{background:var(--paper);padding-block:clamp(48px,6vw,84px);border-top:1px solid var(--line)}
+.partners-title{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--faint);text-align:center;margin:0 0 clamp(20px,2.6vw,30px);word-spacing:0;line-height:1.7;text-wrap:balance}
+.partners{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.partners li{position:relative;flex:0 0 clamp(84px,7.4vw,104px);aspect-ratio:3/2;background:rgba(244,239,230,.92);border-radius:10px;
+  overflow:hidden;opacity:.55;transition:opacity .35s var(--ease)}
+.partners li:hover{opacity:1}
+.partners img{position:absolute;top:18%;left:14%;width:72%;height:64%;object-fit:contain;filter:grayscale(1);transition:filter .35s var(--ease)}
+.partners li.sq img{top:6%;left:12%;width:76%;height:88%}
+.partners li:hover img{filter:none}
+
 /* ==========================================================
    ХЭВЛЭХ / PDF   —   A4 landscape, хэсэг бүр нэг хуудас
    Дэлгэцийн хэмжээсүүд хуудсанд багтахгүй тул хэвлэхэд
@@ -804,6 +816,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   #channel,#time{background-color:#fff !important}
   .prize-img{transform:none !important;border:0 !important;rotate:0deg !important}
   .fx-dark,.tape,.cta-big{display:none !important}
+  .partners li{opacity:1 !important;transform:none !important;border:1px solid #E9E5E3}
   .cta-stage .logo-sm{position:static !important;translate:none !important;rotate:0deg !important;filter:none !important;animation:none !important}
   .hero-meta{position:static !important;display:flex !important;justify-content:center;gap:16mm;margin-top:9mm}
   .tk{position:static !important;translate:none !important;text-align:center !important;align-items:center !important}
@@ -1290,6 +1303,26 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   </div>
 </section>
 
+<!-- ══ ХАМТРАГЧИД ══ -->
+<section id="partners">
+  <div class="wrap">
+    <h2 class="partners-title" data-rev>Хамтран ажилласан байгууллагууд</h2>
+    <ul class="partners" id="partnersGrid">
+      <li style="--d:0.00s"><img src="img/partners/golomt.png" alt="Голомт банк" loading="lazy"></li>
+      <li style="--d:0.05s"><img src="img/partners/tcl.svg" alt="TCL" loading="lazy"></li>
+      <li style="--d:0.10s" class="sq"><img src="img/partners/burgerking.png" alt="Burger King" loading="lazy"></li>
+      <li style="--d:0.15s"><img src="img/partners/gs25.png" alt="GS25" loading="lazy"></li>
+      <li style="--d:0.20s"><img src="img/partners/asahi.png" alt="Asahi" loading="lazy"></li>
+      <li style="--d:0.25s" class="sq"><img src="img/partners/chupachups.png" alt="Chupa Chups" loading="lazy"></li>
+      <li style="--d:0.30s" class="sq"><img src="img/partners/unicef.png" alt="UNICEF" loading="lazy"></li>
+      <li style="--d:0.35s" class="sq"><img src="img/partners/blu.png" alt="BLU" loading="lazy"></li>
+      <li style="--d:0.40s" class="sq"><img src="img/partners/moni.png" alt="Moni" loading="lazy"></li>
+      <li style="--d:0.45s" class="sq"><img src="img/partners/voo.png" alt="Voo" loading="lazy"></li>
+      <li style="--d:0.50s" class="sq"><img src="img/partners/oneone.png" alt="One One" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ══ CTA ══ -->
 <div class="tape" aria-hidden="true"><div class="tape-t"><div class="tape-g"><span>YouTube Champ 2026</span><span>12.31 · 21:00</span><span>Mesmerism Official</span><span>Бүсний эзэн</span><span>Ерөнхий ивээн тэтгэгч</span></div><div class="tape-g"><span>YouTube Champ 2026</span><span>12.31 · 21:00</span><span>Mesmerism Official</span><span>Бүсний эзэн</span><span>Ерөнхий ивээн тэтгэгч</span></div></div></div>
 
@@ -1338,7 +1371,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
 
 
   /* ---------- reveal + counters ---------- */
-  var watch = document.querySelectorAll("[data-rev],[data-split],#stats,#weeks,#tl,#run,#cta,#beltimg,#agebars");
+  var watch = document.querySelectorAll("[data-rev],[data-split],#stats,#weeks,#tl,#run,#cta,#beltimg,#agebars,#partnersGrid");
   function fire(el){
     el.classList.add("in");
     el.querySelectorAll("[data-count]").forEach(count);
