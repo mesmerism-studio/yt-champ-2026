@@ -192,7 +192,19 @@ section{position:relative;padding-block:clamp(80px,11vw,150px)}
 .wk .t b{color:var(--ink)}
 .after{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .ev{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 26px;border-radius:14px;border:1px solid var(--line)}
-.ev.key{border-color:var(--red);background:rgba(224,42,38,.07)}
+.ev.key{border-color:var(--red);background:rgba(224,42,38,.07);grid-column:1 / -1}
+/* зураг авалтын өдөр — бусдаас илүү тодорхой */
+.ev.shoot{grid-column:1 / -1;align-items:center;gap:20px 28px;padding:30px 32px;border:1.5px solid var(--gold);
+  background:radial-gradient(80% 140% at 0% 50%,rgba(224,176,74,.18),transparent 60%),linear-gradient(160deg,var(--panel),var(--panel-2));
+  animation:shootGlow 3.2s ease-in-out infinite}
+@keyframes shootGlow{0%,100%{box-shadow:0 26px 60px -30px rgba(224,176,74,.35)}50%{box-shadow:0 30px 80px -22px rgba(224,176,74,.75)}}
+.ev.shoot .shoot-ic{width:58px;height:58px;border-radius:50%;background:var(--gold);color:#1a1305;display:grid;place-items:center;flex:none}
+.ev.shoot .shoot-ic svg{width:28px;height:28px}
+.ev.shoot .shoot-txt{flex:1;min-width:220px}
+.ev.shoot .k{color:var(--gold)}
+.ev.shoot .t{font-size:clamp(1.6rem,3.2vw,2.6rem);margin-top:8px}
+.ev.shoot .s{font-size:.95rem;color:var(--tan);margin-top:6px}
+.ev.shoot .d{color:var(--gold);font-size:clamp(1.8rem,3.6vw,3rem)}
 .ev .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tan)}
 .ev .t{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:clamp(1.15rem,2vw,1.5rem);margin-top:6px}
 .ev .d{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.2rem);color:var(--red)}
@@ -383,7 +395,7 @@ form{display:grid;gap:14px;margin-top:24px}
         <span class="it-3" style="--i:2">санал хураалтад оролцохыг</span>
         <span class="it-4" style="--i:3">урьж байна.</span>
       </h2>
-      <p class="lede reveal" style="--d:.16s">YouTube Champ бол Mesmerism Official-ийн жил бүр Монголынхоо мянга мянган үзэгч, хүүхэд залуустаа зориулан шинэ жилийн бэлэг болгон <b>үнэгүй</b> хийдэг баярын тусгай контент юм.</p>
+      <p class="lede reveal" style="--d:.16s">YouTube Champ бол Mesmerism Official-ийн жил бүр Монголынхоо мянга мянган үзэгч, хүүхэд залуустаа зориулан шинэ жилийн бэлэг болгон <b>үнэгүй</b> үзүүлдэг баярын тусгай контент юм.</p>
       <div class="chosen reveal" style="--d:.24s"><b>50</b> нэр дэвшигчийн нэг нь та</div>
     </div>
   </section>
@@ -417,7 +429,6 @@ form{display:grid;gap:14px;margin-top:24px}
         <li class="reveal"><span>Үзэгчид <b>Star</b> худалдан авч санал өгнө — <b>1 Star = 500₮</b>.</span></li>
         <li class="reveal"><span>Санал хураалт <b>4 долоо хоног</b> (шат бүр 7 хоног) үргэлжилж, <b>11-р сарын 7-нд</b> дуусна. Эхний 3 долоо хоногт <b>4</b>, сүүлийн долоо хоногт <b>3</b> YouTuber шалгарч, нийт <b>15 оролцогч</b> тодорно.</span></li>
         <li class="reveal"><span>Санал хураалтаар цугласан мөнгө <b>шагналын санд</b> орно.</span></li>
-        <li class="reveal"><span>Дагагчдаа санал өгөхийг уриалах нь таны шалгарах боломжийг нэмнэ.</span></li>
       </ol>
     </div>
   </section>
@@ -435,7 +446,11 @@ form{display:grid;gap:14px;margin-top:24px}
         <div class="wk reveal" style="--d:.24s"><div class="k">Санал хураалт 4</div><div class="d">10/31<small>→ 11/7</small></div><div class="bar"><i style="--w:100%;--d:.4s"></i></div><div class="t"><b>3</b> YouTuber · нийт <b>15</b> тодорно</div></div>
       </div>
       <div class="after">
-        <div class="ev reveal"><div><div class="k">Шалгарсан оролцогчид</div><div class="t">Media Day · постерын зураг авалт</div></div><div class="d">11/10–15</div></div>
+        <div class="ev shoot reveal">
+          <div class="shoot-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div class="shoot-txt"><div class="k">Шалгарсан оролцогчид</div><div class="t">Зураг авалтын өдөр</div><div class="s">11 сарын 15–20-ны хооронд</div></div>
+          <div class="d">11/15 — 11/20</div>
+        </div>
         <div class="ev key reveal" style="--d:.08s"><div><div class="k">Mesmerism Official</div><div class="t">YouTube Champ 2026</div></div><div class="d">12/31 · 21:00</div></div>
       </div>
     </div>
