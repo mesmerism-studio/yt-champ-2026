@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>YouTube Champ 2026 — Хамтран ажиллах урилга</title>
+<meta name="description" content="YouTube Champ 2026 дээр хамтран ажиллаж түүх бүтээх урилга.">
+<meta property="og:title" content="YouTube Champ 2026 — Хамтран ажиллах урилга">
+<meta property="og:description" content="Таныг YouTube Champ 2026 дээр хамтран ажиллаж түүх бүтээхийг урьж байна.">
+<meta property="og:image" content="logo.webp">
+<link rel="icon" type="image/webp" href="logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   YOUTUBE CHAMP 2026 — ХАМТРАН АЖИЛЛАХ БАГИЙН УРИЛГА
+   Хувийн линк:  team.html#Нэр   (зай → доогуур зураас: #Bat_Erdene)
+   ========================================================== */
+@font-face{font-family:'YT Champ Molot';src:url('fonts/YT25molot.otf') format('opentype');font-weight:400 800;font-display:swap}
+:root{
+  --paper:#0d0809;--panel:#17100f;--panel-2:#0f0809;--ink:#f4efe6;--tan:#b0a89d;--faint:#7d7570;
+  --line:rgba(244,239,230,.12);--red:#E02A26;--red-hi:#ff5a54;--gold:#e0b04a;
+  --display:'YT Champ Molot','Oswald','Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --body:'Inter','Segoe UI',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px);--ease:cubic-bezier(.16,.84,.36,1);--slow:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100svh;background:radial-gradient(45% 38% at 50% 28%,rgba(244,239,230,.09),transparent 70%),
+  radial-gradient(70% 45% at 50% 100%,rgba(224,42,38,.2),transparent 70%),var(--paper);
+  color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[hidden]{display:none !important}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:4px}
+.mark{display:block;background:url("logo.webp") center/contain no-repeat;aspect-ratio:1500/1213}
+
+main{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:clamp(28px,5vh,56px) var(--pad);gap:clamp(14px,2.4vh,24px)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--tan);
+  display:flex;align-items:center;gap:14px}
+.eyebrow::before,.eyebrow::after{content:"";width:28px;height:1.5px;background:var(--red)}
+.logo{width:min(46vw,24svh,260px);filter:drop-shadow(0 0 40px rgba(244,239,230,.22)) drop-shadow(0 18px 30px rgba(0,0,0,.5));
+  animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+
+/* headline lockup */
+.head{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:.95;word-spacing:-.26em;letter-spacing:0;
+  font-size:clamp(1.7rem,5vw,4.2rem);max-width:20ch}
+.head>span{display:block;word-spacing:-.26em;text-wrap:balance;opacity:0;transform:translateY(30%);animation:rise .9s var(--slow) forwards;animation-delay:calc(var(--i)*.12s + .1s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.head .red{color:var(--red)}
+.head .to b{position:relative;display:inline-block;
+  background:linear-gradient(110deg,#a8761a 0%,#e0b04a 22%,#fff3c4 46%,#fff 50%,#fff3c4 54%,#e0b04a 78%,#a8761a 100%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:shine 3.2s linear 1s infinite,glow 3.2s ease-in-out 1s infinite}
+@keyframes shine{0%{background-position:120% 0}60%,100%{background-position:-120% 0}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 6px rgba(224,176,74,.25))}50%{filter:drop-shadow(0 0 22px rgba(255,214,120,.65))}}
+.head .to b::after{content:"✦";position:absolute;top:-.1em;right:-.45em;font-size:.32em;color:#fff3c4;-webkit-text-fill-color:#fff3c4;
+  animation:twinkle 1.6s ease-in-out 1.3s infinite;opacity:0}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}
+.head .small{font-size:.62em;color:var(--ink)}
+
+/* shoot info */
+.shoot{display:flex;align-items:center;gap:18px;text-align:left;padding:18px 24px;border:1.5px solid var(--gold);border-radius:16px;
+  background:radial-gradient(80% 140% at 0% 50%,rgba(224,176,74,.16),transparent 60%),linear-gradient(160deg,var(--panel),var(--panel-2));
+  opacity:0;animation:fade .8s var(--ease) .65s forwards,glowbox 3.2s ease-in-out 1.5s infinite}
+@keyframes fade{to{opacity:1}}
+@keyframes glowbox{0%,100%{box-shadow:0 22px 50px -28px rgba(224,176,74,.35)}50%{box-shadow:0 26px 70px -20px rgba(224,176,74,.7)}}
+.shoot .ic{width:52px;height:52px;border-radius:50%;background:var(--gold);color:#1a1305;display:grid;place-items:center;flex:none}
+.shoot .ic svg{width:26px;height:26px}
+.shoot .k{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.shoot .d{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.15rem,2.4vw,1.7rem);line-height:1.15;
+  word-spacing:-.26em;margin-top:4px}
+.shoot .d em{font-style:normal;color:var(--gold)}
+
+.ask{color:var(--tan);font-size:clamp(.98rem,1.3vw,1.1rem);opacity:0;animation:fade .8s var(--ease) .8s forwards}
+.ask b{color:var(--ink)}
+
+/* confirm */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--mono);font-size:14px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;padding:20px 48px;border-radius:999px;border:0;cursor:pointer;background:var(--red);color:#fff;
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-3px);background:var(--red-hi);box-shadow:0 18px 40px -14px rgba(224,42,38,.7)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn svg{width:18px;height:18px}
+.pulse{animation:pulse 2.2s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,42,38,.55)}70%{box-shadow:0 0 0 22px rgba(224,42,38,0)}100%{box-shadow:0 0 0 0 rgba(224,42,38,0)}}
+.cta{opacity:0;animation:fade .8s var(--ease) .95s forwards}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.state{display:grid;justify-items:center;gap:8px;max-width:46ch}
+.state .ok{width:68px;height:68px;border-radius:50%;background:var(--red);display:grid;place-items:center;margin-bottom:6px;box-shadow:0 0 0 10px rgba(224,42,38,.15)}
+.state .ok.gold{background:none;border:2px solid var(--gold);box-shadow:0 0 0 10px rgba(224,176,74,.12)}
+.state .ok svg{width:32px;height:32px;color:#fff}
+.state .ok.gold svg{color:var(--gold)}
+.state h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.05;word-spacing:-.26em}
+.state p{color:var(--tan)}
+
+.contact{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--faint);line-height:2}
+.contact a{color:var(--tan);text-decoration:none;border-bottom:1px solid var(--line)}
+#confetti{position:fixed;inset:0;width:100%;height:100%;z-index:800;pointer-events:none}
+
+@media(max-width:560px){.shoot{padding:16px 18px;gap:14px}.shoot .ic{width:44px;height:44px}.btn{padding:18px 40px}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<main>
+  <div class="eyebrow">Mesmerism Official</div>
+  <i class="mark logo" role="img" aria-label="YouTube Champ 2026"></i>
+
+  <h1 class="head">
+    <span class="to" id="toLine" style="--i:0" hidden>Эрхэм <b id="toName"></b></span>
+    <span class="small" style="--i:1">Таныг YouTube Champ 2026 дээр</span>
+    <span style="--i:2">хамтран ажиллаж</span>
+    <span class="red" style="--i:3">түүх бүтээхийг урьж байна.</span>
+  </h1>
+
+  <div class="shoot">
+    <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+    <div>
+      <div class="k">Зураг авалт</div>
+      <div class="d">11 сарын <em>5–20</em>-ны хооронд <em>3 өдөр</em></div>
+    </div>
+  </div>
+
+  <!-- зөвшөөрөх -->
+  <div id="askView" class="state">
+    <p class="ask">Зөвшөөрч байвал <b>Confirm</b> дарна уу.</p>
+    <form id="confirmForm" class="cta">
+      <label class="hp" aria-hidden="true">Үүнийг бөглөх хэрэггүй<input type="checkbox" name="botcheck" tabindex="-1"></label>
+      <button type="submit" class="btn pulse" id="confirmBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Confirm</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- баталгаажсан -->
+  <div id="doneView" class="state" hidden>
+    <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h2>Баярлалаа!</h2>
+    <p>Таны зөвшөөрлийг хүлээн авлаа. Зураг авалтын яг өдрүүдийг бид тантай холбогдож мэдэгдэнэ.</p>
+  </div>
+
+  <!-- нэргүй линк -->
+  <div id="noLinkView" class="state" hidden>
+    <div class="ok gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+    <h2>Албан ёсны линкээр дахин хандана уу</h2>
+    <p>Урилгыг зөвхөн танд илгээсэн хувийн линкээр баталгаажуулах боломжтой.</p>
+  </div>
+
+  <p class="contact">Асуулт байвал: <a href="tel:99043988">9904-3988</a>, <a href="tel:88104706">8810-4706</a></p>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- хувийн линк: team.html#Нэр (эсвэл ?to=Нэр) ---------- */
+  var to = "";
+  try {
+    var q = new URLSearchParams(location.search).get("to") || "";
+    var h = decodeURIComponent(location.hash.slice(1)).replace(/_/g, " ");
+    to = (q || h).replace(/\s+/g, " ").trim().slice(0, 40);
+  } catch (e) {}
+
+  var askView = document.getElementById("askView");
+  var doneView = document.getElementById("doneView");
+  var noLinkView = document.getElementById("noLinkView");
+  var KEY = "ytc26-team-confirmed:" + to;
+
+  if (to) {
+    document.getElementById("toName").textContent = to;
+    document.getElementById("toLine").hidden = false;
+    var already = false;
+    try { already = localStorage.getItem(KEY) === "1"; } catch (e) {}
+    if (already) { askView.hidden = true; doneView.hidden = false; }
+  } else {
+    askView.hidden = true; noLinkView.hidden = false;
+  }
+
+  /* ---------- confetti ---------- */
+  var cv = document.getElementById("confetti"), cx = cv.getContext("2d"), parts = [], raf = 0;
+  var COLORS = ["#E02A26", "#ff5a54", "#e0b04a", "#efe8de", "#B81F1C"];
+  function burst(x, y){
+    cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio;
+    for (var i = 0; i < 170; i++) {
+      var a = Math.random() * Math.PI * 2, v = 6 + Math.random() * 13;
+      parts.push({x:x, y:y, vx:Math.cos(a) * v, vy:Math.sin(a) * v - 7, r:Math.random() * 3, vr:(Math.random() - .5) * .35,
+        w:6 + Math.random() * 8, h:4 + Math.random() * 10, c:COLORS[i % COLORS.length], life:0});
+    }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function tick(){
+    var d = devicePixelRatio; cx.clearRect(0, 0, cv.width, cv.height);
+    parts = parts.filter(function(p){ return p.life < 180 && p.y < innerHeight + 40; });
+    parts.forEach(function(p){
+      p.life++; p.vy += .32; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      cx.save(); cx.translate(p.x * d, p.y * d); cx.rotate(p.r); cx.globalAlpha = Math.max(0, 1 - p.life / 180);
+      cx.fillStyle = p.c; cx.fillRect(-p.w * d / 2, -p.h * d / 2, p.w * d, p.h * d); cx.restore();
+    });
+    raf = parts.length ? requestAnimationFrame(tick) : 0;
+  }
+
+  /* ---------- Confirm ---------- */
+  var form = document.getElementById("confirmForm");
+  var btn = document.getElementById("confirmBtn");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!to) return;
+    var data = new FormData(form);
+    data.append("name", to);
+    data.append("response", "Зөвшөөрсөн");
+    data.append("form_type", "Багийн урилга");
+    data.append("access_key", "7170ffb3-fe18-4832-ad24-e5e5b40d00ea");
+    data.append("subject", "YouTube Champ 2026 — Багийн урилга баталгаажлаа: " + to);
+    data.append("from_name", "YouTube Champ 2026 — Багийн урилга");
+    var label = btn.querySelector("span").textContent;
+    btn.disabled = true; btn.querySelector("span").textContent = "Илгээж байна...";
+    fetch("https://api.web3forms.com/submit", {method:"POST", body:data, headers:{"Accept":"application/json"}})
+      .then(function(r){ return r.json(); })
+      .then(function(json){
+        if (!json.success) throw new Error("request failed");
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+        var r = btn.getBoundingClientRect();
+        askView.hidden = true; doneView.hidden = false;
+        if (!RM) burst(r.left + r.width / 2, r.top + r.height / 2);
+      })
+      .catch(function(){ alert("Илгээхэд алдаа гарлаа. Дахин оролдоно уу, эсвэл 9904-3988, 8810-4706 дугаарт залгана уу."); })
+      .finally(function(){ btn.disabled = false; btn.querySelector("span").textContent = label; });
+  });
+})();
+</script>
+</body>
+</html>
