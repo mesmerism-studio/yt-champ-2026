@@ -792,6 +792,32 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
 .fs-n s,.pool-n s,.prize-n s,.pl-t em,.ti-t em,.vat,.stat-k{word-spacing:normal}
 .stat-v u,.amt u,.plan-tot b u{word-spacing:-.26em}
 
+/* ---------- хүрээ: гарчиггүй тул тайлбар шошгоны доор ---------- */
+#reach .head{grid-template-columns:1fr !important;gap:16px}
+#reach .head>.lede{grid-column:1 !important;max-width:44ch;font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.5;color:var(--ink)}
+
+/* ---------- нүүр: 5 сарын урт хугацааны маркетинг ---------- */
+.logo-wrap{width:min(74vw,50svh,720px)}
+.campaign{width:min(100%,760px);margin:clamp(16px,2.6vh,30px) auto 0;text-align:center}
+.cmp-title{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.15rem,2.2vw,1.9rem);
+  line-height:1.15;word-spacing:-.26em;color:var(--ink);margin:0}
+.cmp-title b{color:var(--accent);font-weight:700}
+.cmp-line{list-style:none;margin:clamp(14px,2vh,22px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.cmp-line::before{content:"";position:absolute;left:10%;right:10%;top:16px;height:2px;
+  background:linear-gradient(90deg,var(--accent),rgba(224,42,38,.35));transform:scaleX(0);transform-origin:0 50%;
+  transition:transform 1.2s var(--slow) .2s}
+.campaign.in .cmp-line::before{transform:scaleX(1)}
+.cmp-line li{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease) calc(var(--i)*.14s + .35s),transform .6s var(--ease) calc(var(--i)*.14s + .35s)}
+.campaign.in .cmp-line li{opacity:1;transform:none}
+.cmp-line b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--paper);border:2px solid var(--accent);
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink);position:relative;z-index:1}
+.cmp-line li.hot b{background:var(--accent);color:#fff;box-shadow:0 0 0 6px rgba(224,42,38,.2)}
+.cmp-line span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tan);line-height:1.35}
+.cmp-line li.hot span{color:var(--ink)}
+.cmp-sub{margin:clamp(12px,1.8vh,18px) 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.6}
+@media(max-width:640px){.cmp-line span{font-size:9px;letter-spacing:.04em}.cmp-line b{width:30px;height:30px;font-size:10px}.cmp-line::before{top:14px}}
+
 /* ==========================================================
    ХЭВЛЭХ / PDF   —   A4 landscape, хэсэг бүр нэг хуудас
    Дэлгэцийн хэмжээсүүд хуудсанд багтахгүй тул хэвлэхэд
@@ -829,6 +855,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   #channel,#time{background-color:#fff !important}
   .prize-img{transform:none !important;border:0 !important;rotate:0deg !important}
   .fx-dark,.tape,.cta-big{display:none !important}
+  .cmp-line li{opacity:1 !important;transform:none !important}.cmp-line::before{transform:none !important}
   .partners li{opacity:1 !important;transform:none !important;border:1px solid #E9E5E3}
   .cta-stage .logo-sm{position:static !important;translate:none !important;rotate:0deg !important;filter:none !important;animation:none !important}
   .hero-meta{position:static !important;display:flex !important;justify-content:center;gap:16mm;margin-top:9mm}
@@ -982,6 +1009,18 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   <div class="wrap hero-in">
     <div class="logo-wrap" id="lw"><i class="mark" role="img" aria-label="YouTube Champ 2026"></i></div>
 
+    <div class="campaign" data-rev>
+      <p class="cmp-title"><b>5 сарын</b> урт хугацааны маркетинг</p>
+      <ol class="cmp-line">
+        <li style="--i:0"><b>09</b><span>Зарлал</span></li>
+        <li style="--i:1"><b>10</b><span>Санал хураалт</span></li>
+        <li style="--i:2"><b>11</b><span>Зураг авалт</span></li>
+        <li style="--i:3" class="hot"><b>12</b><span>Трейлер · Шоу</span></li>
+        <li style="--i:4"><b>01</b><span>Влог</span></li>
+      </ol>
+      <p class="cmp-sub">2026.09 — 2027.01 · 10 контент · ивээн тэтгэгч бүх контентод харагдана</p>
+    </div>
+
     <div class="hero-meta" data-rev>
       <div class="tk tk-l"><span class="tk-k">Part 1</span><b class="tk-d">2026.12.<i>31</i></b><span class="tk-t">21:00 · Mesmerism Official</span></div>
       <div class="tk tk-r"><span class="tk-k">Part 2</span><b class="tk-d">2027.01.<i>01</i></b><span class="tk-t">21:00 · Mesmerism Official</span></div>
@@ -999,7 +1038,6 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
     <div class="head">
       <div>
         <p class="label" data-rev>01 — Хүрэх хүрээ</p>
-        <h2 data-split data-hl="3,4,5,6">Гурван жил. Арван нэгэн сая үзэлт.</h2>
       </div>
       <p class="lede" data-rev>YouTube Champ нь 2023 оноос хойш жил бүр сая сая монголчуудыг шинэ жилийн үдэш нэг дэлгэцийн ард цуглуулж ирсэн.</p>
     </div>
