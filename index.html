@@ -231,6 +231,39 @@ section{position:relative;padding-block:clamp(64px,8.5vw,128px)}
 .weeks.in .wk i::after{transform:scaleX(1)}
 .wk span{font-size:.84rem;color:var(--slate);min-width:6.5em;text-align:right}
 
+/* ---------- 2026 оны шалгарсан 16 (долоо хоногоор) ---------- */
+.q26{grid-template-columns:minmax(0,1fr);gap:clamp(26px,4vw,40px) clamp(18px,2.6vw,34px)}
+@media(min-width:560px){.q26{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.q26{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.q26-cap{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:baseline;
+  justify-content:space-between;gap:6px 20px;margin:0}
+.q26-cap b{font-family:var(--display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.1;color:var(--ink)}
+.q26-cap span{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint)}
+.qw{min-width:0}
+.qw-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.qw-h b{font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink)}
+.qw-h span{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.qw > i{display:block;height:3px;margin-top:10px;background:rgba(244,239,230,.1);
+  position:relative;overflow:hidden;border-radius:2px}
+.qw > i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);
+  background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .95s var(--slow) calc(var(--d,0s) + .15s)}
+.qw.in > i::after{transform:scaleX(1)}
+.qw ol{list-style:none;margin:6px 0 0;padding:0}
+.qw li{display:grid;grid-template-columns:auto auto minmax(0,1fr);align-items:center;
+  gap:10px;padding-block:11px;border-bottom:1px solid var(--line);transition:background .3s}
+.qw li:hover{background:rgba(244,239,230,.03)}
+.qw img{width:46px;height:46px;aspect-ratio:1;object-fit:cover;border-radius:50%;
+  background:var(--mist);box-shadow:0 0 0 1px var(--line)}
+.qw li s{text-decoration:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+  color:var(--accent);font-variant-numeric:tabular-nums;min-width:2.3em}
+.qw li span{font-weight:600;font-size:.95rem;line-height:1.25;color:var(--ink);
+  overflow-wrap:anywhere}
+
 /* ==========================================================
    PLACEMENT
    ========================================================== */
@@ -905,6 +938,17 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   .fs p{font-size:9.5px}
   .weeks{margin-top:7mm}
   .wk{padding-block:3mm}
+  .q26{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:4mm 8mm}
+  .q26-cap b{font-size:12px;text-transform:none}
+  .q26-cap span,.qw-h span{font-size:8px;font-family:var(--body)}
+  .qw-h b{font-size:9px;font-family:var(--body)}
+  .qw > i{margin-top:2mm;background:var(--line)}
+  .qw > i::after{transform:scaleX(1) !important}
+  .qw ol{margin-top:1mm}
+  .qw li{padding-block:1.6mm;gap:2.5mm}
+  .qw img{width:8mm;height:8mm}
+  .qw li s{font-size:8px;font-family:var(--body)}
+  .qw li span{font-size:10px}
 
   /* контентын төлөвлөгөө */
   .pl{padding-block:3.4mm}
@@ -942,7 +986,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   .pool p{font-size:9.5px}
 
   /* мөр дундуур тасрахгүй */
-  .head,.stat,.pl,.fs,.wk,.pg,.ti,.tl-p,.incl li,.pool,.plan-tot,.run,.hero-meta{break-inside:avoid}
+  .head,.stat,.pl,.fs,.wk,.qw,.pg,.ti,.tl-p,.incl li,.pool,.plan-tot,.run,.hero-meta{break-inside:avoid}
 
   /* Chrome хэвлэхдээ өргөний media query-г өөрөөр тооцдог тул
      дэлгэц дээрх олон баганат байрлалыг шууд албадав.       */
@@ -1054,7 +1098,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
         <span class="stat-v"><b data-count="50">0</b></span>
         <span class="stat-k">Санал хураалт<br>Контент бүтээгч</span></div>
       <div class="stat" style="--d:.37s"><span class="stat-i">05</span>
-        <span class="stat-v"><b data-count="15">0</b></span>
+        <span class="stat-v"><b data-count="16">0</b></span>
         <span class="stat-k">Контент бүтээгч<br>үндсэн зураг авалт</span></div>
     </div>
   </div>
@@ -1130,9 +1174,9 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
     <div class="head">
       <div>
         <p class="label" data-rev>02 — Формат</p>
-        <h2 data-split data-hl="2">50-аас 15 нь шалгарна.</h2>
+        <h2 data-split data-hl="2">50-аас 16 нь шалгарлаа.</h2>
       </div>
-      <p class="lede" data-rev>хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-г сонгон mesmerism.mn сайтад бүртгэж үзэгчидээс санал хураалт аван YOUTUBE CHAMP 2026 оролцох YouTuber-г сонгоно .Санал хураалт 4 долоо хоног үргэлжилж, 7 хоног бүр хамгийн өндөр санал авсан 4 YouTuber шалгарна.</p>
+      <p class="lede" data-rev>Хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-г сонгон mesmerism.mn сайтад бүртгэж, үзэгчдээс санал хураалт авч YOUTUBE CHAMP 2026-д оролцох YouTuber-уудыг тодрууллаа. Санал хураалт 4 долоо хоног үргэлжилж, 7 хоног бүр хамгийн өндөр санал авсан 4 YouTuber шалгарсан.</p>
     </div>
 
     <div class="funnel">
@@ -1153,11 +1197,44 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
       </div>
     </div>
 
-    <div class="weeks" id="weeks">
-      <div class="wk"><b>Week 1</b><i style="--w:40%;--d:.05s"></i><span>4 контент бүтээгч</span></div>
-      <div class="wk"><b>Week 2</b><i style="--w:60%;--d:.15s"></i><span>8 контент бүтээгч</span></div>
-      <div class="wk"><b>Week 3</b><i style="--w:78%;--d:.25s"></i><span>12 контент бүтээгч</span></div>
-      <div class="wk"><b>Week 4</b><i style="--w:100%;--d:.35s"></i><span>16 контент бүтээгч</span></div>
+    <div class="weeks q26" id="weeks">
+      <p class="q26-cap" data-rev><b>Шалгарсан 16 YouTuber</b><span>Санал хураалт дууссан · 4 долоо хоног</span></p>
+      <div class="qw" data-rev style="--d:0.05s;--w:25%">
+        <div class="qw-h"><b>Week 1</b><span>4 / 16</span></div><i></i>
+        <ol>
+          <li><img src="img/q26/01-mio.webp" alt="Mio" loading="lazy" width="320" height="320"><s>#1</s><span>Mio</span></li>
+          <li><img src="img/q26/02-keshark.webp" alt="KESHARK" loading="lazy" width="320" height="320"><s>#2</s><span>KESHARK</span></li>
+          <li><img src="img/q26/03-kino-zadlan.webp" alt="Kino zadlan" loading="lazy" width="320" height="320"><s>#3</s><span>Kino zadlan</span></li>
+          <li><img src="img/q26/04-beardman.webp" alt="Beardman" loading="lazy" width="320" height="320"><s>#4</s><span>Beardman</span></li>
+        </ol>
+      </div>
+      <div class="qw" data-rev style="--d:0.15s;--w:50%">
+        <div class="qw-h"><b>Week 2</b><span>8 / 16</span></div><i></i>
+        <ol>
+          <li><img src="img/q26/05-horloo.webp" alt="Horloo" loading="lazy" width="320" height="320"><s>#5</s><span>Horloo</span></li>
+          <li><img src="img/q26/06-zeni-cage.webp" alt="Zeni cage" loading="lazy" width="320" height="320"><s>#6</s><span>Zeni cage</span></li>
+          <li><img src="img/q26/07-lexor2k.webp" alt="lexor2k" loading="lazy" width="320" height="320"><s>#7</s><span>lexor2k</span></li>
+          <li><img src="img/q26/08-shymelle.webp" alt="Shymelle" loading="lazy" width="320" height="320"><s>#8</s><span>Shymelle</span></li>
+        </ol>
+      </div>
+      <div class="qw" data-rev style="--d:0.25s;--w:75%">
+        <div class="qw-h"><b>Week 3</b><span>12 / 16</span></div><i></i>
+        <ol>
+          <li><img src="img/q26/09-rena.webp" alt="Rena" loading="lazy" width="320" height="320"><s>#9</s><span>Rena</span></li>
+          <li><img src="img/q26/10-jay-woo.webp" alt="Jay Woo" loading="lazy" width="320" height="320"><s>#10</s><span>Jay Woo</span></li>
+          <li><img src="img/q26/11-cadis.webp" alt="Cadis" loading="lazy" width="320" height="320"><s>#11</s><span>Cadis</span></li>
+          <li><img src="img/q26/12-losolgocrazy.webp" alt="LosolGoCrazy" loading="lazy" width="320" height="320"><s>#12</s><span>LosolGoCrazy</span></li>
+        </ol>
+      </div>
+      <div class="qw" data-rev style="--d:0.35s;--w:100%">
+        <div class="qw-h"><b>Week 4</b><span>16 / 16</span></div><i></i>
+        <ol>
+          <li><img src="img/q26/13-saftaz.webp" alt="Saftaz" loading="lazy" width="320" height="320"><s>#13</s><span>Saftaz</span></li>
+          <li><img src="img/q26/14-opononi.webp" alt="Opononi" loading="lazy" width="320" height="320"><s>#14</s><span>Opononi</span></li>
+          <li><img src="img/q26/15-munhluu.webp" alt="Munhluu" loading="lazy" width="320" height="320"><s>#15</s><span>Munhluu</span></li>
+          <li><img src="img/q26/16-tushig.webp" alt="Tushig" loading="lazy" width="320" height="320"><s>#16</s><span>Tushig</span></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -1257,10 +1334,10 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
       <div class="ti" style="--d:.18s"><span class="ti-d">10 / 10</span><span class="ti-t">Санал хураалт 1</span><span class="ti-n">Week 1</span></div>
       <div class="ti" style="--d:.26s"><span class="ti-d">10 / 17</span><span class="ti-t">Санал хураалт 2</span><span class="ti-n">Week 2</span></div>
       <div class="ti" style="--d:.34s"><span class="ti-d">10 / 24</span><span class="ti-t">Санал хураалт 3</span><span class="ti-n">Week 3</span></div>
-      <div class="ti" style="--d:.42s"><span class="ti-d">10 / 31</span><span class="ti-t">Санал хураалт 4</span><span class="ti-n">15 YouTuber тодорно</span></div>
+      <div class="ti" style="--d:.42s"><span class="ti-d">10 / 31</span><span class="ti-t">Санал хураалт 4</span><span class="ti-n">16 YouTuber тодорлоо</span></div>
 
       <p class="tl-p">2-р үе — Зураг авалт</p>
-      <div class="ti key" style="--d:.52s"><span class="ti-d">11 / 10–15</span><span class="ti-t">Media Day</span><span class="ti-n">Постерын зураг авалт</span></div>
+      <div class="ti key" style="--d:.52s"><span class="ti-d">11 / 20–21</span><span class="ti-t">Зураг авалт</span><span class="ti-n">11 сарын 20, 21</span></div>
       <div class="ti" style="--d:.60s"><span class="ti-d">11 / 22 – 12 / 22</span><span class="ti-t">Post production</span><span class="ti-n">Постер · Трейлер</span></div>
 
       <p class="tl-p">3-р үе — Үр дүн</p>
@@ -1312,7 +1389,7 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
         <ol class="prize-list" data-rev>
           <li><b>Бүсийн эзэн</b><span>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно.</span></li>
           <li><b>10,000,000₮</b><span>Хайч, чулуу, даавуу — шалгарсан оролцогчдын дундаас 1 хүн хүртэнэ.</span></li>
-          <li><b>Шагналын сан</b><span>Санал хураалтаар цугласан мөнгийг шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ. 2025 онд 47,886,500₮ бүрдсэн.</span></li>
+          <li><b>54,843,750₮</b><span>2026 оны шагналын сан. Санал хураалтаар цугласан энэ мөнгийг шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ. 2025 онд 47,886,500₮ бүрдсэн.</span></li>
         </ol>
       </div>
       <div class="prize-img" id="beltimg">
@@ -1350,8 +1427,8 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
     </div>
 
     <div class="pool" data-rev>
-      <div class="pool-n">47,886,500₮<s>2025 оны шагналын сан</s></div>
-      <p>2026 оны шагналын сан нь санал хураалтын явцад үзэгчдийн оролцоогоор бүрдэнэ.</p>
+      <div class="pool-n"><b data-count="54843750">54,843,750</b>₮<s>2026 оны шагналын сан</s></div>
+      <p>2026 оны шагналын сан: 54,843,750₮. Санал хураалт хаагдаж, үзэгчдийн оролцоогоор бүрдсэн дүн. 2025 оны шагналын сан 47,886,500₮ байсан.</p>
     </div>
   </div>
 </section>

@@ -8,6 +8,8 @@
 <!--
   PDF эх файл. WeasyPrint-ээр A4 PDF болгоно:
       weasyprint pdf/proposal.html YouTube-Champ-2026.pdf
+  эсвэл headless Chrome-оор:
+      chrome --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=25000 --print-to-pdf=YouTube-Champ-2026.pdf file:///.../pdf/proposal.html
 -->
 <style>
 @font-face{font-family:'YT Champ Molot';src:url('../fonts/YT25molot.otf') format('opentype')}
@@ -120,6 +122,15 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
 .ptile img{position:absolute;top:3.2mm;left:3mm;width:19.6mm;height:9.6mm;object-fit:contain}
 .ptile.sq img{top:.8mm;left:2mm;width:21.6mm;height:14.4mm}
 
+/* 2026 оны шалгарсан оролцогчид */
+.t.q26 td{vertical-align:middle}
+.qrow{font-size:0}
+.q{display:inline-block;box-sizing:border-box;width:25%;vertical-align:middle;white-space:nowrap;font-size:8pt}
+.q img{display:inline-block;width:8mm;height:8mm;object-fit:cover;border-radius:50%;border:.6pt solid var(--line);vertical-align:middle;margin-right:1.6mm}
+.q .qn{display:inline-block;vertical-align:middle;line-height:1.25}
+.q .qn .sm{font-size:7pt}
+@media screen and (max-width:680px){.q{width:50%;padding:.8mm 0}}
+
 /* package */
 .price{display:flex;align-items:flex-end;gap:8mm;border:1.2pt solid var(--ink);padding:6mm 7mm;margin:2mm 0 5mm}
 .price .amt{font-family:'YT Champ Molot',sans-serif;font-size:30pt;line-height:1;color:var(--ink)}
@@ -194,8 +205,8 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
     <tr><td>Зохион байгуулагч</td><td>Mesmerism Official</td></tr>
     <tr><td>Үндсэн контент</td><td>2 анги (Part 1, Part 2), нийт 90+ минут</td></tr>
     <tr><td>Цацалт</td><td>2026.12.31, 21:00 ба 2027.01.01, 21:00 — Mesmerism Official YouTube суваг</td></tr>
-    <tr><td>Оролцогч</td><td>16 YouTuber: санал хураалтаар шалгарах 15 + өнгөрсөн жилийн аварга</td></tr>
-    <tr><td>Шагнал</td><td>YouTube Champ-ийн бүс; Хайч, чулуу, даавуу — 10,000,000₮; санал хураалтаар цугласан шагналын сан</td></tr>
+    <tr><td>Оролцогч</td><td>16 YouTuber: үзэгчдийн 4 долоо хоногийн санал хураалтаар шалгарсан</td></tr>
+    <tr><td>Шагнал</td><td>YouTube Champ-ийн бүс; Хайч, чулуу, даавуу — 10,000,000₮; санал хураалтаар цугласан шагналын сан — 54,843,750₮</td></tr>
   </table>
 </section>
 
@@ -220,7 +231,7 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
     <tr><td>Нийт үзэлт</td><td class="num">11 сая+</td><td>2023–2025 оны шоунууд</td></tr>
     <tr><td>Сэтгэгдэл</td><td class="num">8,410</td><td>2025 оны контент</td></tr>
     <tr><td>Бүртгүүлсэн хэрэглэгч</td><td class="num">50,000+</td><td>2025 оны санал хураалтын платформ, 4 долоо хоногт</td></tr>
-    <tr><td>Үзэгчдийн бүрдүүлсэн шагналын сан</td><td class="num">47,886,500₮</td><td>2025 он, бүхэлдээ үзэгчдийн саналаар</td></tr>
+    <tr><td>Үзэгчдийн бүрдүүлсэн шагналын сан</td><td class="num">54,843,750₮</td><td>2026 оны шагналын сан, бүхэлдээ үзэгчдийн саналаар. 2025 онд 47,886,500₮</td></tr>
   </table>
 
   <h3>Үзэгчдийн нас, хүйсийн харьцаа</h3>
@@ -239,25 +250,24 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
 <section class="section">
   <div class="sec-no">03</div>
   <h2>Формат ба сонгон шалгаруулалт</h2>
-  <p class="lead">Хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-ийг сонгон mesmerism.mn дээр бүртгэж, үзэгчдийн санал хураалтаар 15 оролцогч шалгарна. 16 дахь оролцогч нь өнгөрсөн жилийн аварга бөгөөд шууд урилгаар оролцоно.</p>
+  <p class="lead">Хандалт, идэвх, subscriber-ийн үзүүлэлтээр 50 YouTuber-ийг сонгон mesmerism.mn дээр бүртгэж, үзэгчдийн 4 долоо хоногийн санал хураалтаар долоо хоног бүр 4, нийт 16 оролцогч шалгарлаа.</p>
 
   <div class="kpis">
     <div class="kpi"><div class="n">50</div><div class="l">Нэр дэвшигч<br>YouTube суваг</div></div>
-    <div class="kpi"><div class="n">15</div><div class="l">Санал хураалтаар<br>шалгарна</div></div>
-    <div class="kpi"><div class="n">+1</div><div class="l">Өнгөрсөн жилийн аварга<br>Tushig</div></div>
+    <div class="kpi"><div class="n">4</div><div class="l">Долоо хоногийн<br>санал хураалт</div></div>
+    <div class="kpi"><div class="n">4</div><div class="l">Долоо хоног бүр<br>шалгарсан</div></div>
     <div class="kpi"><div class="n red">16</div><div class="l">Нийт<br>оролцогч</div></div>
   </div>
 
-  <h3>Санал хураалтын хуваарь</h3>
-  <table class="t">
-    <tr><th>Шат</th><th>Хугацаа</th><th class="num">Шалгарах</th><th class="num">Нийт</th></tr>
-    <tr><td>Санал хураалт 1</td><td>10/10 — 10/17</td><td class="num">4</td><td class="num">4</td></tr>
-    <tr><td>Санал хураалт 2</td><td>10/17 — 10/24</td><td class="num">4</td><td class="num">8</td></tr>
-    <tr><td>Санал хураалт 3</td><td>10/24 — 10/31</td><td class="num">4</td><td class="num">12</td></tr>
-    <tr><td>Санал хураалт 4</td><td>10/31 — 11/07</td><td class="num">3</td><td class="num">15</td></tr>
-    <tr class="total"><td>Шууд урилга</td><td>Өнгөрсөн жилийн аварга — Tushig</td><td class="num">1</td><td class="num">16</td></tr>
+  <h3>Санал хураалтын дүн — шалгарсан 16 оролцогч</h3>
+  <table class="t q26">
+    <tr><th style="width:32mm">Шат</th><th>Шалгарсан оролцогчид</th></tr>
+    <tr><td><b>Санал хураалт 1</b><span class="sm">10/10 — 10/17</span></td><td class="qrow"><span class="q"><img src="../img/q26/01-mio.webp" alt="Mio" width="320" height="320" loading="lazy"><span class="qn"><b>Mio</b><span class="sm">#1</span></span></span><span class="q"><img src="../img/q26/02-keshark.webp" alt="KESHARK" width="320" height="320" loading="lazy"><span class="qn"><b>KESHARK</b><span class="sm">#2</span></span></span><span class="q"><img src="../img/q26/03-kino-zadlan.webp" alt="Kino zadlan" width="320" height="320" loading="lazy"><span class="qn"><b>Kino zadlan</b><span class="sm">#3</span></span></span><span class="q"><img src="../img/q26/04-beardman.webp" alt="Beardman" width="320" height="320" loading="lazy"><span class="qn"><b>Beardman</b><span class="sm">#4</span></span></span></td></tr>
+    <tr><td><b>Санал хураалт 2</b><span class="sm">10/17 — 10/24</span></td><td class="qrow"><span class="q"><img src="../img/q26/05-horloo.webp" alt="Horloo" width="320" height="320" loading="lazy"><span class="qn"><b>Horloo</b><span class="sm">#5</span></span></span><span class="q"><img src="../img/q26/06-zeni-cage.webp" alt="Zeni cage" width="320" height="320" loading="lazy"><span class="qn"><b>Zeni cage</b><span class="sm">#6</span></span></span><span class="q"><img src="../img/q26/07-lexor2k.webp" alt="lexor2k" width="320" height="320" loading="lazy"><span class="qn"><b>lexor2k</b><span class="sm">#7</span></span></span><span class="q"><img src="../img/q26/08-shymelle.webp" alt="Shymelle" width="320" height="320" loading="lazy"><span class="qn"><b>Shymelle</b><span class="sm">#8</span></span></span></td></tr>
+    <tr><td><b>Санал хураалт 3</b><span class="sm">10/24 — 10/31</span></td><td class="qrow"><span class="q"><img src="../img/q26/09-rena.webp" alt="Rena" width="320" height="320" loading="lazy"><span class="qn"><b>Rena</b><span class="sm">#9</span></span></span><span class="q"><img src="../img/q26/10-jay-woo.webp" alt="Jay Woo" width="320" height="320" loading="lazy"><span class="qn"><b>Jay Woo</b><span class="sm">#10</span></span></span><span class="q"><img src="../img/q26/11-cadis.webp" alt="Cadis" width="320" height="320" loading="lazy"><span class="qn"><b>Cadis</b><span class="sm">#11</span></span></span><span class="q"><img src="../img/q26/12-losolgocrazy.webp" alt="LosolGoCrazy" width="320" height="320" loading="lazy"><span class="qn"><b>LosolGoCrazy</b><span class="sm">#12</span></span></span></td></tr>
+    <tr><td><b>Санал хураалт 4</b><span class="sm">10/31 — 11/07</span></td><td class="qrow"><span class="q"><img src="../img/q26/13-saftaz.webp" alt="Saftaz" width="320" height="320" loading="lazy"><span class="qn"><b>Saftaz</b><span class="sm">#13</span></span></span><span class="q"><img src="../img/q26/14-opononi.webp" alt="Opononi" width="320" height="320" loading="lazy"><span class="qn"><b>Opononi</b><span class="sm">#14</span></span></span><span class="q"><img src="../img/q26/15-munhluu.webp" alt="Munhluu" width="320" height="320" loading="lazy"><span class="qn"><b>Munhluu</b><span class="sm">#15</span></span></span><span class="q"><img src="../img/q26/16-tushig.webp" alt="Tushig" width="320" height="320" loading="lazy"><span class="qn"><b>Tushig</b><span class="sm">#16</span></span></span></td></tr>
   </table>
-  <p class="note">Үзэгчид mesmerism.mn дээр Star худалдан авч санал өгнө (1 Star = 500₮). Санал хураалтаар цугласан мөнгө шагналын санд орно.</p>
+  <p class="note">Үзэгчид mesmerism.mn дээр Star худалдан авч санал өгсөн (1 Star = 500₮). Санал хураалт дууссан бөгөөд цугласан мөнгө шагналын санд орсон. 2026 оны шагналын сан: 54,843,750₮ (2025 онд 47,886,500₮).</p>
 
   <h3>Үндсэн зураг авалт — 3 үе шат</h3>
   <table class="t">
@@ -334,11 +344,11 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
   <p class="lead">Гурван сарын кампанит ажил. Ивээн тэтгэгч 10-р сарын эхнээс эхлэн тасралтгүй харагдана.</p>
   <table class="t">
     <tr><th style="width:30mm">Үе шат</th><th style="width:34mm">Огноо</th><th>Ажил</th><th>Тайлбар</th></tr>
-    <tr><td rowspan="4"><b>1. Идэвхжүүлэлт</b></td><td>10/10 — 10/17</td><td>Санал хураалт 1</td><td>4 YouTuber шалгарна</td></tr>
+    <tr><td rowspan="4"><b>1. Идэвхжүүлэлт</b></td><td>10/10 — 10/17</td><td>Санал хураалт 1</td><td>4 YouTuber шалгарсан</td></tr>
     <tr><td>10/17 — 10/24</td><td>Санал хураалт 2</td><td>4 YouTuber, нийт 8</td></tr>
     <tr><td>10/24 — 10/31</td><td>Санал хураалт 3</td><td>4 YouTuber, нийт 12</td></tr>
-    <tr><td>10/31 — 11/07</td><td>Санал хураалт 4</td><td>3 YouTuber, нийт 15 тодорно</td></tr>
-    <tr><td rowspan="2"><b>2. Зураг авалт</b></td><td>11/15 — 11/20</td><td><b>Зураг авалтын өдөр</b></td><td>Постерын зураг авалт</td></tr>
+    <tr><td>10/31 — 11/07</td><td>Санал хураалт 4</td><td>4 YouTuber, нийт 16 тодорсон</td></tr>
+    <tr><td rowspan="2"><b>2. Зураг авалт</b></td><td>11/20 — 11/21</td><td><b>Зураг авалт</b></td><td>Постерын зураг авалт</td></tr>
     <tr><td>11/22 — 12/22</td><td>Post production</td><td>Постер, трейлер</td></tr>
     <tr class="hl"><td rowspan="2"><b>3. Үр дүн</b></td><td>12/31, 21:00</td><td><b>YouTube Champ 2026</b></td><td>Part 1 · Part 2 — 01/01, 21:00</td></tr>
     <tr><td>01/05 — 01/10</td><td>Бүсийн эзэнтэй влог</td><td>Mesmerism Official</td></tr>
@@ -356,7 +366,7 @@ ul.l li::before{content:"";position:absolute;left:0;top:3mm;width:2mm;height:2mm
     <tr><th style="width:9mm">№</th><th style="width:52mm">Шагнал</th><th>Хэрхэн тодрох</th></tr>
     <tr class="hl"><td>1</td><td><b>Бүсийн эзэн</b><span class="sm">YouTube Champ-ийн бүс</span></td><td>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно.</td></tr>
     <tr><td>2</td><td><b>10,000,000₮</b><span class="sm">Хайч, чулуу, даавуу</span></td><td>Шалгарсан оролцогчдын дундаас 1 хүн хүртэнэ.</td></tr>
-    <tr><td>3</td><td><b>Шагналын сан</b><span class="sm">Санал хураалтаар цугласан мөнгө</span></td><td>Шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ. 2025 онд үзэгчдийн саналаар 47,886,500₮ бүрдсэн.</td></tr>
+    <tr><td>3</td><td><b>Шагналын сан</b><span class="sm">Санал хураалтаар цугласан мөнгө</span></td><td>Шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ. 2026 оны шагналын сан: 54,843,750₮ (2025 онд 47,886,500₮).</td></tr>
   </table>
 </section>
 

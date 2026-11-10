@@ -209,6 +209,23 @@ section{position:relative;padding-block:clamp(80px,11vw,150px)}
 .ev .t{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:clamp(1.15rem,2vw,1.5rem);margin-top:6px}
 .ev .d{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.2rem);color:var(--red)}
 
+/* шалгарсан 16 (2026) */
+.q16{margin-top:14px;padding:24px 20px;border:1px solid var(--line);border-radius:14px}
+.q16-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
+.q16-h .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.q16-h .s{font-size:.9rem;color:var(--tan)}
+.q16-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px;counter-reset:q16}
+.q16-w .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tan);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.q16-w ol{list-style:none;display:grid;gap:10px;margin-top:12px}
+.q16-w li{display:flex;align-items:center;gap:10px;min-width:0;font-size:.92rem;font-weight:600;color:var(--ink)}
+.q16-w li{counter-increment:q16}
+.q16-w li::before{content:"#" counter(q16);flex:none;width:2.6ch;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.04em;color:var(--gold);font-variant-numeric:tabular-nums}
+.q16-w li span{min-width:0;overflow-wrap:anywhere}
+.q16-w img{width:40px;height:40px;flex:none;border-radius:50%;object-fit:cover;border:1.5px solid rgba(224,176,74,.55);background:#000}
+.pool26{display:flex;align-items:baseline;justify-content:center;gap:8px 16px;flex-wrap:wrap;margin-top:14px;padding:18px 22px;
+  border:1px dashed rgba(244,239,230,.2);border-radius:14px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tan)}
+.pool26 b{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:.02em;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+
 /* proof (2025) */
 #proof{overflow:hidden}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
@@ -349,6 +366,7 @@ form{display:grid;gap:14px;margin-top:24px}
 /* responsive */
 @media(max-width:860px){
   .weeks{grid-template-columns:repeat(2,1fr)}
+  .q16-g{grid-template-columns:repeat(2,1fr);gap:22px 14px}
   .after{grid-template-columns:1fr}
   .show-grid{grid-template-columns:1fr}
   .nums{grid-template-columns:1fr}
@@ -443,11 +461,40 @@ form{display:grid;gap:14px;margin-top:24px}
         <div class="wk reveal" style="--d:.16s"><div class="k">Санал хураалт 3</div><div class="d">10/24<small>→ 10/31</small></div><div class="bar"><i style="--w:80%;--d:.3s"></i></div><div class="t"><b>4</b> YouTuber · нийт <b>12</b></div></div>
         <div class="wk reveal" style="--d:.24s"><div class="k">Санал хураалт 4</div><div class="d">10/31<small>→ 11/7</small></div><div class="bar"><i style="--w:100%;--d:.4s"></i></div><div class="t"><b>3</b> YouTuber · нийт <b>15</b> тодорно</div></div>
       </div>
+      <div class="q16 reveal" style="--d:.1s">
+        <div class="q16-h"><div class="k">Шалгарсан 16</div><div class="s">Санал хураалт дууслаа — YouTube Champ 2026-д оролцох 16 YouTuber.</div></div>
+        <div class="q16-g">
+          <div class="q16-w"><div class="k">1-р долоо хоног</div><ol>
+            <li><img src="img/q26/01-mio.webp" alt="Mio" width="320" height="320" loading="lazy"><span>Mio</span></li>
+            <li><img src="img/q26/02-keshark.webp" alt="KESHARK" width="320" height="320" loading="lazy"><span>KESHARK</span></li>
+            <li><img src="img/q26/03-kino-zadlan.webp" alt="Kino zadlan" width="320" height="320" loading="lazy"><span>Kino zadlan</span></li>
+            <li><img src="img/q26/04-beardman.webp" alt="Beardman" width="320" height="320" loading="lazy"><span>Beardman</span></li>
+          </ol></div>
+          <div class="q16-w"><div class="k">2-р долоо хоног</div><ol>
+            <li><img src="img/q26/05-horloo.webp" alt="Horloo" width="320" height="320" loading="lazy"><span>Horloo</span></li>
+            <li><img src="img/q26/06-zeni-cage.webp" alt="Zeni cage" width="320" height="320" loading="lazy"><span>Zeni cage</span></li>
+            <li><img src="img/q26/07-lexor2k.webp" alt="lexor2k" width="320" height="320" loading="lazy"><span>lexor2k</span></li>
+            <li><img src="img/q26/08-shymelle.webp" alt="Shymelle" width="320" height="320" loading="lazy"><span>Shymelle</span></li>
+          </ol></div>
+          <div class="q16-w"><div class="k">3-р долоо хоног</div><ol>
+            <li><img src="img/q26/09-rena.webp" alt="Rena" width="320" height="320" loading="lazy"><span>Rena</span></li>
+            <li><img src="img/q26/10-jay-woo.webp" alt="Jay Woo" width="320" height="320" loading="lazy"><span>Jay Woo</span></li>
+            <li><img src="img/q26/11-cadis.webp" alt="Cadis" width="320" height="320" loading="lazy"><span>Cadis</span></li>
+            <li><img src="img/q26/12-losolgocrazy.webp" alt="LosolGoCrazy" width="320" height="320" loading="lazy"><span>LosolGoCrazy</span></li>
+          </ol></div>
+          <div class="q16-w"><div class="k">4-р долоо хоног</div><ol>
+            <li><img src="img/q26/13-saftaz.webp" alt="Saftaz" width="320" height="320" loading="lazy"><span>Saftaz</span></li>
+            <li><img src="img/q26/14-opononi.webp" alt="Opononi" width="320" height="320" loading="lazy"><span>Opononi</span></li>
+            <li><img src="img/q26/15-munhluu.webp" alt="Munhluu" width="320" height="320" loading="lazy"><span>Munhluu</span></li>
+            <li><img src="img/q26/16-tushig.webp" alt="Tushig" width="320" height="320" loading="lazy"><span>Tushig</span></li>
+          </ol></div>
+        </div>
+      </div>
       <div class="after">
         <div class="ev shoot reveal">
           <div class="shoot-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div class="shoot-txt"><div class="k">Шалгарсан оролцогчид</div><div class="t">Зураг авалтын өдөр</div><div class="s">11 сарын 15–20-ны хооронд</div></div>
-          <div class="d">11/15 — 11/20</div>
+          <div class="shoot-txt"><div class="k">Шалгарсан оролцогчид</div><div class="t">Зураг авалтын өдөр</div><div class="s">11 сарын 20, 21</div></div>
+          <div class="d">11/20 — 11/21</div>
         </div>
         <div class="ev key reveal" style="--d:.08s"><div><div class="k">Mesmerism Official</div><div class="t">YouTube Champ 2026</div></div><div class="d">12/31 · 21:00</div></div>
       </div>
@@ -465,6 +512,7 @@ form{display:grid;gap:14px;margin-top:24px}
         <div class="num"><div class="n"><span data-count="47886500">0</span><u>₮</u></div><div class="l">Үзэгчдийн бүрдүүлсэн шагналын сан</div></div>
         <div class="num"><div class="n"><span data-count="16">0</span></div><div class="l">Саналаар шалгарсан оролцогч</div></div>
       </div>
+      <div class="pool26 reveal" style="--d:.26s"><span>2026 оны шагналын сан</span><b>54,843,750₮</b></div>
     </div>
     <div class="strip" aria-label="2025 оны оролцогчдын постер"><div class="strip-t" id="strip"></div></div>
   </section>
@@ -482,7 +530,7 @@ form{display:grid;gap:14px;margin-top:24px}
         <ol class="prize-list reveal" style="--d:.26s">
           <li><b>Бүсийн эзэн</b><span>Шоунд оролцсон 16 YouTuber болон үзэгчдийн санал хураалтаар тодорно. Бүсээ дараа жилийн шоу хүртэл эзэмшинэ.</span></li>
           <li><b>10,000,000₮</b><span>Хайч, чулуу, даавуу — шалгарсан оролцогчдын дундаас 1 хүн хүртэнэ.</span></li>
-          <li><b>Шагналын сан</b><span>Санал хураалтаар цугласан мөнгийг шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ.</span></li>
+          <li><b>Шагналын сан · 54,843,750₮</b><span>Санал хураалтаар цугласан мөнгийг шалгарсан оролцогчдын дундаас 1 хүн эсвэл баг хүртэнэ.</span></li>
         </ol>
         <div class="airs reveal" style="--d:.3s"><span>Part 1 · <b>2026.12.31 · 21:00</b></span><span>Part 2 · <b>2027.01.01 · 21:00</b></span></div>
       </div>

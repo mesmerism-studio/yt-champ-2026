@@ -98,11 +98,22 @@ main{min-height:100svh;display:flex;flex-direction:column;align-items:center;jus
 .state h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.05;word-spacing:-.26em}
 .state p{color:var(--tan)}
 
+/* шалгарсан 16 оролцогч */
+.cast{width:100%;max-width:760px;display:grid;gap:12px;opacity:0;animation:fade .8s var(--ease) 1.1s forwards}
+.cast .k{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.cast .weeks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cast .wk{padding:12px 10px 10px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--panel),var(--panel-2))}
+.cast .wk h3{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--tan);margin-bottom:10px}
+.cast ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.cast li{display:grid;justify-items:center;align-content:start;gap:6px;min-width:0}
+.cast img{display:block;width:clamp(44px,11vw,56px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:1.5px solid var(--line);background:var(--panel-2)}
+.cast li span{font-size:11px;font-weight:600;line-height:1.2;color:var(--ink);max-width:100%;overflow-wrap:anywhere}
+.cast li span i{display:block;font-family:var(--mono);font-style:normal;font-size:9px;font-weight:500;letter-spacing:.08em;color:var(--faint)}
 .contact{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--faint);line-height:2}
 .contact a{color:var(--tan);text-decoration:none;border-bottom:1px solid var(--line)}
 #confetti{position:fixed;inset:0;width:100%;height:100%;z-index:800;pointer-events:none}
 
-@media(max-width:560px){.shoot{padding:16px 18px;gap:14px}.shoot .ic{width:44px;height:44px}.btn{padding:18px 40px}}
+@media(max-width:560px){.cast .weeks{grid-template-columns:1fr}.shoot{padding:16px 18px;gap:14px}.shoot .ic{width:44px;height:44px}.btn{padding:18px 40px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
@@ -126,7 +137,7 @@ main{min-height:100svh;display:flex;flex-direction:column;align-items:center;jus
     <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
     <div>
       <div class="k">Зураг авалт</div>
-      <div class="d">11 сарын <em>15–20</em>-ны хооронд <em>3 өдөр</em></div>
+      <div class="d">11 сарын <em>20, 21</em>-нд</div>
     </div>
   </div>
 
@@ -146,7 +157,7 @@ main{min-height:100svh;display:flex;flex-direction:column;align-items:center;jus
   <div id="doneView" class="state" hidden>
     <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
     <h2>Баярлалаа!</h2>
-    <p>Таны зөвшөөрлийг хүлээн авлаа. Зураг авалтын яг өдрүүдийг бид тантай холбогдож мэдэгдэнэ.</p>
+    <p>Таны зөвшөөрлийг хүлээн авлаа. Зураг авалт 11 сарын 20, 21-нд болно. Дэлгэрэнгүйг бид тантай холбогдож мэдэгдэнэ.</p>
   </div>
 
   <!-- нэргүй линк -->
@@ -155,6 +166,49 @@ main{min-height:100svh;display:flex;flex-direction:column;align-items:center;jus
     <h2>Албан ёсны линкээр дахин хандана уу</h2>
     <p>Урилгыг зөвхөн танд илгээсэн хувийн линкээр баталгаажуулах боломжтой.</p>
   </div>
+
+  <!-- шалгарсан 16 оролцогч (долоо хоногоор) -->
+  <section class="cast" aria-label="Шалгарсан 16 оролцогч">
+    <div class="k">Шалгарсан 16 оролцогч</div>
+    <div class="weeks">
+      <div class="wk">
+        <h3>1-р долоо хоног</h3>
+        <ul>
+          <li><img src="img/q26/01-mio.webp" alt="Mio" width="320" height="320" loading="lazy" decoding="async"><span><i>#1</i>Mio</span></li>
+          <li><img src="img/q26/02-keshark.webp" alt="KESHARK" width="320" height="320" loading="lazy" decoding="async"><span><i>#2</i>KESHARK</span></li>
+          <li><img src="img/q26/03-kino-zadlan.webp" alt="Kino zadlan" width="320" height="320" loading="lazy" decoding="async"><span><i>#3</i>Kino zadlan</span></li>
+          <li><img src="img/q26/04-beardman.webp" alt="Beardman" width="320" height="320" loading="lazy" decoding="async"><span><i>#4</i>Beardman</span></li>
+        </ul>
+      </div>
+      <div class="wk">
+        <h3>2-р долоо хоног</h3>
+        <ul>
+          <li><img src="img/q26/05-horloo.webp" alt="Horloo" width="320" height="320" loading="lazy" decoding="async"><span><i>#5</i>Horloo</span></li>
+          <li><img src="img/q26/06-zeni-cage.webp" alt="Zeni cage" width="320" height="320" loading="lazy" decoding="async"><span><i>#6</i>Zeni cage</span></li>
+          <li><img src="img/q26/07-lexor2k.webp" alt="lexor2k" width="320" height="320" loading="lazy" decoding="async"><span><i>#7</i>lexor2k</span></li>
+          <li><img src="img/q26/08-shymelle.webp" alt="Shymelle" width="320" height="320" loading="lazy" decoding="async"><span><i>#8</i>Shymelle</span></li>
+        </ul>
+      </div>
+      <div class="wk">
+        <h3>3-р долоо хоног</h3>
+        <ul>
+          <li><img src="img/q26/09-rena.webp" alt="Rena" width="320" height="320" loading="lazy" decoding="async"><span><i>#9</i>Rena</span></li>
+          <li><img src="img/q26/10-jay-woo.webp" alt="Jay Woo" width="320" height="320" loading="lazy" decoding="async"><span><i>#10</i>Jay Woo</span></li>
+          <li><img src="img/q26/11-cadis.webp" alt="Cadis" width="320" height="320" loading="lazy" decoding="async"><span><i>#11</i>Cadis</span></li>
+          <li><img src="img/q26/12-losolgocrazy.webp" alt="LosolGoCrazy" width="320" height="320" loading="lazy" decoding="async"><span><i>#12</i>LosolGoCrazy</span></li>
+        </ul>
+      </div>
+      <div class="wk">
+        <h3>4-р долоо хоног</h3>
+        <ul>
+          <li><img src="img/q26/13-saftaz.webp" alt="Saftaz" width="320" height="320" loading="lazy" decoding="async"><span><i>#13</i>Saftaz</span></li>
+          <li><img src="img/q26/14-opononi.webp" alt="Opononi" width="320" height="320" loading="lazy" decoding="async"><span><i>#14</i>Opononi</span></li>
+          <li><img src="img/q26/15-munhluu.webp" alt="Munhluu" width="320" height="320" loading="lazy" decoding="async"><span><i>#15</i>Munhluu</span></li>
+          <li><img src="img/q26/16-tushig.webp" alt="Tushig" width="320" height="320" loading="lazy" decoding="async"><span><i>#16</i>Tushig</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <p class="contact">Асуулт байвал: <a href="tel:99043988">9904-3988</a>, <a href="tel:88104706">8810-4706</a></p>
 </main>
