@@ -1021,6 +1021,350 @@ h1,h2,h3,.tk-d,.stat-v,.fs-n,.pl-n,.amt,.pool-n,.prize-n,.plan-tot b,.big-stat .
   [data-rev]{opacity:1;transform:none}
   .w > i{transform:none}
 }
+
+/* ══════════ LIQUID GLASS LAYER ══════════ */
+/* iOS 26 маягийн "Liquid Glass": тунгалаг царцсан хавтан, гэрэлтсэн ирмэг,
+   дээд талын гялбаа, хөвөгч капсул цэс, ард нь өнгөлөг зөөлөн гэрэл.
+   Зөвхөн дэлгэцэд (@media screen) — хэвлэх загварт нөлөөлөхгүй. */
+:root{
+  --glass-bg:rgba(255,255,255,.06);
+  --glass-bg-strong:rgba(255,255,255,.11);
+  --glass-smoke:rgba(20,12,14,.34);
+  --glass-brd:rgba(255,255,255,.17);
+  --glass-brd-hi:rgba(255,255,255,.36);
+  --glass-hi:rgba(255,255,255,.40);
+  --glass-blur:22px;
+  --glass-sat:180%;
+  --glass-fx:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  --glass-sheen:linear-gradient(180deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.035) 30%,rgba(255,255,255,0) 62%);
+  --glass-inner:inset 0 1px 0 var(--glass-hi),inset 0 -1px 0 rgba(255,255,255,.06),inset 0 0 30px -12px rgba(255,255,255,.16);
+  --glass-shadow:0 26px 60px -30px rgba(0,0,0,.8),0 3px 10px -3px rgba(0,0,0,.35);
+  --glass-lift:0 34px 70px -30px rgba(0,0,0,.85),0 0 44px -14px rgba(224,42,38,.45);
+  --r-card:26px;
+  --r-row:20px;
+  --r-pill:999px;
+  --nav-smoke:rgba(20,12,14,.68);
+  --nav-smoke-light:rgba(255,255,255,.05);
+  --row-tint:linear-gradient(100deg,rgba(224,42,38,.11),rgba(92,78,232,.07) 72%);
+}
+@media print{
+  :root{--glass-bg:transparent;--glass-bg-strong:transparent;--glass-smoke:transparent;--glass-brd:transparent;
+    --glass-brd-hi:transparent;--glass-hi:transparent;--glass-blur:0px;--glass-sat:100%;--glass-fx:none;
+    --glass-sheen:none;--glass-inner:none;--glass-shadow:none;--glass-lift:none;--r-card:0px;--r-row:0px}
+  body::before,body::after{content:none !important;display:none !important}
+}
+
+@media screen{
+  :root{--faint:#b3aaa3}
+  /* эргүүлсэн .tape хажуу тийш халихаас сэргийлнэ (fixed цэс/ring гар утсанд тайрагдахгүй) */
+  html{overflow-x:clip}
+
+  /* ---------- ambient light: glass-ийн ард хугарах өнгөлөг гэрэл ---------- */
+  body{background:transparent;overflow-x:clip}
+  body::before,body::after{content:"";position:fixed;inset:-18%;z-index:-1;pointer-events:none;will-change:transform}
+  body::before{
+    background:
+      radial-gradient(34vmax 30vmax at 16% 20%,rgba(224,42,38,.5) 0%,rgba(224,42,38,.31) 22%,rgba(224,42,38,.15) 42%,rgba(224,42,38,.05) 60%,rgba(224,42,38,.013) 74%,rgba(224,42,38,0) 86%),
+      radial-gradient(30vmax 28vmax at 84% 26%,rgba(224,176,74,.24) 0%,rgba(224,176,74,.149) 22%,rgba(224,176,74,.072) 42%,rgba(224,176,74,.024) 60%,rgba(224,176,74,.006) 74%,rgba(224,176,74,0) 86%),
+      radial-gradient(38vmax 32vmax at 76% 82%,rgba(150,18,44,.52) 0%,rgba(150,18,44,.322) 22%,rgba(150,18,44,.156) 42%,rgba(150,18,44,.052) 60%,rgba(150,18,44,.013) 74%,rgba(150,18,44,0) 86%);
+    animation:amb-a 46s ease-in-out infinite alternate}
+  body::after{
+    background:
+      radial-gradient(28vmax 26vmax at 22% 78%,rgba(92,78,232,.26) 0%,rgba(92,78,232,.161) 22%,rgba(92,78,232,.078) 42%,rgba(92,78,232,.026) 60%,rgba(92,78,232,.007) 74%,rgba(92,78,232,0) 86%),
+      radial-gradient(34vmax 30vmax at 58% 44%,rgba(255,96,72,.32) 0%,rgba(255,96,72,.198) 22%,rgba(255,96,72,.096) 42%,rgba(255,96,72,.032) 60%,rgba(255,96,72,.008) 74%,rgba(255,96,72,0) 86%),
+      radial-gradient(30vmax 26vmax at 38% 62%,rgba(224,42,38,.26) 0%,rgba(224,42,38,.161) 22%,rgba(224,42,38,.078) 42%,rgba(224,42,38,.026) 60%,rgba(224,42,38,.007) 74%,rgba(224,42,38,0) 86%),
+      radial-gradient(26vmax 22vmax at 92% 58%,rgba(64,120,255,.14) 0%,rgba(64,120,255,.087) 22%,rgba(64,120,255,.042) 42%,rgba(64,120,255,.014) 60%,rgba(64,120,255,.004) 74%,rgba(64,120,255,0) 86%);
+    animation:amb-b 62s ease-in-out infinite alternate}
+  @keyframes amb-a{from{transform:translate3d(-3%,-2%,0) rotate(0deg) scale(1)}to{transform:translate3d(4%,5%,0) rotate(9deg) scale(1.1)}}
+  @keyframes amb-b{from{transform:translate3d(3%,4%,0) rotate(0deg) scale(1.06)}to{transform:translate3d(-5%,-4%,0) rotate(-11deg) scale(1)}}
+
+  /* хэсгүүдийн битүү дэвсгэрийг тунгалаг болгов — гэрэл нэвт харагдана */
+  #reach,#channel,#proof,#format,#plan,#place,#time,#show,#prize,#pkg,#partners,#cta{background:transparent}
+  #hero{background:radial-gradient(45% 38% at 50% 40%,rgba(244,239,230,.09),transparent 70%)}
+  #partners{border-top:0}
+
+  /* ---------- glass surface: backdrop-тай том хавтан ---------- */
+  .tk,.campaign,.stat,.big-stat,.panel-card,.fs,.pg,.qw,.run,.prize-img,.price>div:first-child,.incl,.pool,footer{
+    background:var(--glass-sheen),var(--glass-bg);
+    border:1px solid var(--glass-brd);
+    border-radius:var(--r-card);
+    box-shadow:var(--glass-shadow),var(--glass-inner);
+    -webkit-backdrop-filter:var(--glass-fx);backdrop-filter:var(--glass-fx)}
+  /* ---------- glass-lite: олон мөрт жагсаалт (backdrop-гүй, хөнгөн) ---------- */
+  .pl,.ti,.prize-list li{
+    background:var(--glass-sheen),var(--row-tint),var(--glass-bg);
+    border:1px solid var(--glass-brd);
+    border-radius:var(--r-row);
+    box-shadow:0 14px 34px -24px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.26),inset 0 0 22px -12px rgba(255,255,255,.12)}
+
+  /* hover / press — өргөгдөж, ирмэг тодорно */
+  .stat,.big-stat,.fs,.pg,.qw,.pl,.ti,.prize-list li,.panel-card{
+    transition:opacity .8s var(--ease) var(--d,0s),transform .8s var(--ease) var(--d,0s),
+      translate .45s var(--ease),border-color .35s,box-shadow .35s,background .3s}
+  @media (hover:hover){
+    .stat:hover,.big-stat:hover,.fs:hover,.pg:hover,.qw:hover,.pl:hover,.ti:hover,.prize-list li:hover{
+      translate:0 -4px;rotate:0deg;border-color:var(--glass-brd-hi);
+      box-shadow:var(--glass-lift),var(--glass-inner)}
+    .stat:hover{background:var(--glass-sheen),var(--glass-bg-strong)}
+    .pl:hover{background:var(--glass-sheen),var(--row-tint),var(--glass-bg-strong);
+      box-shadow:var(--glass-lift),inset 0 1px 0 rgba(255,255,255,.3)}
+    .ti:hover{box-shadow:var(--glass-lift),inset 0 1px 0 rgba(255,255,255,.3)}
+    .prize-list li:hover{border-color:var(--glass-brd-hi)}
+    .partners li:hover{translate:0 -4px;box-shadow:0 24px 44px -20px rgba(0,0,0,.9),0 0 30px -8px rgba(255,255,255,.35),inset 0 1px 0 #fff}
+  }
+  @media (hover:none){
+    /* хүрэлтэт дэлгэц: дарсны дараа hover төлөв "наалдаж" үлдэхгүй */
+    .stat:hover{background:var(--glass-sheen),var(--glass-bg)}
+    .pl:hover{background:var(--glass-sheen),var(--row-tint),var(--glass-bg)}
+  }
+  .stat:active,.big-stat:active,.fs:active,.pg:active,.qw:active,.pl:active,.ti:active{translate:0 -1px}
+
+  /* ---------- floating capsule nav ---------- */
+  .topbar,.topbar:not(.light){
+    top:12px;left:50%;right:auto;translate:-50% 0;width:min(calc(100% - 24px),720px);
+    padding:7px 8px 7px 18px;border-radius:var(--r-pill);pointer-events:auto;
+    background:var(--glass-sheen),var(--glass-smoke);
+    border:1px solid var(--glass-brd);
+    box-shadow:0 18px 44px -18px rgba(0,0,0,.75),var(--glass-inner);
+    -webkit-backdrop-filter:blur(26px) saturate(190%);backdrop-filter:blur(26px) saturate(190%);
+    transition:background .4s var(--ease),border-color .4s var(--ease)}
+  .topbar:not(.light){background:var(--glass-sheen),var(--nav-smoke);
+    -webkit-backdrop-filter:blur(30px) saturate(190%) brightness(.78);backdrop-filter:blur(30px) saturate(190%) brightness(.78)}
+  .topbar.light{background:var(--glass-sheen),var(--nav-smoke-light)}
+  .tb-title{letter-spacing:.005em;font-size:16px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+  .tb-menu{width:40px;height:40px;padding:0;display:grid;place-items:center;border-radius:50%;
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+    transition:color .35s var(--ease),background .3s,scale .3s var(--ease)}
+  .tb-menu svg{width:22px;height:22px}
+  .tb-menu:hover{background:rgba(255,255,255,.2)}
+  .tb-menu:active{scale:.92}
+  .progress{box-shadow:0 0 12px rgba(224,42,38,.8)}
+
+  /* ---------- menu: царцсан бүтэн дэлгэцийн хуудас ---------- */
+  .mobilemenu{background:rgba(13,8,9,.58);
+    -webkit-backdrop-filter:blur(36px) saturate(180%);backdrop-filter:blur(36px) saturate(180%);
+    visibility:hidden;transition:opacity .45s var(--ease),visibility 0s linear .45s}
+  .mobilemenu.open{visibility:visible;transition:opacity .45s var(--ease),visibility 0s}
+  .mobilemenu a{text-shadow:0 2px 24px rgba(0,0,0,.35)}
+
+  /* ---------- progress ring ---------- */
+  #ring{border-radius:50%;background:var(--glass-sheen),var(--glass-smoke);
+    box-shadow:0 14px 34px -14px rgba(0,0,0,.8),inset 0 1px 0 var(--glass-hi),inset 0 0 0 1px var(--glass-brd);
+    -webkit-backdrop-filter:var(--glass-fx);backdrop-filter:var(--glass-fx)}
+  #ring svg{padding:4px}
+  #ring .fg{stroke:var(--accent)}
+
+  /* ---------- hero ---------- */
+  .campaign{width:min(100%,740px);padding:clamp(18px,2.4vw,26px) clamp(14px,2.4vw,30px) clamp(18px,2.4vw,24px);
+    border-radius:calc(var(--r-card) + 4px)}
+  .cmp-line b{background:#1c1214;border-color:rgba(255,120,112,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 16px -6px rgba(0,0,0,.7)}
+  .cmp-line li.hot b{background:linear-gradient(180deg,#f0453f,#c4211e);border-color:rgba(255,190,180,.7);
+    box-shadow:0 0 0 6px rgba(224,42,38,.22),inset 0 1px 0 rgba(255,255,255,.5),0 0 26px rgba(224,42,38,.6)}
+  .tk{padding:18px 22px 20px;max-width:300px;gap:10px}
+  .tk-k{color:#ff8078}
+  .pool-n b,.tk-d i,.cmp-title b,.stat-v u,.amt u{color:#ff4640}
+  @media(min-width:1000px) and (max-width:1279px){
+    .hero-meta{position:static;display:flex;justify-content:center;margin-top:clamp(22px,4vw,40px)}
+    .tk{position:static;translate:none;text-align:left}
+  }
+  /* намхан зөөврийн дэлгэц: тасалбар нугалааны дээр багтана */
+  @media(min-width:1000px) and (max-width:1279px) and (max-height:900px){
+    .logo-wrap{width:min(82vw,46svh,860px)}
+    .hero-meta{margin-top:14px}
+    .tk{padding:12px 18px 14px;gap:8px}
+  }
+
+  /* ---------- marquee / tape: нимгэн царцсан тууз ---------- */
+  .mq{background:var(--glass-sheen),var(--glass-bg);border-block:1px solid var(--glass-brd);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 20px 40px -30px rgba(0,0,0,.8);
+    -webkit-backdrop-filter:var(--glass-fx);backdrop-filter:var(--glass-fx)}
+  .tape{background:linear-gradient(180deg,rgba(255,92,86,.80) 0%,rgba(224,42,38,.74) 42%,rgba(150,20,22,.80) 100%);
+    border-block:1px solid rgba(255,255,255,.34);
+    box-shadow:0 24px 60px -22px rgba(224,42,38,.7),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -10px 24px -14px rgba(60,0,0,.6)}
+  .tape-t span{text-shadow:0 2px 12px rgba(90,0,0,.45)}
+
+  /* ---------- stats ---------- */
+  .stats{gap:12px}
+  .stat{padding-inline:clamp(18px,2.8vw,40px)}
+  @media(min-width:1000px){
+    .stats{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+    .stat{grid-column:span 2;grid-template-columns:minmax(0,1fr);align-content:space-between;justify-items:start;
+      gap:clamp(14px,1.6vw,22px);padding-block:clamp(22px,2.2vw,30px) clamp(26px,2.6vw,36px)}
+    .stat:nth-child(-n+2){grid-column:span 3}
+    .stat-v{font-size:clamp(3rem,6.6vw,6rem);white-space:nowrap}
+    .stat:nth-child(-n+2) .stat-v{font-size:clamp(3.4rem,8vw,7.2rem)}
+  }
+  .stat::after{left:var(--r-card);right:var(--r-card);width:auto;bottom:0;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,var(--accent),rgba(224,42,38,0));box-shadow:0 0 14px rgba(224,42,38,.7)}
+
+  /* ---------- channel ---------- */
+  .big-stats{gap:12px;background:none;border:0;border-radius:0;overflow:visible}
+  .big-stat{padding:30px 16px}
+  .panel-card{padding:clamp(20px,2.4vw,30px)}
+  @media(min-width:901px){
+    .analytics-grid{gap:clamp(18px,2.4vw,32px)}
+    .analytics-grid .panel-card:last-child{display:flex;flex-direction:column}
+    .analytics-grid .agebars{flex:1 1 180px;height:auto;min-height:180px}
+  }
+  .demo-table th,.demo-table td{border-bottom-color:rgba(255,255,255,.10)}
+  .demo-table tbody tr:last-child td{border-bottom:0}
+  .demo-table tbody tr:hover{background:rgba(255,255,255,.06)}
+  .agebar-col .bar{border-radius:10px 10px 4px 4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 0 24px -6px rgba(224,42,38,.6)}
+
+  /* ---------- gallery: backdrop-гүй хөнгөн шилэн хүрээ ---------- */
+  .gc{padding:6px 6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.20);
+    background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+    box-shadow:0 30px 60px -26px rgba(0,0,0,.85),0 0 40px -14px rgba(224,42,38,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+  .gc img{border:0;border-radius:14px;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  .gc figcaption{margin-top:10px}
+
+  /* ---------- format ---------- */
+  .fs,.pg{border-width:1px;border-color:var(--glass-brd);border-radius:var(--r-card)}
+  .fs:nth-child(odd),.fs:nth-child(even){rotate:0deg}
+  .fs::before{height:2px;left:var(--r-card);right:var(--r-card);width:auto;border-radius:2px;
+    background:linear-gradient(90deg,var(--accent),rgba(224,42,38,0));box-shadow:0 0 14px rgba(224,42,38,.7)}
+  .q26{gap:clamp(22px,3vw,34px) clamp(12px,1.4vw,18px)}
+  .qw{padding:20px 18px 8px}
+  .qw > i{background:rgba(255,255,255,.14)}
+  .qw li{border-bottom-color:transparent;box-shadow:0 1px 0 rgba(255,255,255,.10);padding-inline:8px;margin-inline:-8px}
+  .qw li:last-child{box-shadow:none}
+  .qw li:hover{background:rgba(255,255,255,.07);border-radius:14px}
+  .qw img{box-shadow:0 0 0 1px rgba(255,255,255,.28),0 6px 14px -6px rgba(0,0,0,.7)}
+  /* шилэн дээрх жижиг улаан бичвэр — улаан гэрлийн дээр ч уншигдахаар цайруулав */
+  .qw li s,.fs-n s,.ti-d,.incl s,.prize-list li::before,.mobilemenu a small{color:#ff8078}
+
+  /* ---------- plan ---------- */
+  .plan{gap:10px}
+  .pl{padding-inline:clamp(16px,2.4vw,30px);align-items:center}
+
+  /* ---------- placement ---------- */
+  .pg h3{border-bottom-color:rgba(255,255,255,.14)}
+  .pg li{border-bottom-color:rgba(255,255,255,.10)}
+
+  /* ---------- timeline ---------- */
+  .ti{padding:clamp(13px,1.8vw,18px) clamp(16px,2.4vw,28px);margin-bottom:8px}
+  .ti::before{top:50%;translate:0 -50%;background:#1c1214}
+  .ti.key{background:var(--glass-sheen),rgba(224,42,38,.20);border-color:rgba(255,110,102,.45)}
+  .ti.key::before{background:var(--accent)}
+  .tl-line{background:rgba(255,255,255,.14);border-radius:2px}
+  .tl-line::after{border-radius:2px;box-shadow:0 0 12px rgba(224,42,38,.7)}
+
+  /* ---------- rundown ---------- */
+  .run{padding:clamp(20px,2.4vw,28px) clamp(16px,2.6vw,32px)}
+  .rs{background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.045));border-radius:10px 10px 3px 3px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.07)}
+  .rs b{color:#d6cec3}
+  .rs.hot{background:linear-gradient(180deg,#ff5d56,#c4211e);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 26px -6px rgba(224,42,38,.7)}
+  .rs:hover{background:var(--cream)}
+  .rs.hot:hover{background:#ff5a54}
+
+  /* ---------- prize ---------- */
+  .prize-list{display:grid;gap:10px}
+  .prize-list li{padding:15px 20px 16px}
+  .prize-list li:last-child{border-bottom:1px solid var(--glass-brd)}
+  .prize-list li:first-child{background:var(--glass-sheen),rgba(224,42,38,.16);border-color:rgba(255,110,102,.40)}
+  .prize-list li:first-child b{color:#ff5f58}
+  .prize-img{padding:10px;border-radius:calc(var(--r-card) + 6px);
+    box-shadow:0 40px 90px -34px rgba(0,0,0,.9),0 0 70px -18px rgba(224,176,74,.35),var(--glass-inner)}
+  .prize-img img{border-radius:calc(var(--r-card) - 4px)}
+
+  /* ---------- package ---------- */
+  .price{align-items:start}
+  .price>div:first-child{padding:clamp(22px,3.2vw,42px);
+    background:var(--glass-sheen),radial-gradient(120% 90% at 0% 0%,rgba(224,42,38,.22),transparent 60%),var(--glass-bg)}
+  .price p.note{border-top-color:rgba(255,255,255,.14)}
+  .incl{padding:6px clamp(16px,2.2vw,28px)}
+  .incl li{border-bottom-color:transparent;box-shadow:0 1px 0 rgba(255,255,255,.10);padding-inline:10px;margin-inline:-10px}
+  .incl li:first-child{border-top:0}
+  .incl li:last-child{box-shadow:none}
+  .incl li:hover{background:rgba(255,255,255,.06);border-radius:14px}
+  .pool{padding:clamp(20px,3vw,34px) clamp(18px,3vw,38px);border-top:1px solid var(--glass-brd);
+    background:var(--glass-sheen),radial-gradient(90% 140% at 0% 50%,rgba(224,42,38,.08),transparent 62%),var(--glass-bg)}
+
+  /* ---------- partners: логонд зориулсан цайвар шилэн суурь ---------- */
+  .partners{gap:12px}
+  .partners li{border-radius:18px;opacity:.9;border:1px solid rgba(255,255,255,.75);
+    background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(238,233,226,.86));
+    box-shadow:0 16px 34px -20px rgba(0,0,0,.85),inset 0 1px 0 #fff,inset 0 -8px 16px -10px rgba(120,100,90,.35);
+    transition:opacity .35s var(--ease),translate .35s var(--ease),box-shadow .35s}
+
+  /* ---------- buttons: шилэн капсул ---------- */
+  .btn{position:relative;font-weight:600;border-radius:var(--r-pill);
+    -webkit-backdrop-filter:var(--glass-fx);backdrop-filter:var(--glass-fx);
+    transition:translate .3s var(--ease),scale .2s var(--ease),background .3s,color .3s,border-color .3s,box-shadow .3s}
+  .btn-gold,.links a.btn-gold{color:#fff;border:1px solid rgba(255,255,255,.40);
+    -webkit-backdrop-filter:none;backdrop-filter:none;
+    background:linear-gradient(180deg,rgba(232,52,46,.94) 0%,rgba(206,34,31,.92) 48%,rgba(160,24,24,.94) 100%);
+    box-shadow:0 18px 40px -16px rgba(224,42,38,.85),inset 0 1px 0 rgba(255,255,255,.65),inset 0 -8px 16px -10px rgba(70,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.08);
+    text-shadow:0 1px 2px rgba(90,0,0,.5)}
+  .btn-gold:hover,.links a.btn-gold:hover{color:#fff;transform:none;translate:0 -3px;border-color:rgba(255,255,255,.62);
+    background:linear-gradient(180deg,rgba(236,60,54,.96) 0%,rgba(214,38,34,.94) 48%,rgba(172,26,26,.96) 100%);
+    box-shadow:0 26px 54px -16px rgba(224,42,38,.95),0 0 34px -6px rgba(224,176,74,.45),inset 0 1px 0 rgba(255,255,255,.8),inset 0 -8px 16px -10px rgba(70,0,0,.7)}
+  .btn-ghost,.links a.btn-ghost{color:var(--ink);border:1px solid var(--glass-brd);
+    background:var(--glass-sheen),var(--glass-bg);
+    box-shadow:var(--glass-shadow),var(--glass-inner)}
+  .btn-ghost:hover,.links a.btn-ghost:hover{color:var(--ink);transform:none;translate:0 -3px;border-color:var(--glass-brd-hi);
+    background:var(--glass-sheen),var(--glass-bg-strong);box-shadow:var(--glass-lift),var(--glass-inner)}
+  .btn:active,.links a.btn:active{translate:0 0;scale:.97}
+
+  /* ---------- footer capsule ---------- */
+  footer{border-radius:var(--r-pill);padding:16px clamp(18px,2.6vw,30px);margin-bottom:clamp(16px,2.4vw,28px);
+    border-top:1px solid var(--glass-brd);color:var(--tan)}
+  /* өргөн дэлгэц: ring-ийг хуудасны захын зайд гаргана — картын ирмэг, footer-тэй давхцахгүй */
+  @media(min-width:1280px){#ring{right:7px;bottom:22px}}
+}
+
+/* ---------- mobile: хөнгөн blur, жижиг радиус ---------- */
+@media screen and (max-width:760px){
+  :root{--glass-blur:12px;--glass-sat:160%;--r-card:20px;--r-row:18px}
+  .topbar,.topbar:not(.light){top:10px;width:calc(100% - 20px);padding:6px 6px 6px 14px;
+    -webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%)}
+  .tb-title{font-size:15px}
+  .mobilemenu{-webkit-backdrop-filter:blur(20px) saturate(160%);backdrop-filter:blur(20px) saturate(160%);background:rgba(13,8,9,.72)}
+  /* гар утас: ambient хөдөлгөөнгүй (blur дахин тооцогдохгүй), жижиг картууд backdrop-гүй */
+  body::before,body::after{inset:-10%;animation:none;will-change:auto}
+  .stat,.big-stat{-webkit-backdrop-filter:none;backdrop-filter:none;
+    background:var(--glass-sheen),var(--row-tint),rgba(255,255,255,.07)}
+  .stats,.big-stats,.plan{gap:10px}
+  .stat{padding-inline:16px}
+  .big-stat{padding:22px 10px}
+  .panel-card{padding:18px 16px}
+  .qw{padding:18px 16px 6px}
+  .ti{padding:13px 16px}
+  .prize-list li{padding:14px 16px}
+  .prize-img{padding:7px}
+  .tk{padding:15px 18px 16px}
+  footer{border-radius:var(--r-card);padding:14px 18px}
+}
+@media screen and (max-width:480px){
+  .stat{grid-template-columns:1.5em auto 1fr;gap:10px;padding-inline:14px}
+  .stat-v{font-size:2.5rem;white-space:nowrap}
+  .stat-k{font-size:.66rem;letter-spacing:.1em}
+}
+
+/* ---------- fallback: backdrop-filter байхгүй / тунгалаг байдал багасгасан ---------- */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  @media screen{
+    :root{--glass-bg:rgba(34,23,25,.90);--glass-bg-strong:rgba(44,30,32,.94);--glass-smoke:rgba(20,12,14,.92);
+      --nav-smoke:rgba(20,12,14,.94);--nav-smoke-light:rgba(20,12,14,.94)}
+    .mobilemenu{background:rgba(13,8,9,.97)}
+  }
+}
+@media screen and (prefers-reduced-transparency:reduce){
+  :root{--glass-bg:rgba(34,23,25,.94);--glass-bg-strong:rgba(44,30,32,.97);--glass-smoke:rgba(20,12,14,.96);--glass-fx:none;
+    --nav-smoke:rgba(20,12,14,.96);--nav-smoke-light:rgba(20,12,14,.96)}
+  .stat,.big-stat{background:var(--glass-sheen),var(--glass-bg)}
+  .topbar,.topbar:not(.light),.mobilemenu{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .mobilemenu{background:rgba(13,8,9,.98)}
+  .tape{background:var(--accent)}
+  body::before,body::after{opacity:.45}
+}
+@media screen and (prefers-reduced-motion:reduce){
+  body::before,body::after{animation:none}
+  .stat:hover,.big-stat:hover,.fs:hover,.pg:hover,.qw:hover,.pl:hover,.ti:hover,.prize-list li:hover,.partners li:hover,
+  .btn:hover,.links a.btn:hover{translate:none}
+}
 </style>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
